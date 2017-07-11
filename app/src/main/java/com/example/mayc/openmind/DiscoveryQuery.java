@@ -19,7 +19,8 @@ public class DiscoveryQuery {
     String query;
 
 
-    public DiscoveryQuery() {
+    public DiscoveryQuery(Context c) {
+        context = c;
         discovery = new Discovery("2017-06-25");
         discovery.setEndPoint("https://gateway.watsonplatform.net/discovery/api/v1");
         discovery.setUsernameAndPassword(context.getString(R.string.user), context.getString(R.string.password));
@@ -31,6 +32,7 @@ public class DiscoveryQuery {
 
         StringBuilder sb = new StringBuilder();
 
+        //TODO: figure out what this is doing by running the api
         if (query == null || query.length() == 0 || query.equalsIgnoreCase("none")) {
             sb.append(userQuery);
         } else {
