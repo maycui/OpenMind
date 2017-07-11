@@ -14,9 +14,6 @@ import com.example.mayc.openmind.ArticleAdapter;
 import com.example.mayc.openmind.R;
 import com.example.mayc.openmind.models.Article;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-
 import java.util.ArrayList;
 
 /**
@@ -37,7 +34,7 @@ public class ArticleListFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragments_article_list, container, false);
         rvArticles = (RecyclerView) v.findViewById(R.id.rvArticle);
         articles = new ArrayList<Article>();
-        articleAdapter = new ArticleAdapter();
+        articleAdapter = new ArticleAdapter(articles);
         rvArticles.setLayoutManager(new LinearLayoutManager(getContext()));
         //TODO: make articleAdapter extend recycler
         rvArticles.setAdapter(articleAdapter);

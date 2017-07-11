@@ -33,4 +33,9 @@ public class TimelineAdapter extends SmartFragmentStatePagerAdapter {
     public int getCount() {
         return 2;
     }
+
+    public CharSequence getPageTitle(int position) {
+        return tabTitles[position];
+    }
+
 }
