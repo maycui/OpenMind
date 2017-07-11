@@ -27,27 +27,46 @@ public class Article {
         Article articleItem = new Article();
 
         // extract the values from JSON
-        articleItem.body = jsonObject.getString("text");
-        articleItem.
-        articleItem.
-        articleItem.
+        articleItem.title = jsonObject.getString("text");
+        articleItem.body
+        articleItem.source
+        articleItem.author
+        articleItem.topic
+        articleItem.datePublished
+        articleItem.sentiment
 
         return articleItem;
+    }
+
+    public String getTitle() {
+        return title;
     }
 
     public String getBody() {
         return body;
     }
 
-    public long getUid() {
-        return uid;
+    public String getSource() {
+        return source;
     }
 
-    public User getUser() {
-        return user;
+    public String getAuthor() {
+        return author;
     }
 
-    public String getCreatedAt() {
-        return createdAt;
+    public String getTopic() {
+        return topic;
+    }
+
+    public String getDatePublished() {
+        return datePublished;
+    }
+
+    public String getSentiment() {
+        return sentiment;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
     }
 }
