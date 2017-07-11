@@ -5,4 +5,6 @@ package com.example.mayc.openmind.fragments;
  */
 
 public class HomeTimelineFragment extends NewsListFragment {
+
+
 }
