@@ -6,4 +6,5 @@ package com.example.mayc.openmind;
 
 public class ArticleAdapter {
 
+
 }
