@@ -15,7 +15,33 @@ public class Article {
     public String datePublished;
     public String sentiment;
 
+    public String getTitle() {
+        return title;
+    }
 
+    public String getBody() {
+        return body;
+    }
+
+    public String getSource() {
+        return source;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public String getTopic() {
+        return topic;
+    }
+
+    public String getDatePublished() {
+        return datePublished;
+    }
+
+    public String getSentiment() {
+        return sentiment;
+    }
 }
 
 
