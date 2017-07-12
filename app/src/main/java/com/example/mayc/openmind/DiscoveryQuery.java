@@ -18,7 +18,7 @@ public class DiscoveryQuery {
     public Discovery discovery;
     String query;
 
-
+    //constructor
     public DiscoveryQuery(Context c) {
         context = c;
         discovery = new Discovery("2017-06-25");
@@ -27,6 +27,7 @@ public class DiscoveryQuery {
         String environmentId = context.getString(R.string.environmentID);
     }
 
+    //Uses the Watson Developer Cloud SDK to send the user's query to the discovery service.
     public QueryResponse query(String userQuery) throws Exception {
         QueryRequest.Builder queryBuilder = new QueryRequest.Builder("environmentid", "collectionid");
 
