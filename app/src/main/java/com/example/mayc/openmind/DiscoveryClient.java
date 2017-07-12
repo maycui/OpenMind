@@ -1,11 +1,12 @@
 package com.example.mayc.openmind;
 
+import android.content.Context;
+
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 import com.ibm.watson.developer_cloud.discovery.v1.model.query.QueryResponse;
-
 
 import org.apache.logging.log4j.Logger;
 
@@ -40,8 +41,8 @@ public class DiscoveryClient {
      */
 
     //TODO: figure out context
-    public List<DocumentPayload> getDocuments(String input) throws Exception {
-        DiscoveryQuery discoveryQuery = new DiscoveryQuery();
+    public List<DocumentPayload> getDocuments(Context c, String input) throws Exception {
+        DiscoveryQuery discoveryQuery = new DiscoveryQuery(c);
         QueryResponse output = discoveryQuery.query(input);
         List<Map<String, Object>> results = output.getResults();
         String jsonRes = new Gson().toJson(results);
