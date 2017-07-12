@@ -8,9 +8,13 @@ import com.ibm.watson.developer_cloud.discovery.v1.model.query.QueryResponse;
 
 import java.util.StringTokenizer;
 
+
+
 /**
  * Created by mayc on 7/11/17.
  */
+
+/* taken from https://github.com/ankorko/watson_project/blob/master/src/main/java/com/ibm/watson/apis/conversation_with_discovery/discovery/DiscoveryClient.java */
 
 public class DiscoveryQuery {
 
