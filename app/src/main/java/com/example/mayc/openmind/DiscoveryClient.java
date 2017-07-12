@@ -40,14 +40,12 @@ public class DiscoveryClient {
      * @throws Exception the exception
      */
 
-    //TODO: figure out context
-    public List<DocumentPayload> getDocuments(Context c, String input) throws Exception {
-        DiscoveryQuery discoveryQuery = new DiscoveryQuery(c);
+    public List<DocumentPayload> getDocuments(String input) throws Exception {
+        DiscoveryQuery discoveryQuery = new DiscoveryQuery();
         QueryResponse output = discoveryQuery.query(input);
         List<Map<String, Object>> results = output.getResults();
         String jsonRes = new Gson().toJson(results);
         JsonElement jelement = new JsonParser().parse(jsonRes);
-
         return createPayload(jelement);
     }
 

@@ -1,7 +1,5 @@
 package com.example.mayc.openmind;
 
-import android.content.Context;
-
 import com.ibm.watson.developer_cloud.discovery.v1.Discovery;
 import com.ibm.watson.developer_cloud.discovery.v1.model.query.QueryRequest;
 import com.ibm.watson.developer_cloud.discovery.v1.model.query.QueryResponse;
@@ -18,22 +16,21 @@ import java.util.StringTokenizer;
 
 public class DiscoveryQuery {
 
-    public Context context;
+    Secrets secret;
     public Discovery discovery;
     String query;
 
     //constructor
-    public DiscoveryQuery(Context c) {
-        context = c;
+    public DiscoveryQuery() {
+        secret = new Secrets();
         discovery = new Discovery("2017-06-25");
         discovery.setEndPoint("https://gateway.watsonplatform.net/discovery/api/v1");
-        discovery.setUsernameAndPassword(context.getString(R.string.user), context.getString(R.string.password));
-        String environmentId = context.getString(R.string.environmentID);
+        discovery.setUsernameAndPassword(secret.getUser(), secret.getPassword());
     }
 
     //Uses the Watson Developer Cloud SDK to send the user's query to the discovery service.
     public QueryResponse query(String userQuery) throws Exception {
-        QueryRequest.Builder queryBuilder = new QueryRequest.Builder("environmentid", "collectionid");
+        QueryRequest.Builder queryBuilder = new QueryRequest.Builder(secret.getEnvironmentID(), secret.getCollectionID());
 
         StringBuilder sb = new StringBuilder();
 

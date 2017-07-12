@@ -1,10 +1,9 @@
 package com.example.mayc.openmind;
 
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.support.design.widget.TabLayout;
-
 
 import com.example.mayc.openmind.fragments.TimelineAdapter;
 
@@ -26,6 +25,8 @@ public class NewsfeedActivity extends AppCompatActivity {
         //setting the tab layout
         TabLayout tabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
         tabLayout.setupWithViewPager(vp);
+
+
 
     }
 }
