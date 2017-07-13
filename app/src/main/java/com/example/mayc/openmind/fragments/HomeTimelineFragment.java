@@ -23,19 +23,13 @@ public class HomeTimelineFragment extends ArticleListFragment {
 
 
     //TODO: check if we can combine queries for one call or if we'll have to make multiple query calls to the api
-
     @Override
     public void populateTimeline() {
         Intent i = new Intent(getActivity(), DiscoveryIntentService.class);
         i.putExtra(DiscoveryIntentService.DISCOVERY_NEWS_CALL, "query");
         getActivity().startService(i);
-        //TODO: not sure if discoveryintentservice is being started, need to fix
 
-
-
-
-
-        //TODO: receive an array of DocumentPayloads? or maybe an array of Articles
+       //TODO: receive an array of DocumentPayloads? or maybe an array of Articles
 
         //TODO: add to timeline
     }
