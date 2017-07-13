@@ -2,6 +2,7 @@ package com.example.mayc.openmind;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -28,9 +29,14 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
         notifyDataSetChanged();
     }
 
+    //Creates the view for the viewholder
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return null;
+        context = parent.getContext();
+        LayoutInflater inflater = LayoutInflater.from(context);
+        View articleView = inflater.inflate(R.layout.item_article, parent, false);
+        ViewHolder viewHolder = new ViewHolder(articleView);
+        return viewHolder;
     }
 
     @Override
