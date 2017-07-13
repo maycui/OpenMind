@@ -11,4 +11,3 @@ public class ArticleDetailActivity extends AppCompatActivity {
         setContentView(R.layout.detail_article);
     }
 }
-ß
