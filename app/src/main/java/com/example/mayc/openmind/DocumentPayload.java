@@ -6,6 +6,8 @@ package com.example.mayc.openmind;
 
 /* taken from https://github.com/watson-developer-cloud/conversation-with-discovery/blob/master/src/main/java/com/ibm/watson/apis/conversation_with_discovery/payload/DocumentPayload.java*/
 
+
+/*This is used in DiscoveryClient, will be working with this class to extract information about Article*/
 public class DocumentPayload {
 
     private String body;
@@ -14,6 +16,7 @@ public class DocumentPayload {
     private String highlight;
     private String id;
     private String sourceUrl;
+    //TODO: extract values for imageURL, author, date, and description
 
     private String title;
 

@@ -8,7 +8,7 @@ import com.ibm.watson.developer_cloud.conversation.v1.ConversationService;
 /* taken from https://github.com/watson-developer-cloud/conversation-with-discovery/blob/master/src/main/java/com/ibm/watson/apis/conversation_with_discovery/utils/Constants.java*/
 
 /**
- * The Class Constants.
+ * The Class Constants. This is used in DiscoveryClient
  */
 public class Constants {
 

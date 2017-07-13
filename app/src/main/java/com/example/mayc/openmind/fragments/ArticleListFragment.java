@@ -20,6 +20,7 @@ import java.util.ArrayList;
  * Created by mayc on 7/10/17.
  */
 
+/* Parent class for Hometimeline Fragment and SavedTimeline Fragment: linked to a recyclerview adapter and can refresh timeline*/
 public class ArticleListFragment extends Fragment {
 
     ArticleAdapter articleAdapter;
@@ -32,36 +33,34 @@ public class ArticleListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
        //setting layout and configuring recycler view
         View v = inflater.inflate(R.layout.fragments_article_list, container, false);
-        rvArticles = (RecyclerView) v.findViewById(R.id.rvArticle);
-        articles = new ArrayList<Article>();
+        rvArticles = v.findViewById(R.id.rvArticle);
+        articles = new ArrayList<>();
         articleAdapter = new ArticleAdapter(articles);
         rvArticles.setLayoutManager(new LinearLayoutManager(getContext()));
-        //TODO: make articleAdapter extend recycler
         rvArticles.setAdapter(articleAdapter);
 
+        //TODO: check if swipe to refresh configuration works
         //swipe to refresh configuration
-        swipe = (SwipeRefreshLayout) v.findViewById(R.id.swipe);
+        swipe = v.findViewById(R.id.swipe);
         swipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                fetchTimelineAsync(0);
+                fetchTimelineAsync();
             }
         });
         swipe.setColorSchemeResources(android.R.color.holo_blue_bright);
+
         return v;
     }
 
-    public void fetchTimelineAsync(int page) {
-        //TODO: implement clear() method in articleAdapter
+    public void fetchTimelineAsync() {
         articleAdapter.clear();
         populateTimeline();
         swipe.setRefreshing(false);
     }
 
     //depends on the fragment, will be overridden in hometimelinefragment and savedtimelimefragment
-    public void populateTimeline() {
-
-    }
+    public void populateTimeline() {}
 
 
 

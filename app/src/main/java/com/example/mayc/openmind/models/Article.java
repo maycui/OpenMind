@@ -4,6 +4,7 @@ package com.example.mayc.openmind.models;
  * Created by mayc on 7/10/17.
  */
 
+//TODO: make article parcelable so it can be passed through intents
 public class Article {
 
     // article attributes
@@ -14,6 +15,11 @@ public class Article {
     public String topic;
     public String datePublished;
     public String sentiment;
+
+
+    Article() {
+        //will take information from document payload and extract values to set as attributes
+    }
 
     public String getTitle() {
         return title;

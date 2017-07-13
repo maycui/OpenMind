@@ -9,6 +9,7 @@ import java.util.ResourceBundle;
 
 /*taken from https://github.com/watson-developer-cloud/conversation-with-discovery/blob/master/src/main/java/com/ibm/watson/apis/conversation_with_discovery/utils/Messages.java*/
 
+/*This is used in DiscoveryClient*/
 
 public class Messages {
     private static final String BUNDLE_NAME = "locale/messages"; //$NON-NLS-1$

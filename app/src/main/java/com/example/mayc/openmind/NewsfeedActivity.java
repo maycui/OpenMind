@@ -7,10 +7,11 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.example.mayc.openmind.fragments.TimelineAdapter;
 
+//TODO: get action bar
+
 public class NewsfeedActivity extends AppCompatActivity {
 
     TimelineAdapter adapterView;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -14,6 +14,8 @@ import java.util.List;
  */
 
 
+/* displays articles in Newsfeed Activity based on profile information and filter settings */
+
 public class HomeTimelineFragment extends ArticleListFragment {
 
     @Override
@@ -25,6 +27,7 @@ public class HomeTimelineFragment extends ArticleListFragment {
     //TODO: implement populateTimeline()
     @Override
     public void populateTimeline() {
+        //TODO: pass to intent service to make a synchronous API call without blocking the UI
         DiscoveryClient test = new DiscoveryClient();
         try {
             List<DocumentPayload> result = new ArrayList<>();

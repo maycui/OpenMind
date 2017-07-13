@@ -8,14 +8,14 @@ import android.support.v4.app.FragmentManager;
  * Created by mayc on 7/10/17.
  */
 
+/*manages tab layout in NewsFeed activity*/
+
 public class TimelineAdapter extends SmartFragmentStatePagerAdapter {
-    private Context context;
     private String tabTitles[] = new String[] {"Home", "Saved"};
 
 
     public TimelineAdapter(FragmentManager fm, Context context) {
         super(fm);
-        this.context = context;
     }
 
     @Override

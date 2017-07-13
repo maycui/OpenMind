@@ -13,6 +13,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+//TODO: figure out the difference between activity_hamburger_drawer.xml and hamburger.xml
+
 public class HamburgerActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 

@@ -23,7 +23,6 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
         this.mArticles = articles;
     }
 
-
     public void clear() {
         mArticles.clear();
         notifyDataSetChanged();
@@ -44,7 +43,7 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
         return mArticles.size();
     }
 
-
+    //TODO: bind and set views from item_article.xml
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         public ViewHolder(View itemView) {
