@@ -1,13 +1,10 @@
 package com.example.mayc.openmind.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
-import com.example.mayc.openmind.DiscoveryClient;
-import com.example.mayc.openmind.DocumentPayload;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.example.mayc.openmind.DiscoveryIntentService;
 
 /**
  * Created by mayc on 7/10/17.
@@ -24,18 +21,19 @@ public class HomeTimelineFragment extends ArticleListFragment {
         populateTimeline();
     }
 
-    //TODO: implement populateTimeline()
+
+    //TODO: check if we can combine queries for one call or if we'll have to make multiple query calls to the api
+
     @Override
     public void populateTimeline() {
-        //TODO: pass to intent service to make a synchronous API call without blocking the UI
-        DiscoveryClient test = new DiscoveryClient();
-        try {
-            List<DocumentPayload> result = new ArrayList<>();
-            result = test.getDocuments("IBM");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        //TODO: check if the parameters are right?
+        Intent i = new Intent(getParentFragment().getContext(), DiscoveryIntentService.class);
+        i.putExtra(DiscoveryIntentService.DISCOVERY_NEWS_CALL, "query");
+        startActivity(i);
 
+        //TODO: receive an array of DocumentPayloads? or maybe an array of Articles
+
+        //TODO: add to timeline
     }
 
 }

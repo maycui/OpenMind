@@ -27,7 +27,5 @@ public class NewsfeedActivity extends AppCompatActivity {
         TabLayout tabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
         tabLayout.setupWithViewPager(vp);
 
-
-
     }
 }
