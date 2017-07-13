@@ -24,6 +24,7 @@ public class DiscoveryIntentService extends IntentService {
     @Override
     protected void onHandleIntent(@Nullable Intent intent) {
         String query = intent.getStringExtra(DISCOVERY_NEWS_CALL);
+        //calling the api and recieving an arraylist of document payloads as a response
         DiscoveryClient test = new DiscoveryClient();
         List<DocumentPayload> result = new ArrayList<>();
         try {

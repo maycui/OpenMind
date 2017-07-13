@@ -26,10 +26,14 @@ public class HomeTimelineFragment extends ArticleListFragment {
 
     @Override
     public void populateTimeline() {
-        //TODO: check if the parameters are right?
-        Intent i = new Intent(getParentFragment().getContext(), DiscoveryIntentService.class);
+        Intent i = new Intent(getActivity(), DiscoveryIntentService.class);
         i.putExtra(DiscoveryIntentService.DISCOVERY_NEWS_CALL, "query");
-        startActivity(i);
+        getActivity().startService(i);
+        //TODO: not sure if discoveryintentservice is being started, need to fix
+
+
+
+
 
         //TODO: receive an array of DocumentPayloads? or maybe an array of Articles
 
