@@ -25,7 +25,8 @@
         <activity
             android:name=".SurveyActivity"
             android:label="@string/title_activity_survey" />
-        <activity android:name=".StartActivity"></activity>
+        <activity android:name=".StartActivity" />
+        <activity android:name=".ArticleDetailActivity"></activity>
     </application>
 
 </manifest>
