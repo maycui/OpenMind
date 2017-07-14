@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 
 import com.example.mayc.openmind.DiscoveryIntentService;
-import com.example.mayc.openmind.DocumentPayload;
+import com.example.mayc.openmind.models.Article;
 
 import java.util.ArrayList;
 
@@ -18,7 +18,7 @@ import java.util.ArrayList;
 
 public class HomeTimelineFragment extends ArticleListFragment {
 
-    ArrayList<DocumentPayload> articles;
+    ArrayList<Article> articles;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -34,10 +34,10 @@ public class HomeTimelineFragment extends ArticleListFragment {
         i.putExtra(DiscoveryIntentService.DISCOVERY_NEWS_CALL, "facebook");
         getActivity().startService(i);
 
-       //TODO: receive an array of DocumentPayloads
+       //TODO: receive an array of articles
 
         //add to timeline
-        addItems(articles);
+//        addItems(articles);
     }
 
 }

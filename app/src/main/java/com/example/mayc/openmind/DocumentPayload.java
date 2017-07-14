@@ -8,6 +8,7 @@ package com.example.mayc.openmind;
 
 
 /*This is used in DiscoveryClient, will be working with this class to extract information about Article*/
+
 public class DocumentPayload {
 
     private String body;
@@ -17,6 +18,8 @@ public class DocumentPayload {
     private String id;
     private String sourceUrl;
     //TODO: extract values for imageURL, author, date, and description
+
+    DocumentPayload() {}
 
     private String title;
 

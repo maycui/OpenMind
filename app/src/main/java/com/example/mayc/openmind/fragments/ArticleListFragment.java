@@ -11,7 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.mayc.openmind.ArticleAdapter;
-import com.example.mayc.openmind.DocumentPayload;
 import com.example.mayc.openmind.R;
 import com.example.mayc.openmind.models.Article;
 
@@ -54,10 +53,9 @@ public class ArticleListFragment extends Fragment {
     }
 
     //addItems that works with an ArrayList of documentpayloads
-    public void addItems(ArrayList<DocumentPayload> results) {
-        for (int i = 0 ; i < results.size(); i++) {
-            Article article = new Article(results.get(i));
-            articles.add(article);
+    public void addItems(ArrayList<Article> articlesToDisplay) {
+        for (int i = 0 ; i < articlesToDisplay.size(); i++) {
+            articles.add(articlesToDisplay.get(i));
             articleAdapter.notifyItemInserted(articles.size() - 1);
         }
     }

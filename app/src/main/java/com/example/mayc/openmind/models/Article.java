@@ -4,12 +4,14 @@ import com.example.mayc.openmind.DocumentPayload;
 
 import org.parceler.Parcel;
 
+import java.io.Serializable;
+
 /**
  * Created by mayc on 7/10/17.
  */
 
 @Parcel
-public class Article {
+public class Article implements Serializable{
 
     // article attributes
     public String title;
@@ -21,7 +23,7 @@ public class Article {
     public String sentiment;
     public String bodySnippet;
 
-
+    Article() {}
 
     //TODO: Devon Create a way to get the commented info from Document payload
     public Article(DocumentPayload d) {
