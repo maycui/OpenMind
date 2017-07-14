@@ -12,8 +12,7 @@ public class ResponseReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-
-        //TODO: ???
+        //TODO: somehow get the arraylist of document payloads back to fragment
 
     }
 }

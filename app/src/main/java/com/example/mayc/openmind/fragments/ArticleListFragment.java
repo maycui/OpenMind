@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.mayc.openmind.ArticleAdapter;
+import com.example.mayc.openmind.DocumentPayload;
 import com.example.mayc.openmind.R;
 import com.example.mayc.openmind.models.Article;
 
@@ -50,6 +51,15 @@ public class ArticleListFragment extends Fragment {
         });
         swipe.setColorSchemeResources(android.R.color.holo_blue_bright);
         return v;
+    }
+
+    //addItems that works with an ArrayList of documentpayloads
+    public void addItems(ArrayList<DocumentPayload> results) {
+        for (int i = 0 ; i < results.size(); i++) {
+            Article article = new Article(results.get(i));
+            articles.add(article);
+            articleAdapter.notifyItemInserted(articles.size() - 1);
+        }
     }
 
     public void fetchTimelineAsync() {

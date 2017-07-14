@@ -5,6 +5,9 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 
 import com.example.mayc.openmind.DiscoveryIntentService;
+import com.example.mayc.openmind.DocumentPayload;
+
+import java.util.ArrayList;
 
 /**
  * Created by mayc on 7/10/17.
@@ -14,6 +17,8 @@ import com.example.mayc.openmind.DiscoveryIntentService;
 /* displays articles in Newsfeed Activity based on profile information and filter settings */
 
 public class HomeTimelineFragment extends ArticleListFragment {
+
+    ArrayList<DocumentPayload> articles;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -29,9 +34,10 @@ public class HomeTimelineFragment extends ArticleListFragment {
         i.putExtra(DiscoveryIntentService.DISCOVERY_NEWS_CALL, "facebook");
         getActivity().startService(i);
 
-       //TODO: receive an array of DocumentPayloads? or maybe an array of Articles
+       //TODO: receive an array of DocumentPayloads
 
-        //TODO: add to timeline
+        //add to timeline
+        addItems(articles);
     }
 
 }
