@@ -2,11 +2,13 @@ package com.example.mayc.openmind.models;
 
 import com.example.mayc.openmind.DocumentPayload;
 
+import org.parceler.Parcel;
+
 /**
  * Created by mayc on 7/10/17.
  */
 
-//TODO: make article parcelable so it can be passed through intents
+@Parcel
 public class Article {
 
     // article attributes

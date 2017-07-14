@@ -34,6 +34,13 @@ public class DiscoveryIntentService extends IntentService {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        //TODO: send a broadcast to response receiver
+//        Intent broadcastIntent = new Intent();
+//        broadcastIntent.setAction(ResponseReceiver.ACTION_RESP);
+//        broadcastIntent.addCategory(Intent.CATEGORY_DEFAULT);
+//        broadcastIntent.putExtra(PARAM_OUT_MSG, resultTxt);
+//        sendBroadcast(broadcastIntent);
     }
 
 }
