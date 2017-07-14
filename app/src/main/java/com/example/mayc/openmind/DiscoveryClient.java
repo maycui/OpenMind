@@ -57,6 +57,7 @@ public class DiscoveryClient {
         List<DocumentPayload> payload = new ArrayList<DocumentPayload>();
         JsonArray jarray = resultsElement.getAsJsonArray();
 
+        //TODO: parse for extra attributes
         if (jarray.size() > 0) {
             for (int i = 0; (i < jarray.size()) && (i < Constants.DISCOVERY_MAX_SEARCH_RESULTS_TO_SHOW); i++) {
                 DocumentPayload documentPayload = new DocumentPayload();

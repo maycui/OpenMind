@@ -35,7 +35,7 @@ public class Article implements Serializable{
         datePublished = d.getDatePublished();
         //TODO: find a way to decide what category articles are
     }
-    
+
     public String getTitle() {
         return title;
     }
