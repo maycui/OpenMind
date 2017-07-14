@@ -26,7 +26,7 @@ public class HomeTimelineFragment extends ArticleListFragment {
     @Override
     public void populateTimeline() {
         Intent i = new Intent(getActivity(), DiscoveryIntentService.class);
-        i.putExtra(DiscoveryIntentService.DISCOVERY_NEWS_CALL, "query");
+        i.putExtra(DiscoveryIntentService.DISCOVERY_NEWS_CALL, "facebook");
         getActivity().startService(i);
 
        //TODO: receive an array of DocumentPayloads? or maybe an array of Articles

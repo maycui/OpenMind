@@ -12,7 +12,7 @@ public class Article {
     // article attributes
     public String title;
     public String body;
-    public String source;
+    public String sourceUrl;
     public String author;
     public String topic;
     public String datePublished;
@@ -27,7 +27,7 @@ public class Article {
         title = d.getTitle();
         body = d.getBody();
         bodySnippet = d.getBodySnippet();
-        source = d.getSourceUrl();
+        sourceUrl = d.getSourceUrl();
 //        author = d.Author;
 //        topic = pTopic;
 //        datePublished = pDatePublished;
@@ -45,7 +45,7 @@ public class Article {
     }
 
     public String getSource() {
-        return source;
+        return sourceUrl;
     }
 
     public String getAuthor() {

@@ -49,7 +49,6 @@ public class ArticleListFragment extends Fragment {
             }
         });
         swipe.setColorSchemeResources(android.R.color.holo_blue_bright);
-
         return v;
     }
 
