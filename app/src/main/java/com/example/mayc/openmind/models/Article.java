@@ -18,9 +18,8 @@ public class Article implements Serializable{
     public String body;
     public String sourceUrl;
     public String author;
-    public String topic;
+    public String category;
     public String datePublished;
-    public String sentiment;
     public String bodySnippet;
 
     Article() {}
@@ -32,14 +31,11 @@ public class Article implements Serializable{
         body = d.getBody();
         bodySnippet = d.getBodySnippet();
         sourceUrl = d.getSourceUrl();
-//        author = d.Author;
-//        topic = pTopic;
-//        datePublished = pDatePublished;
-//        sentiment = pSentiment;
+        author = d.getAuthor();
+        datePublished = d.getDatePublished();
+        //TODO: find a way to decide what category articles are
     }
-
-
-
+    
     public String getTitle() {
         return title;
     }
@@ -56,9 +52,9 @@ public class Article implements Serializable{
         return author;
     }
 
-    public String getTopic() {
+    public String getCategory() {
 
-        return topic;
+        return category;
     }
 
     public String getDatePublished() {
@@ -66,10 +62,6 @@ public class Article implements Serializable{
         return datePublished;
     }
 
-    public String getSentiment() {
-
-        return sentiment;
-    }
 }
 
 
