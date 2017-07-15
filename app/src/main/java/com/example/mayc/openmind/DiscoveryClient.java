@@ -1,14 +1,10 @@
 package com.example.mayc.openmind;
 
-import android.content.Context;
-
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 import com.ibm.watson.developer_cloud.discovery.v1.model.query.QueryResponse;
-
-import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,8 +20,6 @@ import java.util.regex.Pattern;
 
 
 public class DiscoveryClient {
-
-    private static final Logger logger = org.apache.logging.log4j.LogManager.getLogger(DiscoveryClient.class.getName());
 
     private static final int SNIPPET_LENGTH = 150;
 
@@ -43,6 +37,8 @@ public class DiscoveryClient {
     public List<DocumentPayload> getDocuments(String input) throws Exception {
         DiscoveryQuery discoveryQuery = new DiscoveryQuery();
         QueryResponse output = discoveryQuery.query(input);
+
+        //gets results in form of a list of hashmaps
         List<Map<String, Object>> results = output.getResults();
         String jsonRes = new Gson().toJson(results);
         JsonElement jelement = new JsonParser().parse(jsonRes);
@@ -58,11 +54,10 @@ public class DiscoveryClient {
      *         possible answer to the user's query
      */
     private List<DocumentPayload> createPayload(JsonElement resultsElement) {
-        //logger.error(resultsElement);
-        logger.info(Messages.getString("Service.CREATING_DISCOVERY_PAYLOAD"));
         List<DocumentPayload> payload = new ArrayList<DocumentPayload>();
         JsonArray jarray = resultsElement.getAsJsonArray();
 
+        //TODO: parse for extra attributes
         if (jarray.size() > 0) {
             for (int i = 0; (i < jarray.size()) && (i < Constants.DISCOVERY_MAX_SEARCH_RESULTS_TO_SHOW); i++) {
                 DocumentPayload documentPayload = new DocumentPayload();

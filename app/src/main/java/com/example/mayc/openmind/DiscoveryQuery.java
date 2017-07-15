@@ -24,7 +24,7 @@ public class DiscoveryQuery {
     public DiscoveryQuery() {
         secret = new Secrets();
         discovery = new Discovery("2017-06-25");
-        discovery.setEndPoint("https://gateway.watsonplatform.net/discovery/api/v1");
+        discovery.setEndPoint("https://gateway.watsonplatform.net/discovery/api");
         discovery.setUsernameAndPassword(secret.getUser(), secret.getPassword());
     }
 

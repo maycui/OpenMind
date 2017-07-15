@@ -2,24 +2,27 @@ package com.example.mayc.openmind.models;
 
 import com.example.mayc.openmind.DocumentPayload;
 
+import org.parceler.Parcel;
+
+import java.io.Serializable;
+
 /**
  * Created by mayc on 7/10/17.
  */
 
-//TODO: make article parcelable so it can be passed through intents
-public class Article {
+@Parcel
+public class Article implements Serializable{
 
     // article attributes
     public String title;
     public String body;
-    public String source;
+    public String sourceUrl;
     public String author;
-    public String topic;
+    public String category;
     public String datePublished;
-    public String sentiment;
     public String bodySnippet;
 
-
+    Article() {}
 
     //TODO: Devon Create a way to get the commented info from Document payload
     public Article(DocumentPayload d) {
@@ -27,14 +30,11 @@ public class Article {
         title = d.getTitle();
         body = d.getBody();
         bodySnippet = d.getBodySnippet();
-        source = d.getSourceUrl();
-//        author = d.Author;
-//        topic = pTopic;
-//        datePublished = pDatePublished;
-//        sentiment = pSentiment;
+        sourceUrl = d.getSourceUrl();
+        author = d.getAuthor();
+        datePublished = d.getDatePublished();
+        //TODO: find a way to decide what category articles are
     }
-
-
 
     public String getTitle() {
         return title;
@@ -45,16 +45,16 @@ public class Article {
     }
 
     public String getSource() {
-        return source;
+        return sourceUrl;
     }
 
     public String getAuthor() {
         return author;
     }
 
-    public String getTopic() {
+    public String getCategory() {
 
-        return topic;
+        return category;
     }
 
     public String getDatePublished() {
@@ -62,10 +62,6 @@ public class Article {
         return datePublished;
     }
 
-    public String getSentiment() {
-
-        return sentiment;
-    }
 }
 
 

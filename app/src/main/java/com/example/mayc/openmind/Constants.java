@@ -36,6 +36,15 @@ public class Constants {
     /** The Constant DISCOVERY_FIELD_TITLE. */
     public static final String DISCOVERY_FIELD_TITLE = "title";
 
+    /** The Constant DISCOVERY_FIELD_AUTHOR */
+    public static final String DISCOVERY_FIELD_AUTHOR = "author";
+
+    /** The Constant DISCOVERY_FIELD_DATE*/
+    public static final String DISCOVERY_FIELD_DATE = "yyyymmdd";
+
+    /** The Constant DISCOVERY_FIELD_DESCRIPTION*/
+    public static final String DISCOVERY_FIELD_DESCRIPTION = "alchemyapi_text";
+
     /** The Constant DISCOVERY_MAX_SEARCH_RESULTS_TO_SHOW. */
     public static final int DISCOVERY_MAX_SEARCH_RESULTS_TO_SHOW = 3;
 

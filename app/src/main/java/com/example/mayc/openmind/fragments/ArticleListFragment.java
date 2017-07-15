@@ -49,8 +49,15 @@ public class ArticleListFragment extends Fragment {
             }
         });
         swipe.setColorSchemeResources(android.R.color.holo_blue_bright);
-
         return v;
+    }
+
+    //addItems that works with an ArrayList of documentpayloads
+    public void addItems(ArrayList<Article> articlesToDisplay) {
+        for (int i = 0 ; i < articlesToDisplay.size(); i++) {
+            articles.add(articlesToDisplay.get(i));
+            articleAdapter.notifyItemInserted(articles.size() - 1);
+        }
     }
 
     public void fetchTimelineAsync() {
