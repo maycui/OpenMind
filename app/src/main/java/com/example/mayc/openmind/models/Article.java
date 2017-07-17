@@ -13,7 +13,6 @@ public class Article implements Serializable{
 
     // article attributes
     public String ID;
-    public String sentimentType;
     public String title;
     public String author;
     public String sourceUrl;
@@ -29,7 +28,6 @@ public class Article implements Serializable{
     public Article(DocumentPayload d) {
         //will take information from document payload and extract values to set as attributes
         ID = d.getId();
-        sentimentType = d.getSentimentType();
         title = d.getTitle();
         author = d.getAuthor();
         bodySnippet = d.getBodySnippet();
@@ -38,6 +36,10 @@ public class Article implements Serializable{
         host = d.getHostUrl();
 
         //TODO: Devon find a way to decide what category articles are
+    }
+
+    public String getID(){
+        return ID;
     }
 
     public String getTitle() {
@@ -60,6 +62,10 @@ public class Article implements Serializable{
     public String getDatePublished() {
 
         return datePublished;
+    }
+
+    public String getHostUrl(){
+        return host;
     }
 
 }
