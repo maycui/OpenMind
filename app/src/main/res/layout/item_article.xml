@@ -84,7 +84,6 @@
             android:text="Article Title blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah "
             android:textSize="16sp" />
 
-
         <TextView
             android:id="@+id/tvSource"
             android:layout_width="wrap_content"
@@ -117,7 +116,6 @@
             android:layout_toRightOf="@+id/ivVerticalBar"
             android:text="Author"
             android:textAllCaps="true" />
-
 
     </RelativeLayout>
 
