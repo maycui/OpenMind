@@ -44,22 +44,21 @@
             android:textSize="12sp" />
 
         <ImageView
-            android:id="@+id/ivIcon1"
+            android:id="@+id/ivCategoryIcon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
-            android:layout_margin="5dp"
-            card_view:srcCompat="@drawable/ic_menu_gallery" />
+            card_view:srcCompat="@drawable/ic_menu_gallery"
+            android:layout_alignTop="@+id/tvPublisher"
+            android:layout_alignRight="@+id/ivArticleImage"
+            android:layout_alignEnd="@+id/ivArticleImage" />
 
         <ImageView
-            android:id="@+id/ivIcon2"
+            android:id="@+id/ivBookmarkIcon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/ivIcon1"
-            android:layout_toLeftOf="@+id/ivIcon1"
-            android:layout_toStartOf="@+id/ivIcon1"
+            android:layout_alignTop="@+id/ivCategoryIcon"
+            android:layout_toLeftOf="@+id/ivCategoryIcon"
+            android:layout_toStartOf="@+id/ivCategoryIcon"
             card_view:srcCompat="@drawable/ic_menu_gallery" />
 
         <ImageView
