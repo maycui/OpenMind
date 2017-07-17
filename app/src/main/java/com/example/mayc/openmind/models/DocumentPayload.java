@@ -1,4 +1,4 @@
-package com.example.mayc.openmind;
+package com.example.mayc.openmind.models;
 
 /**
  * Created by mayc on 7/12/17.
@@ -19,8 +19,9 @@ public class DocumentPayload {
     private String sourceUrl;
     private String author;
     private String datePublished;
-    private String imageURL;
-    //TODO: extract imageurl using another api
+    private String imageURL; //TODO: extract imageurl using another api
+    private String sentimentType;
+    private String hostUrl;
 
     DocumentPayload() {}
 
@@ -104,6 +105,14 @@ public class DocumentPayload {
         return imageURL;
     }
 
+    public String getSentimentType() {
+        return sentimentType;
+    }
+
+    public String getHostUrl() {
+        return hostUrl;
+    }
+
     /**
      * Sets the body of the document.
      *
@@ -172,9 +181,15 @@ public class DocumentPayload {
      *
      * @see java.lang.Object#toString()
      */
+
+    public void setAuthor(String author){
+        this.author = author;
+    }
+
     @Override
     public String toString() {
         return "Track [title=" + title + ", body=" + body + ", score=" + confidence + "]";
     }
+
 
 }
