@@ -1,7 +1,5 @@
 package com.example.mayc.openmind.models;
 
-import com.example.mayc.openmind.DocumentPayload;
-
 import org.parceler.Parcel;
 
 import java.io.Serializable;
@@ -14,24 +12,34 @@ import java.io.Serializable;
 public class Article implements Serializable{
 
     // article attributes
+    public String ID;
     public String title;
-    public String sourceUrl;
     public String author;
-    public String category;
+    public String sourceUrl;
+    public String category; //TODO Devon See if this can actually be queried (HELP. How do we categorize the articles)
     public String datePublished;
     public String bodySnippet;
+    public String host;
+
 
     Article() {}
 
     //TODO: Devon Create a way to get the commented info from Document payload
     public Article(DocumentPayload d) {
         //will take information from document payload and extract values to set as attributes
+        ID = d.getId();
         title = d.getTitle();
+        author = d.getAuthor();
         bodySnippet = d.getBodySnippet();
         sourceUrl = d.getSourceUrl();
-        author = d.getAuthor();
         datePublished = d.getDatePublished();
-        //TODO: find a way to decide what category articles are
+        host = d.getHostUrl();
+
+        //TODO: Devon find a way to decide what category articles are
+    }
+
+    public String getID(){
+        return ID;
     }
 
     public String getTitle() {
@@ -56,6 +64,21 @@ public class Article implements Serializable{
         return datePublished;
     }
 
+    public String getHostUrl(){
+        return host;
+    }
+
+    public String getSourceUrl() {
+        return sourceUrl;
+    }
+
+    public String getBodySnippet() {
+        return bodySnippet;
+    }
+
+    public String getHost() {
+        return host;
+    }
 }
 
 

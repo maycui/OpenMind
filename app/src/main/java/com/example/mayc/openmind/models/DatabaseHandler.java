@@ -1,8 +1,11 @@
 package com.example.mayc.openmind.models;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import java.util.List;
 
 /**
  * Created by mayc on 7/17/17.
@@ -49,4 +52,33 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
         onCreate(db);
     }
+
+    public void addContact(Article article) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put(TITLE, article.getTitle());
+        values.put(SOURCEURL, article.getSource());
+        values.put(AUTHOR, article.getAuthor());
+        values.put(CATEGORY, article.getCategory());
+        values.put(DATEPUBLISHED, article.getDatePublished());
+        values.put(BODYSNIPPET, article.getBodySnippet());
+        values.put(IMAGEURL, article.getDatePublished());
+
+
+        // Inserting Row
+        db.insert(TABLE_NAME, null, values);
+        db.close();
+    }
+
+    public Article getArticle(int id) {}
+
+    public List<Article> getAllArticless() {}
+
+    public int getArticleCount() {}
+
+    public int updateArticle(Article contact) {}
+
+    public void deleteArticle(Article contact) {}
+
 }
