@@ -2,6 +2,7 @@ package com.example.mayc.openmind.models;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -22,13 +23,16 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private static final String TABLE_NAME = "articles";
 
     //Column Names
+    private static final String ID = "id";
     private static final String TITLE = "title";
-    private static final String SOURCEURL = "sourceUrl";
     private static final String AUTHOR = "author";
     private static final String CATEGORY = "category";
     private static final String DATEPUBLISHED = "date";
     private static final String BODYSNIPPET = "description";
+
+    private static final String SOURCEURL = "sourceUrl";
     private static final String IMAGEURL = "imageurl";
+    private static final String HOST = "hosturl";
 
 
     public DatabaseHandler(Context context, String name) {
@@ -39,9 +43,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     // this where we write create table statements, this is called when database is created
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String CREATE_ARTICLES_TABLE = "CREATE TABLE " + TABLE_NAME + "("
-                + TITLE + " TEXT," + SOURCEURL + " TEXT,"
-                + AUTHOR + " TEXT" + CATEGORY + "TEXT" + DATEPUBLISHED + "TEXT" + BODYSNIPPET + "TEXT" + IMAGEURL + "TEXT" + ")";
+        String CREATE_ARTICLES_TABLE = "CREATE TABLE " + TABLE_NAME + "(" + ID +
+                " TEXT," + TITLE + " TEXT," + AUTHOR + " TEXT,"
+                + CATEGORY + " TEXT" + DATEPUBLISHED + " TEXT" + BODYSNIPPET + " TEXT" + SOURCEURL + " TEXT" + IMAGEURL + " TEXT" +  HOST + " TEXT" + ")";
         db.execSQL(CREATE_ARTICLES_TABLE);
 
     }
@@ -57,21 +61,37 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
 
+        values.put(ID,article.getID());
         values.put(TITLE, article.getTitle());
-        values.put(SOURCEURL, article.getSource());
         values.put(AUTHOR, article.getAuthor());
         values.put(CATEGORY, article.getCategory());
         values.put(DATEPUBLISHED, article.getDatePublished());
         values.put(BODYSNIPPET, article.getBodySnippet());
-        values.put(IMAGEURL, article.getDatePublished());
 
+        values.put(SOURCEURL, article.getSourceUrl());
+        values.put(IMAGEURL, article.getDatePublished());
+        values.put(HOST, article.getHostUrl());
 
         // Inserting Row
         db.insert(TABLE_NAME, null, values);
         db.close();
     }
 
-    public Article getArticle(int id) {}
+    public Article getArticle(int id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.query(TABLE_NAME, new String[] {ID,  TITLE,
+                        AUTHOR, CATEGORY, DATEPUBLISHED, BODYSNIPPET, SOURCEURL, IMAGEURL, HOST}, TITLE + "=?",
+                new String[] { String.valueOf(id)}, null, null, null, null);
+
+        if (cursor != null)
+            cursor.moveToFirst();
+
+        Article article = new Article(cursor.getString(0),
+                cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getString(5),
+                cursor.getString(6), cursor.getString(7), cursor.getString(8));
+        return article;
+    }
 
     public List<Article> getAllArticless() {}
 

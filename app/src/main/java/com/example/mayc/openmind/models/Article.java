@@ -11,15 +11,18 @@ import java.io.Serializable;
 @Parcel
 public class Article implements Serializable{
 
-    // article attributes
-    public String ID;
+    // DON'T CHANGE ORDER OF ATTRIBUTES, need to use as reference for constructor parameter order
+    public String id;
     public String title;
     public String author;
-    public String sourceUrl;
     public String category; //TODO Devon See if this can actually be queried (HELP. How do we categorize the articles)
     public String datePublished;
     public String bodySnippet;
+
+    public String sourceUrl;
+    public String imageUrl;
     public String host;
+
 
 
     Article() {}
@@ -27,27 +30,38 @@ public class Article implements Serializable{
     //TODO: Devon Create a way to get the commented info from Document payload
     public Article(DocumentPayload d) {
         //will take information from document payload and extract values to set as attributes
-        ID = d.getId();
+        id = d.getId();
         title = d.getTitle();
         author = d.getAuthor();
         bodySnippet = d.getBodySnippet();
         sourceUrl = d.getSourceUrl();
         datePublished = d.getDatePublished();
         host = d.getHostUrl();
+        //not included is category and imageURL because that is retrieved later
 
         //TODO: Devon find a way to decide what category articles are
     }
 
+    public Article (String id, String title, String author, String category, String datePublished, String bodySnippet, String sourceUrl, String imageUrl, String host) {
+        this.id = id;
+        this.title = title;
+        this.author = author;
+        this.category = category;
+        this.datePublished = datePublished;
+        this.bodySnippet = bodySnippet;
+
+        this.sourceUrl = sourceUrl;
+        this.imageUrl = imageUrl;
+        this.host = host;
+    }
+
+
     public String getID(){
-        return ID;
+        return id;
     }
 
     public String getTitle() {
         return title;
-    }
-
-    public String getSource() {
-        return sourceUrl;
     }
 
     public String getAuthor() {
@@ -55,30 +69,30 @@ public class Article implements Serializable{
     }
 
     public String getCategory() {
-
         return category;
     }
 
     public String getDatePublished() {
-
         return datePublished;
-    }
-
-    public String getHostUrl(){
-        return host;
-    }
-
-    public String getSourceUrl() {
-        return sourceUrl;
     }
 
     public String getBodySnippet() {
         return bodySnippet;
     }
 
-    public String getHost() {
+    //urls
+    public String getSourceUrl() {
+        return sourceUrl;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public String getHostUrl(){
         return host;
     }
+
 }
 
 
