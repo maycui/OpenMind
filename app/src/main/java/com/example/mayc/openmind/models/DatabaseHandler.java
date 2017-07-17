@@ -5,6 +5,8 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.util.List;
+
 /**
  * Created by mayc on 7/17/17.
  */
@@ -60,24 +62,23 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         values.put(AUTHOR, article.getAuthor());
         values.put(CATEGORY, article.getCategory());
         values.put(DATEPUBLISHED, article.getDatePublished());
-        values.put(BODYSNIPPET, article.getBo());
-        values.put(DATEPUBLISHED, article.getDatePublished());
-
+        values.put(BODYSNIPPET, article.getBodySnippet());
+        values.put(IMAGEURL, article.getDatePublished());
 
 
         // Inserting Row
-        db.insert(TABLE_CONTACTS, null, values);
-        db.close(); // Closing database connection
+        db.insert(TABLE_NAME, null, values);
+        db.close();
     }
 
-    public Contact getContact(int id) {}
+    public Article getArticle(int id) {}
 
-    public List<Contact> getAllContacts() {}
+    public List<Article> getAllArticless() {}
 
-    public int getContactsCount() {}
+    public int getArticleCount() {}
 
-    public int updateContact(Contact contact) {}
+    public int updateArticle(Article contact) {}
 
-    public void deleteContact(Contact contact) {}
+    public void deleteArticle(Article contact) {}
 
 }

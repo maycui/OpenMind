@@ -67,9 +67,18 @@ public class Article implements Serializable{
     public String getHostUrl(){
         return host;
     }
-    
 
+    public String getSourceUrl() {
+        return sourceUrl;
+    }
 
+    public String getBodySnippet() {
+        return bodySnippet;
+    }
+
+    public String getHost() {
+        return host;
+    }
 }
 
 
