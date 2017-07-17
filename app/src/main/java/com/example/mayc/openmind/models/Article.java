@@ -15,7 +15,6 @@ public class Article implements Serializable{
 
     // article attributes
     public String title;
-    public String body;
     public String sourceUrl;
     public String author;
     public String category;
@@ -28,7 +27,6 @@ public class Article implements Serializable{
     public Article(DocumentPayload d) {
         //will take information from document payload and extract values to set as attributes
         title = d.getTitle();
-        body = d.getBody();
         bodySnippet = d.getBodySnippet();
         sourceUrl = d.getSourceUrl();
         author = d.getAuthor();
@@ -38,10 +36,6 @@ public class Article implements Serializable{
 
     public String getTitle() {
         return title;
-    }
-
-    public String getBody() {
-        return body;
     }
 
     public String getSource() {
