@@ -47,10 +47,10 @@
             android:id="@+id/ivCategoryIcon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            card_view:srcCompat="@drawable/ic_menu_gallery"
-            android:layout_alignTop="@+id/tvPublisher"
+            android:layout_alignEnd="@+id/ivArticleImage"
             android:layout_alignRight="@+id/ivArticleImage"
-            android:layout_alignEnd="@+id/ivArticleImage" />
+            android:layout_alignTop="@+id/tvPublisher"
+            card_view:srcCompat="@drawable/ic_menu_gallery" />
 
         <ImageView
             android:id="@+id/ivBookmarkIcon"
@@ -78,57 +78,45 @@
             android:layout_alignLeft="@+id/ivArticleImage"
             android:layout_alignStart="@+id/ivArticleImage"
             android:layout_below="@+id/ivArticleImage"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="5dp"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
             android:text="Article Title blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah "
             android:textSize="16sp" />
 
+
         <TextView
-            android:id="@+id/tvDescription"
-            android:layout_width="match_parent"
+            android:id="@+id/tvSource"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/tvTitle"
             android:layout_alignStart="@+id/tvTitle"
-            android:layout_below="@+id/ivArticleImage"
-            android:layout_marginRight="5dp"
-            android:layout_marginTop="40dp"
-            android:text="This is a description of the article. I'm making it longer so that we can see how it looks if it's multiple lines (which is most likely will be) blah blah blah blah blah "
-            android:textSize="12sp" />
+            android:layout_below="@+id/tvTitle"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="10dp"
+            android:text="Source"
+            android:textAllCaps="true" />
 
+        <ImageView
+            android:id="@+id/ivVerticalBar"
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/tvSource"
+            android:layout_below="@+id/tvTitle"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@+id/tvSource" />
 
-            <TextView
-                android:id="@+id/tvSource"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/tvDescription"
-                android:layout_alignStart="@+id/tvDescription"
-                android:layout_below="@+id/tvDescription"
-                android:layout_marginBottom="5dp"
-                android:layout_marginTop="10dp"
-                android:text="Source"
-                android:textAllCaps="true" />
-
-            <ImageView
-                android:id="@+id/ivVerticalBar"
-                android:layout_width="20dp"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/tvDescription"
-                android:layout_marginTop="10dp"
-                android:layout_toRightOf="@+id/tvSource"
-                android:layout_alignBottom="@+id/tvSource" />
-
-            <TextView
-                android:id="@+id/tvAuthor"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/tvDescription"
-                android:layout_marginBottom="5dp"
-                android:layout_marginTop="10dp"
-                android:layout_toEndOf="@+id/ivVerticalBar"
-                android:layout_toRightOf="@+id/ivVerticalBar"
-                android:text="Author"
-                android:textAllCaps="true" />
+        <TextView
+            android:id="@+id/tvAuthor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvTitle"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@+id/ivVerticalBar"
+            android:layout_toRightOf="@+id/ivVerticalBar"
+            android:text="Author"
+            android:textAllCaps="true" />
 
 
     </RelativeLayout>
