@@ -1,5 +1,6 @@
 package com.example.mayc.openmind;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -13,8 +14,6 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.example.mayc.openmind.fragments.TimelineAdapter;
-
-//TODO: figure out the difference between activity_hamburger_drawer.xml and hamburger.xml
 
 public class HamburgerActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -59,6 +58,7 @@ public class HamburgerActivity extends AppCompatActivity
     }
 
 
+    //manages selection on hamburger menu
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -66,7 +66,9 @@ public class HamburgerActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.hamProfile) {
-            // Handle the camera action
+            //starts profile activity, no need to pass data
+            Intent p = new Intent(this, ProfileActivity.class);
+            startActivity(p);
         } else if (id == R.id.hamSettings) {
 
         } else if (id == R.id.hamInfo) {

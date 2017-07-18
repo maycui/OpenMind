@@ -13,10 +13,12 @@
         android:theme="@style/AppTheme">
         <service
             android:name=".DiscoveryIntentService"
-            android:exported="false"/>
+            android:exported="false" />
+
         <activity android:name=".NewsfeedActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -28,7 +30,8 @@
             android:name=".SurveyActivity"
             android:label="@string/title_activity_survey" />
         <activity android:name=".StartActivity" />
-        <activity android:name=".ArticleDetailActivity"></activity>
+        <activity android:name=".ArticleDetailActivity" />
+        <activity android:name=".ProfileActivity"></activity>
     </application>
 
 </manifest>
