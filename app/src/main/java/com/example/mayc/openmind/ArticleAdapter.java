@@ -1,6 +1,7 @@
 package com.example.mayc.openmind;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,36 +17,53 @@ import java.util.ArrayList;
  * Created by mayc on 7/10/17.
  */
 
-public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHolder> {
+public class ArticleAdapter extends android.support.v4.widget.CursorAdapter {
 
-    public ArrayList<Article> mArticles;
+    public Cursor mArticles;
     Context context;
 
 
-    public ArticleAdapter(ArrayList<Article> articles) {
+
+    public ArticleAdapter(Context context, Cursor cursor) {
+        super(context, cursor, 0);
         this.mArticles = articles;
     }
 
-    public void clear() {
-        mArticles.clear();
-        notifyDataSetChanged();
-    }
 
-    //Creates the view for the viewholder
+    // The newView method is used to inflate a new view and return it
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        context = parent.getContext();
-        LayoutInflater inflater = LayoutInflater.from(context);
-        View articleView = inflater.inflate(R.layout.item_article, parent, false);
-        ViewHolder viewHolder = new ViewHolder(articleView);
-        return viewHolder;
+    public View newView(Context context, Cursor cursor, ViewGroup parent) {
+        return LayoutInflater.from(context).inflate(R.layout.article_table, parent, false);;
 
     }
 
-    //Binds the retrieved info to the view based on position
+    //The bindView method is used to bind all data to a given view
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
-        //TODO: Bind retrieved information with the appropriate data from client
+    public void bindView(View view, Context context, Cursor cursor) {
+        // Find fields to populate in inflated template
+        TextView tvTitleTable = (TextView) view.findViewById(R.id.tvTitleTable);
+        TextView tvSourceUrlTable = (TextView) view.findViewById(R.id.tvSourceUrlTable);
+        TextView tvAuthor = (TextView) view.findViewById(R.id.tvAuthor);
+        TextView tvCategoryTable = (TextView) view.findViewById(R.id.tvCategoryTable);
+        TextView tvDatePublishedTable = (TextView) view.findViewById(R.id.tvDatePublishedTable);
+        TextView tvBodySnippetTable = (TextView) view.findViewById(R.id.tvBodySnippetTable);
+
+        // Extract properties from cursor
+        String title = cursor.getString(cursor.getColumnIndexOrThrow("title"));
+        String sourceUrl = cursor.getString(cursor.getColumnIndexOrThrow("source url"));
+        String author = cursor.getString(cursor.getColumnIndexOrThrow("author"));
+        String category = cursor.getString(cursor.getColumnIndexOrThrow("category"));
+        String datePublished = cursor.getString(cursor.getColumnIndexOrThrow("date published"));
+        String bodySnippet = cursor.getString(cursor.getColumnIndexOrThrow("body snippet"));
+
+        // Populate fields with extracted properties
+        tvTitleTable.setText(title);
+        tvSourceUrlTable.setText(sourceUrl);
+        tvAuthor.setText(author);
+        tvCategoryTable.setText(category);
+        tvDatePublishedTable.setText(datePublished);
+        tvBodySnippetTable.setText(bodySnippet);
+
     }
 
     @Override
@@ -88,8 +106,14 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
                 @Override
                 public void onClick(View view) {
                     //TODO Devon Implement on click
+
                 }
             });
+
+            public void clear() {
+                mArticles.clear();
+                notifyDataSetChanged();
+            }
         }
     }
 }
