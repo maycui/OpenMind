@@ -9,10 +9,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.mayc.openmind.models.Article;
-
-import java.util.ArrayList;
-
 /**
  * Created by mayc on 7/10/17.
  */
@@ -26,14 +22,14 @@ public class ArticleAdapter extends android.support.v4.widget.CursorAdapter {
 
     public ArticleAdapter(Context context, Cursor cursor) {
         super(context, cursor, 0);
-        this.mArticles = articles;
+        this.mArticles = cursor;
     }
 
 
     // The newView method is used to inflate a new view and return it
     @Override
     public View newView(Context context, Cursor cursor, ViewGroup parent) {
-        return LayoutInflater.from(context).inflate(R.layout.article_table, parent, false);;
+        return LayoutInflater.from(context).inflate(R.layout.article_table, parent, false);
 
     }
 
@@ -66,9 +62,8 @@ public class ArticleAdapter extends android.support.v4.widget.CursorAdapter {
 
     }
 
-    @Override
     public int getItemCount() {
-        return mArticles.size();
+        return mArticles.getCount();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder  {
@@ -79,7 +74,7 @@ public class ArticleAdapter extends android.support.v4.widget.CursorAdapter {
         public ImageView ivBookmarkIcon;
         public ImageView ivArticleImage;
         public TextView tvTitle;
-        public TextView tvDescription;
+        public TextView tvArticleDescription;
         public TextView tvSource;
         public TextView tvAuthor;
 
@@ -96,7 +91,7 @@ public class ArticleAdapter extends android.support.v4.widget.CursorAdapter {
             ivBookmarkIcon = (ImageView) itemView.findViewById(R.id.ivBookmarkIcon);
             ivArticleImage = (ImageView) itemView.findViewById(R.id.ivArticleImage);
             tvTitle = (TextView) itemView.findViewById(R.id.tvTitle);
-            tvDescription = (TextView) itemView.findViewById(R.id.tvDescription);
+            tvArticleDescription = (TextView) itemView.findViewById(R.id.tvArticleDescription);
             tvSource = (TextView) itemView.findViewById(R.id.tvSource);
             tvAuthor = (TextView) itemView.findViewById(R.id.tvAuthor);
 
@@ -109,11 +104,10 @@ public class ArticleAdapter extends android.support.v4.widget.CursorAdapter {
 
                 }
             });
+        }
 
-            public void clear() {
-                mArticles.clear();
-                notifyDataSetChanged();
-            }
+//            public void cursorChanged() {
+//                mArticles.cursorChanged();
+//            }
         }
     }
-}
