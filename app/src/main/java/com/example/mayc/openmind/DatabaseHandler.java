@@ -1,10 +1,12 @@
-package com.example.mayc.openmind.models;
+package com.example.mayc.openmind;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import com.example.mayc.openmind.models.Article;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +26,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private static final String TABLE_NAME = "articles";
 
     //Column Names
-    private static final String ID = "id";
+    private static final String ID = "_id";
     private static final String TITLE = "title";
     private static final String AUTHOR = "author";
     private static final String CATEGORY = "category";
@@ -58,7 +60,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public void addContact(Article article) {
+    public void addArticle(Article article) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
 
@@ -108,7 +110,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                     articleList.add(article);
                 } while (cursor.moveToNext());
             }
-            // return contact list
             return articleList;
     }
 

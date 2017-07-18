@@ -1,5 +1,6 @@
 package com.example.mayc.openmind;
 
+import com.example.mayc.openmind.models.DocumentPayload;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;

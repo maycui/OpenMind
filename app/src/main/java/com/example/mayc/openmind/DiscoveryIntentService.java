@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.support.annotation.Nullable;
 
 import com.example.mayc.openmind.models.Article;
+import com.example.mayc.openmind.models.DocumentPayload;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,7 +48,5 @@ public class DiscoveryIntentService extends IntentService {
             Article a = new Article(d);
             articles.add(a);
         }
-
     }
-
 }

@@ -23,7 +23,7 @@ public class DocumentPayload {
     private String sentimentType;
     private String hostUrl;
 
-    DocumentPayload() {}
+    public DocumentPayload() {}
 
     private String title;
 

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -15,6 +16,8 @@ import com.example.mayc.openmind.fragments.TimelineAdapter;
 public class NewsfeedActivity extends AppCompatActivity {
 
     TimelineAdapter adapterView;
+
+    //TODO: bring hamburger menu to this activity
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +37,12 @@ public class NewsfeedActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main, menu);
+       // getMenuInflater().inflate(R.menu.main, menu);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar); // use whatever id you have for your toolbar
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("title");
         return true;
     }
 
