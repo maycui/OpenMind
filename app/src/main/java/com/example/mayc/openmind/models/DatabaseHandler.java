@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -93,12 +94,53 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         return article;
     }
 
-    public List<Article> getAllArticless() {}
+    public List<Article> getAllArticles() {
+        List<Article> articleList = new ArrayList<Article>();
+        String selectQuery = "SELECT  * FROM " + TABLE_NAME;
 
-    public int getArticleCount() {}
+            SQLiteDatabase db = this.getWritableDatabase();
+            Cursor cursor = db.rawQuery(selectQuery, null);
+            if (cursor.moveToFirst()) {
+                do {
+                    Article article = new Article(cursor.getString(0),
+                            cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getString(5),
+                            cursor.getString(6), cursor.getString(7), cursor.getString(8));
+                    articleList.add(article);
+                } while (cursor.moveToNext());
+            }
+            // return contact list
+            return articleList;
+    }
 
-    public int updateArticle(Article contact) {}
+    public int getArticleCount() {
+        String countQuery = "SELECT  * FROM " + TABLE_NAME;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(countQuery, null);
+        cursor.close();
+        return cursor.getCount();
+    }
 
-    public void deleteArticle(Article contact) {}
+    public int updateArticle(Article article) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(ID,article.getID());
+        values.put(TITLE, article.getTitle());
+        values.put(AUTHOR, article.getAuthor());
+        values.put(CATEGORY, article.getCategory());
+        values.put(DATEPUBLISHED, article.getDatePublished());
+        values.put(BODYSNIPPET, article.getBodySnippet());
+
+        // updating row
+        return db.update(TABLE_NAME, values, ID + " = ?",
+                new String[] { String.valueOf(article.getID()) });
+    }
+
+    public void deleteArticle(Article contact) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_NAME, ID + " = ?",
+                new String[] { String.valueOf(contact.getID()) });
+        db.close();
+    }
 
 }
