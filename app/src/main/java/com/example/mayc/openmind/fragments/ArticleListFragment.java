@@ -1,5 +1,6 @@
 package com.example.mayc.openmind.fragments;
 
+import android.database.Cursor;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -24,17 +25,19 @@ import java.util.ArrayList;
 public class ArticleListFragment extends Fragment {
 
     ArticleAdapter articleAdapter;
-    ArrayList<Article> articles;
+    //ArrayList<Article> articles;
+    Cursor articles;
     RecyclerView rvArticles;
     private SwipeRefreshLayout swipe;
 
+    //TODO: fix ArticleListFragment to work with a Cursor instead of an ArrayList
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
        //setting layout and configuring recycler view
         View v = inflater.inflate(R.layout.fragments_article_list, container, false);
         rvArticles = v.findViewById(R.id.rvArticle);
-        articles = new ArrayList<>();
+//        articles = new ArrayList<>();
         articleAdapter = new ArticleAdapter(articles);
         rvArticles.setLayoutManager(new LinearLayoutManager(getContext()));
         rvArticles.setAdapter(articleAdapter);
@@ -54,10 +57,10 @@ public class ArticleListFragment extends Fragment {
 
     //addItems that works with an ArrayList of documentpayloads
     public void addItems(ArrayList<Article> articlesToDisplay) {
-        for (int i = 0 ; i < articlesToDisplay.size(); i++) {
-            articles.add(articlesToDisplay.get(i));
-            articleAdapter.notifyItemInserted(articles.size() - 1);
-        }
+//        for (int i = 0 ; i < articlesToDisplay.size(); i++) {
+//            articles.add(articlesToDisplay.get(i));
+//            articleAdapter.notifyItemInserted(articles.size() - 1);
+//        }
     }
 
     public void fetchTimelineAsync() {

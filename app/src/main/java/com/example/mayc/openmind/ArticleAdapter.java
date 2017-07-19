@@ -1,6 +1,7 @@
 package com.example.mayc.openmind;
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -9,81 +10,98 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.mayc.openmind.models.Article;
+
+import org.parceler.Parcels;
+
 /**
  * Created by mayc on 7/10/17.
  */
 
-public class ArticleAdapter extends android.support.v4.widget.CursorAdapter {
+public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHolder> {
 
-    public Cursor mArticles;
+    public Cursor cursor;
     Context context;
 
 
 
-    public ArticleAdapter(Context context, Cursor cursor) {
-        super(context, cursor, 0);
-        this.mArticles = cursor;
+    public ArticleAdapter(Cursor cursor) {
+        this.cursor = cursor;
     }
 
-
-    // The newView method is used to inflate a new view and return it
     @Override
-    public View newView(Context context, Cursor cursor, ViewGroup parent) {
-        return LayoutInflater.from(context).inflate(R.layout.article_table, parent, false);
-
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        context = parent.getContext();
+        LayoutInflater inflater = LayoutInflater.from(context);
+        View articleView = inflater.inflate(R.layout.item_article, parent, false);
+        ViewHolder viewHolder = new ViewHolder(articleView);
+        return viewHolder;
     }
+
+
 
     //The bindView method is used to bind all data to a given view
     @Override
-    public void bindView(View view, Context context, Cursor cursor) {
-        // Find fields to populate in inflated template
-        TextView tvTitleTable = (TextView) view.findViewById(R.id.tvTitleTable);
-        TextView tvSourceUrlTable = (TextView) view.findViewById(R.id.tvSourceUrlTable);
-        TextView tvAuthor = (TextView) view.findViewById(R.id.tvAuthor);
-        TextView tvCategoryTable = (TextView) view.findViewById(R.id.tvCategoryTable);
-        TextView tvDatePublishedTable = (TextView) view.findViewById(R.id.tvDatePublishedTable);
-        TextView tvBodySnippetTable = (TextView) view.findViewById(R.id.tvBodySnippetTable);
+    public void onBindViewHolder(ViewHolder holder, int position) {
+        //move to correct position
+        cursor.moveToPosition(position);
 
         // Extract properties from cursor
-        String title = cursor.getString(cursor.getColumnIndexOrThrow("title"));
-        String sourceUrl = cursor.getString(cursor.getColumnIndexOrThrow("source url"));
-        String author = cursor.getString(cursor.getColumnIndexOrThrow("author"));
-        String category = cursor.getString(cursor.getColumnIndexOrThrow("category"));
-        String datePublished = cursor.getString(cursor.getColumnIndexOrThrow("date published"));
-        String bodySnippet = cursor.getString(cursor.getColumnIndexOrThrow("body snippet"));
+        String title = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHandler.TITLE));
+        String author = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHandler.AUTHOR));
+        String category = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHandler.CATEGORY));
+        String datePublished = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHandler.DATEPUBLISHED));
 
-        // Populate fields with extracted properties
-        tvTitleTable.setText(title);
-        tvSourceUrlTable.setText(sourceUrl);
-        tvAuthor.setText(author);
-        tvCategoryTable.setText(category);
-        tvDatePublishedTable.setText(datePublished);
-        tvBodySnippetTable.setText(bodySnippet);
+        String sourceUrl = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHandler.SOURCEURL));
+        String imageUrl = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHandler.IMAGEURL));
+        String hostUrl = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHandler.HOST));
+
+
+        //TODO: use split by ".", with an if else that checks if the url has "www."
+        //parse for publisher info
+        String host = hostUrl.replaceAll("www.", "").replaceAll(".com","").replaceAll(".network", "")
+                .replaceAll(".net","").replaceAll(".org", "").replaceAll(".edu", "").replaceAll(".gov","");
+
+
+        //set data
+        holder.tvTitle.setText(title);
+        holder.tvAuthor.setText(author);
+        //TODO: set category icon based on category
+
+
+        //TODO: reformat datepublished to be pretty
+        holder.tvDateCreated.setText(datePublished);
+        
+        holder.tvSource.setText(host);
+        
+        //TODO: set articleimage using imageurl
+        //TODO: set publisher image (maybe)
+        //TODO: set bookmark icon
 
     }
+
 
     public int getItemCount() {
-        return mArticles.getCount();
+        return cursor.getCount();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder  {
-        public ImageView ivPublisherImage;
-        public TextView tvPublisher;
-        public TextView tvDateCreated;
-        public ImageView ivCategoryIcon;
-        public ImageView ivBookmarkIcon;
-        public ImageView ivArticleImage;
+    public class ViewHolder extends RecyclerView.ViewHolder {
         public TextView tvTitle;
-        public TextView tvArticleDescription;
-        public TextView tvSource;
         public TextView tvAuthor;
+        public ImageView ivCategoryIcon;
+        public TextView tvDateCreated;
+        public ImageView ivPublisherImage;
+
+        public TextView tvSource; //HOST NOT SOURCEURL
+        public ImageView ivArticleImage;
+
+        //extras for article adapter
+        public ImageView ivBookmarkIcon;
+        public TextView tvPublisher; //TODO: see if we can get this
 
 
         public ViewHolder(View itemView) {
             super(itemView);
-
-            //this performs the lookups
-
             ivPublisherImage = (ImageView) itemView.findViewById(R.id.ivPublisherImage);
             tvPublisher = (TextView) itemView.findViewById(R.id.tvPublisher);
             tvDateCreated = (TextView) itemView.findViewById(R.id.tvDateCreated);
@@ -91,23 +109,28 @@ public class ArticleAdapter extends android.support.v4.widget.CursorAdapter {
             ivBookmarkIcon = (ImageView) itemView.findViewById(R.id.ivBookmarkIcon);
             ivArticleImage = (ImageView) itemView.findViewById(R.id.ivArticleImage);
             tvTitle = (TextView) itemView.findViewById(R.id.tvTitle);
-            tvArticleDescription = (TextView) itemView.findViewById(R.id.tvArticleDescription);
             tvSource = (TextView) itemView.findViewById(R.id.tvSource);
             tvAuthor = (TextView) itemView.findViewById(R.id.tvAuthor);
 
-            //Handles the clicks for opening articles
             itemView.setOnClickListener(new View.OnClickListener() {
-
                 @Override
                 public void onClick(View view) {
-                    //TODO Devon Implement on click
-
+                    int position = getAdapterPosition();
+                    cursor.moveToPosition(position);
+                    Article article = new Article(cursor.getString(0),
+                            cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getString(5),
+                            cursor.getString(6), cursor.getString(7), cursor.getString(8));
+                    Intent intent = new Intent(context, ArticleDetailActivity.class);
+                    intent.putExtra(Article.class.getSimpleName(), Parcels.wrap(article));
+                    context.startActivity(intent);
                 }
             });
         }
 
-//            public void cursorChanged() {
-//                mArticles.cursorChanged();
-//            }
+        //TODO: request a new cursor here in clear
+        public void clear() {
+
         }
+
     }
+}

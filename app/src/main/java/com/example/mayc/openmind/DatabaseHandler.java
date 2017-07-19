@@ -26,16 +26,16 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private static final String TABLE_NAME = "articles";
 
     //Column Names
-    private static final String ID = "_id";
-    private static final String TITLE = "title";
-    private static final String AUTHOR = "author";
-    private static final String CATEGORY = "category";
-    private static final String DATEPUBLISHED = "date";
-    private static final String BODYSNIPPET = "description";
+    static final String ID = "_id";
+    static final String TITLE = "title";
+    static final String AUTHOR = "author";
+    static final String CATEGORY = "category";
+    static final String DATEPUBLISHED = "date";
+    static final String BODYSNIPPET = "description";
 
-    private static final String SOURCEURL = "sourceUrl";
-    private static final String IMAGEURL = "imageurl";
-    private static final String HOST = "hosturl";
+    static final String SOURCEURL = "sourceUrl";
+    static final String IMAGEURL = "imageurl";
+    static final String HOST = "hosturl";
 
 
     public DatabaseHandler(Context context, String name) {
