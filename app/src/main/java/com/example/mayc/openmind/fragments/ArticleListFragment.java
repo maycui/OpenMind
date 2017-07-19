@@ -38,7 +38,8 @@ public class ArticleListFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragments_article_list, container, false);
         rvArticles = v.findViewById(R.id.rvArticle);
 //        articles = new ArrayList<>();
-        articleAdapter = new ArticleAdapter(articles);
+//        articles = new Cursor();
+        articleAdapter = new ArticleAdapter();
         rvArticles.setLayoutManager(new LinearLayoutManager(getContext()));
         rvArticles.setAdapter(articleAdapter);
 
@@ -55,7 +56,7 @@ public class ArticleListFragment extends Fragment {
         return v;
     }
 
-    //addItems that works with an ArrayList of documentpayloads
+    //TODO: make additems work for cursor (must replace empty cursor with this cursor)
     public void addItems(ArrayList<Article> articlesToDisplay) {
 //        for (int i = 0 ; i < articlesToDisplay.size(); i++) {
 //            articles.add(articlesToDisplay.get(i));

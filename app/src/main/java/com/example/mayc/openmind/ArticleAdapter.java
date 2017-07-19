@@ -24,6 +24,7 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
     Context context;
 
 
+    public ArticleAdapter() {}
 
     public ArticleAdapter(Cursor cursor) {
         this.cursor = cursor;
@@ -37,8 +38,6 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
         ViewHolder viewHolder = new ViewHolder(articleView);
         return viewHolder;
     }
-
-
 
     //The bindView method is used to bind all data to a given view
     @Override
@@ -80,9 +79,21 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
 
     }
 
-
     public int getItemCount() {
-        return cursor.getCount();
+        if (cursor != null) {
+            return cursor.getCount();
+        } else {
+            return 0;
+        }
+    }
+
+    //TODO: request a new cursor here in clear
+    public void clear() {
+
+    }
+
+    public void setCursor (Cursor cursor) {
+        this.cursor = cursor;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -125,11 +136,6 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
                     context.startActivity(intent);
                 }
             });
-        }
-
-        //TODO: request a new cursor here in clear
-        public void clear() {
-
         }
 
     }
