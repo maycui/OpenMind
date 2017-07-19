@@ -81,22 +81,43 @@ public class DiscoveryClient {
                 } else {
                     documentPayload.setBody("empty");
                 }
+
                 if (jarray.get(i).getAsJsonObject().get(Constants.DISCOVERY_FIELD_SOURCE_URL) == null) {
                     documentPayload.setSourceUrl("empty");
                 } else {
                     documentPayload.setSourceUrl(jarray.get(i).getAsJsonObject().get(Constants.DISCOVERY_FIELD_SOURCE_URL)
                             .toString().replaceAll("\"", ""));
                 }
-                if (jarray.get(i).getAsJsonObject().get(Constants.DISCOVERY_FIELD_CONFIDENCE) != null) {
-                    documentPayload.setConfidence(jarray.get(i).getAsJsonObject().get(Constants.DISCOVERY_FIELD_CONFIDENCE)
-                            .toString().replaceAll("\"", ""));
+
+                if (jarray.get(i).getAsJsonObject().get(Constants.DISCOVERY_FIELD_AUTHOR) != null) {
+                    documentPayload.setAuthor(jarray.get(i).getAsJsonObject().get(Constants.DISCOVERY_FIELD_AUTHOR).toString().replaceAll("\"", ""));
                 } else {
-                    documentPayload.setConfidence("0.0");
+                    documentPayload.setAuthor("empty");
                 }
-                documentPayload.setSourceUrl("");
-                payload.add(i, documentPayload);
+
+                if (jarray.get(i).getAsJsonObject().get(Constants.DISCOVERY_FIELD_DATE) != null) {
+                    documentPayload.setAuthor(jarray.get(i).getAsJsonObject().get(Constants.DISCOVERY_FIELD_DATE).toString().replaceAll("\"", ""));
+                } else {
+                    documentPayload.setAuthor("empty");
+                }
+
+                if (jarray.get(i).getAsJsonObject().get(Constants.DISCOVERY_FIELD_DESCRIPTION) != null) {
+                    documentPayload.setAuthor(jarray.get(i).getAsJsonObject().get(Constants.DISCOVERY_FIELD_DESCRIPTION).toString().replaceAll("\"", ""));
+                } else {
+                    documentPayload.setAuthor("empty");
+
+                    if (jarray.get(i).getAsJsonObject().get(Constants.DISCOVERY_FIELD_CONFIDENCE) != null) {
+                        documentPayload.setConfidence(jarray.get(i).getAsJsonObject().get(Constants.DISCOVERY_FIELD_CONFIDENCE)
+                                .toString().replaceAll("\"", ""));
+                    } else {
+                        documentPayload.setConfidence("0.0");
+                    }
+                    documentPayload.setSourceUrl("");
+                    payload.add(i, documentPayload);
+                }
             }
-        } else {
+        }
+        else{
             DocumentPayload documentPayload = new DocumentPayload();
             documentPayload.setTitle("No results found");
             documentPayload.setBody("empty");
