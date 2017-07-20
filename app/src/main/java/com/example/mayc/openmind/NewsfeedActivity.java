@@ -63,9 +63,13 @@ public class NewsfeedActivity extends AppCompatActivity implements NavigationVie
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
+        //TODO: all of them have to check if the user is already in the right activity?
+        //TODO: check if hamburger menu must be added to every activity
         int id = item.getItemId();
 
-        if (id == R.id.hamProfile) {
+        if (id == R.id.hamHome) {
+
+        } else if (id==R.id.hamProfile) {
             //starts profile activity, no need to pass data
             Intent p = new Intent(this, ProfileActivity.class);
             startActivity(p);
