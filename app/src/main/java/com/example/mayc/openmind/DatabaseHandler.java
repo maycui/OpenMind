@@ -37,7 +37,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     static final String IMAGEURL = "imageurl";
     static final String HOST = "hosturl";
 
-
     public DatabaseHandler(Context context, String name) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
