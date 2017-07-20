@@ -32,7 +32,8 @@
         <activity android:name=".StartActivity" />
         <activity android:name=".ArticleDetailActivity" />
         <activity android:name=".ProfileActivity" />
-        <activity android:name=".SurveyActivity"></activity>
+        <activity android:name=".UserSurveyActivity" />
+        <activity android:name=".InfoActivity"></activity>
     </application>
 
 </manifest>
