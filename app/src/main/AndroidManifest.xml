@@ -22,10 +22,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".HamburgerActivity"
-            android:label="@string/title_activity_hamburger"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name=".SurveyActivity"
             android:label="@string/title_activity_survey" />
         <activity android:name=".StartActivity" />
