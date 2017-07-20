@@ -58,16 +58,18 @@ public class DiscoveryClient {
         List<DocumentPayload> payload = new ArrayList<DocumentPayload>();
         JsonArray jarray = resultsElement.getAsJsonArray();
 
-        //TODO: parse for extra attributes
         if (jarray.size() > 0) {
             for (int i = 0; (i < jarray.size()) && (i < Constants.DISCOVERY_MAX_SEARCH_RESULTS_TO_SHOW); i++) {
+
                 DocumentPayload documentPayload = new DocumentPayload();
                 String id = jarray.get(i).getAsJsonObject().get(Constants.DISCOVERY_FIELD_ID).toString().replaceAll("\"", "");
                 documentPayload.setId(id);
+
                 if (jarray.get(i).getAsJsonObject().get(Constants.DISCOVERY_FIELD_TITLE) != null) {
                     documentPayload.setTitle(
                             jarray.get(i).getAsJsonObject().get(Constants.DISCOVERY_FIELD_TITLE).toString().replaceAll("\"", ""));
                 }
+
                 if (jarray.get(i).getAsJsonObject().get(Constants.DISCOVERY_FIELD_BODY) != null) {
                     String body = jarray.get(i).getAsJsonObject().get(Constants.DISCOVERY_FIELD_BODY).toString().replaceAll("\"",
                             "");
@@ -96,13 +98,13 @@ public class DiscoveryClient {
                 }
 
                 if (jarray.get(i).getAsJsonObject().get(Constants.DISCOVERY_FIELD_DATE) != null) {
-                    documentPayload.setAuthor(jarray.get(i).getAsJsonObject().get(Constants.DISCOVERY_FIELD_DATE).toString().replaceAll("\"", ""));
+                    documentPayload.setDatePublished(jarray.get(i).getAsJsonObject().get(Constants.DISCOVERY_FIELD_DATE).toString().replaceAll("\"", ""));
                 } else {
-                    documentPayload.setAuthor("empty");
+                    documentPayload.setDatePublished("empty");
                 }
 
                 if (jarray.get(i).getAsJsonObject().get(Constants.DISCOVERY_FIELD_DESCRIPTION) != null) {
-                    documentPayload.setAuthor(jarray.get(i).getAsJsonObject().get(Constants.DISCOVERY_FIELD_DESCRIPTION).toString().replaceAll("\"", ""));
+                    documentPayload.setBodySnippet(jarray.get(i).getAsJsonObject().get(Constants.DISCOVERY_FIELD_DESCRIPTION).toString().replaceAll("\"", ""));
                 } else {
                     documentPayload.setAuthor("empty");
                     if (jarray.get(i).getAsJsonObject().get(Constants.DISCOVERY_FIELD_CONFIDENCE) != null) {
@@ -113,6 +115,16 @@ public class DiscoveryClient {
                     }
                     documentPayload.setSourceUrl("");
                     payload.add(i, documentPayload);
+                    documentPayload.setBodySnippet("empty");
+
+                if (jarray.get(i).getAsJsonObject().get(Constants.DISCOVERY_FIELD_CONFIDENCE) != null) {
+                    documentPayload.setConfidence(jarray.get(i).getAsJsonObject().get(Constants.DISCOVERY_FIELD_CONFIDENCE)
+                            .toString().replaceAll("\"", ""));
+                } else {
+                    documentPayload.setConfidence("0.0");
+                }
+                documentPayload.setSourceUrl("");
+                payload.add(i, documentPayload);
                 }
             }
         }
@@ -123,6 +135,7 @@ public class DiscoveryClient {
             documentPayload.setSourceUrl("empty");
             documentPayload.setBodySnippet("empty");
             documentPayload.setConfidence("0.0");
+            documentPayload.setAuthor("empty");
             payload.add(documentPayload);
         }
 
