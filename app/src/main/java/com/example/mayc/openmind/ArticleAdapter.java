@@ -24,6 +24,7 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
     Context context;
 
 
+    public ArticleAdapter() {}
 
     public ArticleAdapter(Cursor cursor) {
         this.cursor = cursor;
@@ -37,8 +38,6 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
         ViewHolder viewHolder = new ViewHolder(articleView);
         return viewHolder;
     }
-
-
 
     //The bindView method is used to bind all data to a given view
     @Override
@@ -56,11 +55,15 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
         String imageUrl = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHandler.IMAGEURL));
         String hostUrl = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHandler.HOST));
 
-
-        //TODO: use split by ".", with an if else that checks if the url has "www."
+        String host;
         //parse for publisher info
-        String host = hostUrl.replaceAll("www.", "").replaceAll(".com","").replaceAll(".network", "")
-                .replaceAll(".net","").replaceAll(".org", "").replaceAll(".edu", "").replaceAll(".gov","");
+        String[] split = hostUrl.split(".");
+        if (hostUrl.contains("www.")) {
+            host = split[1];
+        } else {
+            host = split[0];
+        }
+
 
 
         //set data
@@ -80,9 +83,21 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
 
     }
 
-
     public int getItemCount() {
-        return cursor.getCount();
+        if (cursor != null) {
+            return cursor.getCount();
+        } else {
+            return 0;
+        }
+    }
+
+    //TODO: request a new cursor here in clear
+    public void clear() {
+
+    }
+
+    public void setCursor (Cursor cursor) {
+        this.cursor = cursor;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -97,8 +112,7 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
 
         //extras for article adapter
         public ImageView ivBookmarkIcon;
-        public TextView tvPublisher; //TODO: see if we can get this
-
+        public TextView tvPublisher;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -125,11 +139,6 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
                     context.startActivity(intent);
                 }
             });
-        }
-
-        //TODO: request a new cursor here in clear
-        public void clear() {
-
         }
 
     }
