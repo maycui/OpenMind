@@ -76,6 +76,9 @@ public class NewsfeedActivity extends AppCompatActivity implements NavigationVie
 
         } else if (id == R.id.nav_send) {
 
+        } else if (id== R.id.hamSurvey) {
+            Intent i = new Intent(this, UserSurveyActivity.class);
+            startActivity(i);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
