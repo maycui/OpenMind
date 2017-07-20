@@ -18,8 +18,13 @@ import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
+import com.example.mayc.openmind.DatabaseHandler;
+import com.example.mayc.openmind.
 
 import java.util.HashMap;
+
+import static android.provider.MediaStore.Audio.Playlists.Members._ID;
+import static com.example.mayc.openmind.ArticlesTable.DATABASE_NAME;
 
 /**
  * Created by elliecorbus on 7/19/17.
@@ -58,16 +63,16 @@ public class ArticlesProvider extends ContentProvider {
      * Database specific constant declarations
      */
 
-    private SQLiteDatabase db;
-    static final String DATABASE_NAME = "ArticleDatabase";
-    static final String ARTICLES_TABLE_NAME = "articles";
-    static final int DATABASE_VERSION = 1;
-    // Creating the DB table is already done in the DB Handler...how to deal with this?
-    static final String CREATE_DB_TABLE =
-            " CREATE TABLE " + ARTICLES_TABLE_NAME +
-                    " (_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                    " name TEXT NOT NULL, " +
-                    " grade TEXT NOT NULL);";
+//    private SQLiteDatabase db;
+//    static final String DATABASE_NAME = "ArticleDatabase";
+//    static final String ARTICLES_TABLE_NAME = "articles";
+//    static final int DATABASE_VERSION = 1;
+//    // Creating the DB table is already done in the DB Handler...how to deal with this?
+//    static final String CREATE_DB_TABLE =
+//            " CREATE TABLE " + ARTICLES_TABLE_NAME +
+//                    " (_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+//                    " name TEXT NOT NULL, " +
+//                    " grade TEXT NOT NULL);";
 
     /**
      * Helper class that actually creates and manages
@@ -125,7 +130,7 @@ public class ArticlesProvider extends ContentProvider {
 
         SQLiteQueryBuilder qb = new SQLiteQueryBuilder();
 
-        // set the table
+        // set the table (setTables sets the list of tables to query)
         qb.setTables(ARTICLES_TABLE_NAME);
 
         // TODO: figure out this section

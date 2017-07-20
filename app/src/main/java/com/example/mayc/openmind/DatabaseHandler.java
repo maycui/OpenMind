@@ -11,6 +11,17 @@ import com.example.mayc.openmind.models.Article;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.example.mayc.openmind.ArticlesTable.TABLE_NAME;
+import static com.example.mayc.openmind.ArticlesTable.ID;
+import static com.example.mayc.openmind.ArticlesTable.TITLE;
+import static com.example.mayc.openmind.ArticlesTable.AUTHOR;
+import static com.example.mayc.openmind.ArticlesTable.CATEGORY;
+import static com.example.mayc.openmind.ArticlesTable.DATE_PUBLISHED;
+import static com.example.mayc.openmind.ArticlesTable.BODY_SNIPPET;
+import static com.example.mayc.openmind.ArticlesTable.SOURCE_URL;
+import static com.example.mayc.openmind.ArticlesTable.IMAGE_URL;
+import static com.example.mayc.openmind.ArticlesTable.HOST;
+
 /**
  * Created by mayc on 7/17/17.
  */
@@ -20,45 +31,28 @@ import java.util.List;
 
 public class DatabaseHandler extends SQLiteOpenHelper {
 
-    //Database Information
-    private static final int DATABASE_VERSION = 1;
+    // database information
     private static final String DATABASE_NAME = "articlesDatabase";
-    private static final String TABLE_NAME = "articles";
+    private static final int DATABASE_VERSION = 1;
 
-    //Column Names
-    static final String ID = "_id";
-    static final String TITLE = "title";
-    static final String AUTHOR = "author";
-    static final String CATEGORY = "category";
-    static final String DATEPUBLISHED = "date";
-    static final String BODYSNIPPET = "description";
-
-    static final String SOURCEURL = "sourceUrl";
-    static final String IMAGEURL = "imageurl";
-    static final String HOST = "hosturl";
-
+    // Constructor
     public DatabaseHandler(Context context, String name) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
-
     // this where we write create table statements, this is called when database is created
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String CREATE_ARTICLES_TABLE = "CREATE TABLE " + TABLE_NAME + "(" + ID +
-                " TEXT," + TITLE + " TEXT," + AUTHOR + " TEXT,"
-                + CATEGORY + " TEXT" + DATEPUBLISHED + " TEXT" + BODYSNIPPET + " TEXT" + SOURCEURL + " TEXT" + IMAGEURL + " TEXT" +  HOST + " TEXT" + ")";
-        db.execSQL(CREATE_ARTICLES_TABLE);
-
+        ArticlesTable.onCreate(db);
     }
 
     // this method updates table with new table being passed in
     @Override
-    public void onUpgrade(SQLiteDatabase db, int i, int i1) {
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
-        onCreate(db);
+    public void onUpgrade(SQLiteDatabase database, int oldVersion, int newVersion) {
+        ArticlesTable.onUpgrade(database, oldVersion, newVersion);
     }
 
+    // adds an article
     public void addArticle(Article article) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -67,33 +61,45 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         values.put(TITLE, article.getTitle());
         values.put(AUTHOR, article.getAuthor());
         values.put(CATEGORY, article.getCategory());
-        values.put(DATEPUBLISHED, article.getDatePublished());
-        values.put(BODYSNIPPET, article.getBodySnippet());
+        values.put(DATE_PUBLISHED, article.getDatePublished());
+        values.put(BODY_SNIPPET, article.getBodySnippet());
 
-        values.put(SOURCEURL, article.getSourceUrl());
-        values.put(IMAGEURL, article.getDatePublished());
+        values.put(SOURCE_URL, article.getSourceUrl());
+        values.put(IMAGE_URL, article.getDatePublished());
         values.put(HOST, article.getHostUrl());
 
-        // Inserting Row
+        // inserts row
         db.insert(TABLE_NAME, null, values);
         db.close();
     }
 
+    // retrieves an article
     public Article getArticle(int id) {
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.query(TABLE_NAME, new String[] {ID,  TITLE,
-                        AUTHOR, CATEGORY, DATEPUBLISHED, BODYSNIPPET, SOURCEURL, IMAGEURL, HOST}, TITLE + "=?",
+        Cursor cursor = db.query(TABLE_NAME, new String[]
+                                {ID,
+                                TITLE,
+                                AUTHOR,
+                                CATEGORY,
+                                DATE_PUBLISHED,
+                                BODY_SNIPPET,
+                                SOURCE_URL,
+                                IMAGE_URL,
+                                HOST},
+                            TITLE + "=?",
                 new String[] { String.valueOf(id)}, null, null, null, null);
 
         if (cursor != null)
             cursor.moveToFirst();
 
         Article article = new Article(cursor.getString(0),
-                cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getString(5),
-                cursor.getString(6), cursor.getString(7), cursor.getString(8));
+                cursor.getString(1), cursor.getString(2), cursor.getString(3),
+                cursor.getString(4), cursor.getString(5), cursor.getString(6),
+                cursor.getString(7), cursor.getString(8));
         return article;
     }
 
+    // retrieves all articles
     public List<Article> getAllArticles() {
         List<Article> articleList = new ArrayList<Article>();
         String selectQuery = "SELECT  * FROM " + TABLE_NAME;
@@ -102,9 +108,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
             Cursor cursor = db.rawQuery(selectQuery, null);
             if (cursor.moveToFirst()) {
                 do {
-                    Article article = new Article(cursor.getString(0),
-                            cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getString(5),
-                            cursor.getString(6), cursor.getString(7), cursor.getString(8));
+                    Article article = new Article(cursor.getString(0), cursor.getString(1),
+                            cursor.getString(2), cursor.getString(3), cursor.getString(4),
+                            cursor.getString(5), cursor.getString(6), cursor.getString(7),
+                            cursor.getString(8));
                     articleList.add(article);
                 } while (cursor.moveToNext());
             }
@@ -127,8 +134,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         values.put(TITLE, article.getTitle());
         values.put(AUTHOR, article.getAuthor());
         values.put(CATEGORY, article.getCategory());
-        values.put(DATEPUBLISHED, article.getDatePublished());
-        values.put(BODYSNIPPET, article.getBodySnippet());
+        values.put(DATE_PUBLISHED, article.getDatePublished());
+        values.put(BODY_SNIPPET, article.getBodySnippet());
 
         // updating row
         return db.update(TABLE_NAME, values, ID + " = ?",
