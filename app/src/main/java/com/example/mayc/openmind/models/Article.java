@@ -22,9 +22,7 @@ public class Article implements Serializable{
     public String imageUrl;
     public String host;
 
-
-
-    Article() {}
+    public Article() {}
 
     public Article(DocumentPayload d) {
         //will take information from document payload and extract values to set as attributes
@@ -36,7 +34,6 @@ public class Article implements Serializable{
         datePublished = d.getDatePublished();
         host = d.getHostUrl();
         //not included is category and imageURL because that is retrieved later
-
     }
 
     public Article (String id, String title, String author, String category, String datePublished, String bodySnippet, String sourceUrl, String imageUrl, String host) {
@@ -51,44 +48,64 @@ public class Article implements Serializable{
         this.host = host;
     }
 
-
+    //GETTERS
     public String getID(){
         return id;
     }
-
     public String getTitle() {
         return title;
     }
-
     public String getAuthor() {
         return author;
     }
-
     public String getCategory() {
         return category;
     }
-
     public String getDatePublished() {
         return datePublished;
     }
-
     public String getBodySnippet() {
         return bodySnippet;
     }
-
     //urls
     public String getSourceUrl() {
         return sourceUrl;
     }
-
     public String getImageUrl() {
         return imageUrl;
     }
-
     public String getHostUrl(){
         return host;
     }
 
+    //SETTERS
+    public void setId(String id) {
+        this.id = id;
+    }
+    public void setTitle(String title) {
+        this.title = title;
+    }
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+    public void setCategory(String category) {
+        this.category = category;
+    }
+    public void setDatePublished(String datePublished) {
+        this.datePublished = datePublished;
+    }
+    public void setBodySnippet(String bodySnippet) {
+        this.bodySnippet = bodySnippet;
+    }
+    public void setSourceUrl(String sourceUrl) {
+        this.sourceUrl = sourceUrl;
+    }
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+    public void setHost(String host) {
+        this.host = host;
+    }
 }
 
 
