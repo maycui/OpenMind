@@ -9,7 +9,7 @@ import java.io.Serializable;
  */
 
 @Parcel
-public class Article implements Serializable {
+public class Article implements Serializable{
 
     // DON'T CHANGE ORDER OF ATTRIBUTES, need to use as reference for constructor parameter order
     public String id;
@@ -18,30 +18,11 @@ public class Article implements Serializable {
     public String category; //TODO Devon See if this can actually be queried (HELP. How do we categorize the articles)
     public String datePublished;
     public String bodySnippet;
-
     public String sourceUrl;
     public String imageUrl;
     public String host;
 
-
-
-    Article() {}
-
-    //TODO: Devon Create a way to get the commented info from Document payload
-    public Article(DocumentPayload d) {
-        //will take information from document payload and extract values to set as attributes
-        id = d.getId();
-        title = d.getTitle();
-        author = d.getAuthor();
-        bodySnippet = d.getBodySnippet();
-        sourceUrl = d.getSourceUrl();
-        datePublished = d.getDatePublished();
-        host = d.getHostUrl();
-        //not included is category and imageURL because that is retrieved later
-
-
-        //TODO: Devon find a way to decide what category articles are
-    }
+    public Article() {}
 
     public Article (String id, String title, String author, String category, String datePublished, String bodySnippet, String sourceUrl, String imageUrl, String host) {
         this.id = id;
@@ -50,50 +31,69 @@ public class Article implements Serializable {
         this.category = category;
         this.datePublished = datePublished;
         this.bodySnippet = bodySnippet;
-
         this.sourceUrl = sourceUrl;
         this.imageUrl = imageUrl;
         this.host = host;
     }
 
-
+    //GETTERS
     public String getID(){
         return id;
     }
-
     public String getTitle() {
         return title;
     }
-
     public String getAuthor() {
         return author;
     }
-
     public String getCategory() {
         return category;
     }
-
     public String getDatePublished() {
         return datePublished;
     }
-
     public String getBodySnippet() {
         return bodySnippet;
     }
-
     //urls
     public String getSourceUrl() {
         return sourceUrl;
     }
-
     public String getImageUrl() {
         return imageUrl;
     }
-
     public String getHostUrl(){
         return host;
     }
 
+    //SETTERS
+    public void setId(String id) {
+        this.id = id;
+    }
+    public void setTitle(String title) {
+        this.title = title;
+    }
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+    public void setCategory(String category) {
+        this.category = category;
+    }
+    public void setDatePublished(String datePublished) {
+        this.datePublished = datePublished;
+    }
+    public void setBodySnippet(String bodySnippet) {
+        this.bodySnippet = bodySnippet;
+    }
+    public void setSourceUrl(String sourceUrl) {
+        this.sourceUrl = sourceUrl;
+    }
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+    public void setHost(String host) {
+        this.host = host;
+    }
 }
 
 

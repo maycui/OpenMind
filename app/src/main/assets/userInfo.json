@@ -1,0 +1,88 @@
+{
+  "survey_properties": {
+    "intro_message": "<strong>Let's get to know you</strong><br><br><br>  Hello, take this survey so we understand who you are. You're one step closer to opening your mind",
+    "skip_intro": false
+  },
+  "questions": [
+    {
+      "question_type": "String",
+      "question_title": "Name",
+      "description": "",
+      "required":true
+    },
+    {
+      "question_type": "Checkboxes",
+      "question_title": "Gender",
+      "description": "",
+      "required": true,
+      "random_choices": true,
+      "choices": [
+        "Female",
+        "Male",
+        "Transgerder",
+        "Cis",
+        "Gender Fluid",
+        "Other"
+      ]
+    },
+    {
+      "question_type": "Number",
+      "question_title": "Age",
+      "description": "",
+      "required": true
+    },
+    {
+      "question_title": "Sexual Orientation",
+      "description": "",
+      "required": true,
+      "choices": [
+        "Heterosexual",
+        "Homosexual",
+        "Bisexual",
+        "Asexual",
+        "Pansexual",
+        "Other"
+      ],
+      "question_type": "Checkboxes"
+    },
+    {
+      "question_type": "Checkboxes",
+      "question_title": "Race/Ethnicity",
+      "description": "",
+      "required": true,
+      "choices": [
+        "American Indian or Alaska Native",
+        "Asian",
+        "Black or African American",
+        "Native Hawaiian or Other Pacific Islander",
+        "White"
+      ]
+    },
+    {
+      "question_type": "Checkboxes",
+      "question_title": "Income",
+      "description": "",
+      "required": true,
+      "choices": [
+        "Less than $20,000",
+        "$20,000 to $34,999",
+        "$35,000 to $49,999",
+        "$50,000 to $74,999",
+        "$75,000 to $99,999",
+        "Over $100,000"
+      ]
+    },
+    {
+      "question_type": "Checkboxes",
+      "question_title": "Are you legally disabled?",
+      "description": "",
+      "required": true,
+      "choices": [
+        "Yes",
+        "No"
+      ]
+    }
+
+
+  ]
+}

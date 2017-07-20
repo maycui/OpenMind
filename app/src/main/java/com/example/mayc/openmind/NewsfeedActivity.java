@@ -15,13 +15,10 @@ import android.view.MenuItem;
 
 import com.example.mayc.openmind.fragments.TimelineAdapter;
 
-//TODO: get action bar
 
 public class NewsfeedActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener  {
 
     TimelineAdapter adapterView;
-
-    //TODO: bring hamburger menu to this activity
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,11 +32,9 @@ public class NewsfeedActivity extends AppCompatActivity implements NavigationVie
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
         //setting the tab layout
         TabLayout tabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
         tabLayout.setupWithViewPager(vp);
-
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -54,7 +49,6 @@ public class NewsfeedActivity extends AppCompatActivity implements NavigationVie
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main, menu);
-
         return true;
     }
 
@@ -70,13 +64,14 @@ public class NewsfeedActivity extends AppCompatActivity implements NavigationVie
         if (id == R.id.hamHome) {
 
         } else if (id==R.id.hamProfile) {
-            //starts profile activity, no need to pass data
             Intent p = new Intent(this, ProfileActivity.class);
             startActivity(p);
         } else if (id == R.id.hamSettings) {
-
+            Intent s = new Intent(this, SettingsActivity.class);
+            startActivity(s);
         } else if (id == R.id.hamInfo) {
-
+            Intent i = new Intent(this, InfoActivity.class);
+            startActivity(i);
         } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {
