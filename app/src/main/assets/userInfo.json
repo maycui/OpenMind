@@ -17,11 +17,11 @@
       "required": true,
       "random_choices": true,
       "choices": [
-        "Female",
-        "Male",
-        "Transgerder",
-        "Cis",
-        "Gender Fluid",
+        "Cis female",
+        "Cis male",
+        "Transgender (female to male)",
+        "Transgender (male to female)",
+        "Genderfluid",
         "Other"
       ]
     },
