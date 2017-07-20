@@ -14,6 +14,10 @@
         <service
             android:name=".DiscoveryIntentService"
             android:exported="false" />
+        
+        <provider
+            android:authorities="com.example.mayc.openmind.ArticlesProvider"
+            android:name=".ArticlesProvider" />
 
         <activity android:name=".NewsfeedActivity">
             <intent-filter>

@@ -112,6 +112,15 @@ public class DiscoveryClient {
                 if (jarray.get(i).getAsJsonObject().get(Constants.DISCOVERY_FIELD_DESCRIPTION) != null) {
                     documentPayload.setBodySnippet(jarray.get(i).getAsJsonObject().get(Constants.DISCOVERY_FIELD_DESCRIPTION).toString().replaceAll("\"", ""));
                 } else {
+                    documentPayload.setAuthor("empty");
+                    if (jarray.get(i).getAsJsonObject().get(Constants.DISCOVERY_FIELD_CONFIDENCE) != null) {
+                        documentPayload.setConfidence(jarray.get(i).getAsJsonObject().get(Constants.DISCOVERY_FIELD_CONFIDENCE)
+                                .toString().replaceAll("\"", ""));
+                    } else {
+                        documentPayload.setConfidence("0.0");
+                    }
+                    documentPayload.setSourceUrl("");
+                    payload.add(i, documentPayload);
                     documentPayload.setBodySnippet("empty");
 
                 if (jarray.get(i).getAsJsonObject().get(Constants.DISCOVERY_FIELD_CONFIDENCE) != null) {

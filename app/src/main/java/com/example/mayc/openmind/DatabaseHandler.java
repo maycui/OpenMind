@@ -37,7 +37,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     static final String IMAGEURL = "imageurl";
     static final String HOST = "hosturl";
 
-
     public DatabaseHandler(Context context, String name) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -82,7 +81,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     public Article getArticle(int id) {
         SQLiteDatabase db = this.getReadableDatabase();
-
         Cursor cursor = db.query(TABLE_NAME, new String[] {ID,  TITLE,
                         AUTHOR, CATEGORY, DATEPUBLISHED, BODYSNIPPET, SOURCEURL, IMAGEURL, HOST}, TITLE + "=?",
                 new String[] { String.valueOf(id)}, null, null, null, null);

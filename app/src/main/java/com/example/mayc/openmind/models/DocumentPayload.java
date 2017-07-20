@@ -9,6 +9,8 @@ package com.example.mayc.openmind.models;
 
 /*This is used in DiscoveryClient, will be working with this class to extract information about Article*/
 
+//TODO: delete documentpayload and have client create articles instead
+
 public class DocumentPayload {
 
     private String body;
