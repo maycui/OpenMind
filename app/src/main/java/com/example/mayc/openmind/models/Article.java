@@ -18,7 +18,6 @@ public class Article implements Serializable{
     public String category; //TODO Devon See if this can actually be queried (HELP. How do we categorize the articles)
     public String datePublished;
     public String bodySnippet;
-
     public String sourceUrl;
     public String imageUrl;
     public String host;
@@ -27,7 +26,6 @@ public class Article implements Serializable{
 
     Article() {}
 
-    //TODO: Devon Create a way to get the commented info from Document payload
     public Article(DocumentPayload d) {
         //will take information from document payload and extract values to set as attributes
         id = d.getId();
@@ -39,7 +37,6 @@ public class Article implements Serializable{
         host = d.getHostUrl();
         //not included is category and imageURL because that is retrieved later
 
-        //TODO: Devon find a way to decide what category articles are
     }
 
     public Article (String id, String title, String author, String category, String datePublished, String bodySnippet, String sourceUrl, String imageUrl, String host) {
@@ -49,7 +46,6 @@ public class Article implements Serializable{
         this.category = category;
         this.datePublished = datePublished;
         this.bodySnippet = bodySnippet;
-
         this.sourceUrl = sourceUrl;
         this.imageUrl = imageUrl;
         this.host = host;

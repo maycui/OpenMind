@@ -48,6 +48,9 @@ public class Constants {
     /** The Constant DISCOVERY_MAX_SEARCH_RESULTS_TO_SHOW. */
     public static final int DISCOVERY_MAX_SEARCH_RESULTS_TO_SHOW = 3;
 
+    /**The Constant DISCOVERY_FIELD_HOST */
+    public static final  String DISCOVERY_FIELD_HOST = "host";
+
     /** The Constant DISCOVERY_URL. */
     public static final String DISCOVERY_URL = "https://gateway.watsonplatform.net/discovery/api/";
 

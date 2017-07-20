@@ -20,7 +20,6 @@ public class DocumentPayload {
     private String author;
     private String datePublished;
     private String imageURL; //TODO: extract imageurl using another api
-    private String sentimentType;
     private String hostUrl;
 
     public DocumentPayload() {}
@@ -105,10 +104,6 @@ public class DocumentPayload {
         return imageURL;
     }
 
-    public String getSentimentType() {
-        return sentimentType;
-    }
-
     public String getHostUrl() {
         return hostUrl;
     }
@@ -184,6 +179,14 @@ public class DocumentPayload {
 
     public void setAuthor(String author){
         this.author = author;
+    }
+
+    public void setDatePublished(String datePublished){
+        this.datePublished = datePublished;
+    }
+
+    public void setHostUrl(String hostUrl){
+        this.hostUrl = hostUrl;
     }
 
     @Override

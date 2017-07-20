@@ -84,6 +84,12 @@ public class DiscoveryClient {
                     documentPayload.setBody("empty");
                 }
 
+                if (jarray.get(i).getAsJsonObject().get(Constants.DISCOVERY_FIELD_HOST) != null) {
+                    documentPayload.setHostUrl(jarray.get(i).getAsJsonObject().get(Constants.DISCOVERY_FIELD_HOST).toString().replaceAll("\"",""));
+                } else {
+                    documentPayload.setHostUrl("empty");
+                }
+
                 if (jarray.get(i).getAsJsonObject().get(Constants.DISCOVERY_FIELD_SOURCE_URL) == null) {
                     documentPayload.setSourceUrl("empty");
                 } else {
