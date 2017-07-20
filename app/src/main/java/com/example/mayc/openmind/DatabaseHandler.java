@@ -32,8 +32,8 @@ import static com.example.mayc.openmind.ArticlesTable.HOST;
 public class DatabaseHandler extends SQLiteOpenHelper {
 
     // database information
-    private static final String DATABASE_NAME = "articlesDatabase";
-    private static final int DATABASE_VERSION = 1;
+    static final String DATABASE_NAME = "articlesDatabase";
+    static final int DATABASE_VERSION = 1;
 
     // Constructor
     public DatabaseHandler(Context context, String name) {

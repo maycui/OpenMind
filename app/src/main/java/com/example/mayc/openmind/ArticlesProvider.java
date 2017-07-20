@@ -1,9 +1,7 @@
 package com.example.mayc.openmind;
-// TODO: figure out how to design authority string
-// com.example.mayc.openmind.provider;
 
-// TODO: figure out content URI
-// com.example.mayc.openmind.provider/articles // articles = table name
+import java.util.Arrays;
+import java.util.HashSet;
 
 import android.content.ContentProvider;
 import android.content.ContentUris;
@@ -16,15 +14,14 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
-import android.provider.ContactsContract;
 import android.text.TextUtils;
 import com.example.mayc.openmind.DatabaseHandler;
-import com.example.mayc.openmind.
+import com.example.mayc.openmind.ArticlesTable;
 
 import java.util.HashMap;
 
 import static android.provider.MediaStore.Audio.Playlists.Members._ID;
-import static com.example.mayc.openmind.ArticlesTable.DATABASE_NAME;
+import static com.example.mayc.openmind.DatabaseHandler.DATABASE_NAME;
 
 /**
  * Created by elliecorbus on 7/19/17.
@@ -35,28 +32,33 @@ public class ArticlesProvider extends ContentProvider {
     // database
     private DatabaseHandler database;
 
+    // used for the UriMatcher
+    static final int ARTICLES = 1;
+    static final int ARTICLE_ID = 2;
+
+    // authority statement
     static final String AUTHORITY = "com.example.mayc.openmind.ArticlesProvider"; // a.k.a. authority
+
     private static final String BASE_PATH = "articles";
     public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY
             + "/" + BASE_PATH);
 
-//    static final String _ID = "_id";
-//    static final String NAME = "name";
-//    static final String GRADE = "grade";
 
 //    TODO: figure out what STUDENTS and STUDENT_ID are
 //    static final int STUDENTS = 1;
 //    static final int STUDENT_ID = 2;
 
-    static final int ARTICLES = 1;
-    static final int ARTICLE_ID = 2;
+
 
     // TODO: Figure out how to handle URI IDs (what should it be?)
+    // What exactly is this section doing?
 
-    static final UriMatcher uriMatcher;
+    private static final UriMatcher uriMatcher = new UriMatcher(
+            UriMatcher.NO_MATCH
+    );
     static{
-        uriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
-        uriMatcher.addURI(AUTHORITY, "articles"); // Isn't the int key optional? How to fix this?
+        uriMatcher.addURI(AUTHORITY, BASE_PATH, ARTICLES); // Isn't the int key optional? How to fix this?
+        uriMatcher.addURI(AUTHORITY, BASE_PATH + "/#", ARTICLE_ID);
     }
 
     /**
