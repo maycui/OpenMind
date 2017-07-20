@@ -105,7 +105,6 @@ public class DiscoveryClient {
                     documentPayload.setAuthor(jarray.get(i).getAsJsonObject().get(Constants.DISCOVERY_FIELD_DESCRIPTION).toString().replaceAll("\"", ""));
                 } else {
                     documentPayload.setAuthor("empty");
-
                     if (jarray.get(i).getAsJsonObject().get(Constants.DISCOVERY_FIELD_CONFIDENCE) != null) {
                         documentPayload.setConfidence(jarray.get(i).getAsJsonObject().get(Constants.DISCOVERY_FIELD_CONFIDENCE)
                                 .toString().replaceAll("\"", ""));

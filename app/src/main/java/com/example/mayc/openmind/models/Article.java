@@ -9,7 +9,7 @@ import java.io.Serializable;
  */
 
 @Parcel
-public class Article implements Serializable{
+public class Article implements Serializable {
 
     // DON'T CHANGE ORDER OF ATTRIBUTES, need to use as reference for constructor parameter order
     public String id;
@@ -38,6 +38,7 @@ public class Article implements Serializable{
         datePublished = d.getDatePublished();
         host = d.getHostUrl();
         //not included is category and imageURL because that is retrieved later
+
 
         //TODO: Devon find a way to decide what category articles are
     }
