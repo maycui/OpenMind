@@ -23,7 +23,7 @@ public class StartActivity extends AppCompatActivity {
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(context, SurveyActivity.class);
+                Intent i = new Intent(context, SettingsActivity.class);
                 context.startActivity(i);
             }
         });

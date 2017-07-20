@@ -14,23 +14,25 @@
         <service
             android:name=".DiscoveryIntentService"
             android:exported="false" />
-        
+
         <provider
-            android:authorities="com.example.mayc.openmind.ArticlesProvider"
-            android:name=".ArticlesProvider" />
+            android:name=".ArticlesProvider"
+            android:authorities="com.example.mayc.openmind.ArticlesProvider" />
 
         <activity android:name=".NewsfeedActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".SurveyActivity"
+            android:name=".SettingsActivity"
             android:label="@string/title_activity_survey" />
         <activity android:name=".StartActivity" />
         <activity android:name=".ArticleDetailActivity" />
-        <activity android:name=".ProfileActivity"></activity>
+        <activity android:name=".ProfileActivity" />
+        <activity android:name=".SurveyActivity"></activity>
     </application>
 
 </manifest>
