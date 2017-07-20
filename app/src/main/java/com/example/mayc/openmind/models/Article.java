@@ -24,18 +24,6 @@ public class Article implements Serializable{
 
     public Article() {}
 
-    public Article(DocumentPayload d) {
-        //will take information from document payload and extract values to set as attributes
-        id = d.getId();
-        title = d.getTitle();
-        author = d.getAuthor();
-        bodySnippet = d.getBodySnippet();
-        sourceUrl = d.getSourceUrl();
-        datePublished = d.getDatePublished();
-        host = d.getHostUrl();
-        //not included is category and imageURL because that is retrieved later
-    }
-
     public Article (String id, String title, String author, String category, String datePublished, String bodySnippet, String sourceUrl, String imageUrl, String host) {
         this.id = id;
         this.title = title;
