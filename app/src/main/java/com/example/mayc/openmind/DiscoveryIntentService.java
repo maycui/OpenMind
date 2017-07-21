@@ -37,7 +37,5 @@ public class DiscoveryIntentService extends IntentService {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-        //convert list of document payloads to list of articles
     }
 }

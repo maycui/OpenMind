@@ -51,9 +51,6 @@ public class UserSurveyActivity extends AppCompatActivity {
         }
     }
 
-
-
-
     //json stored in the assets folder. but you can get it from wherever you like.
     private String loadSurveyJson(String filename) {
         try {
