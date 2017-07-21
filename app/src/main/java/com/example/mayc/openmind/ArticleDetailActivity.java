@@ -56,7 +56,6 @@ public class ArticleDetailActivity extends AppCompatActivity {
         tvAuthor.setText(article.author);
         tvArticleDescription.setText(article.bodySnippet);
         tvImageCaption.setText("Need to find image caption");//Todo find image caption if there is one
-        tvArticleUrl.setText(article.sourceUrl);
         tvDatePublished.setText(article.datePublished);
         tvPublisher.setText(host);
 
