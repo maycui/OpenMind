@@ -1,6 +1,7 @@
 {
   "survey_properties": {
     "intro_message": "<strong>Let's get to know you</strong><br><br><br>  Hello, take this survey so we understand who you are. You're one step closer to opening your mind",
+    "end_message": "Thank you for having the time to take our survey.",
     "skip_intro": false
   },
   "questions": [
@@ -70,6 +71,20 @@
       "choices":[
         "Yes",
         "No"
+      ]
+    },
+    {
+      "question_type": "Checkboxes",
+      "question_title": "Race/Ethnicity",
+      "description": "",
+      "required": true,
+      "random_choices":false,
+      "choices": [
+        "American Indian or Alaska Native",
+        "Asian",
+        "Black or African American",
+        "Native Hawaiian or Other Pacific Islander",
+        "White"
       ]
     },
     {
