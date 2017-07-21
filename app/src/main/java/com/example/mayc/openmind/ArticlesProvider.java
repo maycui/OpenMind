@@ -4,9 +4,11 @@ import android.content.ContentProvider;
 import android.content.ContentValues;
 import android.content.UriMatcher;
 import android.database.Cursor;
+import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
+import android.support.annotation.NonNull;
 
 import static android.provider.MediaStore.Audio.Playlists.Members._ID;
 import static com.example.mayc.openmind.ArticlesTable.TABLE_NAME;
@@ -53,24 +55,45 @@ public class ArticlesProvider extends ContentProvider {
         return database != null;
     }
 
-
     @Override
-    public Uri insert(Uri uri, ContentValues values) {
+    public int bulkInsert(@NonNull Uri uri, @NonNull ContentValues[] values) {
+
+        // counter for number of rows inserted
+        int numInserted = 0;
+        String table;
 
         int uriType = uriMatcher.match(uri);
 
-        SQLiteDatabase sqlDB = database.getWritableDatabase();
-        long id = 0;
         switch (uriType) {
             case ARTICLES:
-                id = sqlDB.insert(TABLE_NAME, null, values);
+                table = TABLE_NAME;
                 break;
             default:
                 throw new IllegalArgumentException("Unknown URI: " + uri);
         }
 
-        getContext().getContentResolver().notifyChange(uri, null);
-        return Uri.parse(BASE_PATH + "/" + id);
+        SQLiteDatabase sqlDB = database.getWritableDatabase();
+        sqlDB.beginTransaction();
+        try {
+            for (ContentValues cv : values) {
+                long newID = sqlDB.insertOrThrow(table, null, cv);
+                if (newID <= 0) {
+                    throw new SQLException("Failed to insert row into " + uri);
+                }
+        }sqlDB.setTransactionSuccessful();
+            getContext().getContentResolver().notifyChange(uri, null);
+            numInserted = values.length;
+        } finally {
+            sqlDB.endTransaction();
+        }
+        return numInserted;
+    }
+
+
+
+    @Override
+    public Uri insert(Uri uri, ContentValues values) {
+        return uri;
     }
 
 
@@ -111,13 +134,13 @@ public class ArticlesProvider extends ContentProvider {
 
     @Override
     public int delete(Uri uri, String selection, String[] selectionArgs) {
-        return 0;
+        throw new RuntimeException("Not implemented");
     }
 
     @Override
     public int update(Uri uri, ContentValues values,
                 String selection, String[] selectionArgs) {
-        return 0;
+        throw new RuntimeException("Not implemented");
     }
 
     @Override
