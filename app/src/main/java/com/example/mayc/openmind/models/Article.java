@@ -65,7 +65,6 @@ public class Article implements Serializable{
     public String getHostUrl(){
         return host;
     }
-
     //SETTERS
     public void setId(String id) {
         this.id = id;
