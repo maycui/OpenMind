@@ -36,6 +36,7 @@ public class ArticlesProvider extends ContentProvider {
             + "/" + BASE_PATH);
 
 
+
     // TODO: Figure out what exactly this section is doing
     private static final UriMatcher uriMatcher = new UriMatcher(
             UriMatcher.NO_MATCH
@@ -90,13 +91,6 @@ public class ArticlesProvider extends ContentProvider {
     }
 
 
-
-    @Override
-    public Uri insert(Uri uri, ContentValues values) {
-        return uri;
-    }
-
-
     @Override
     public Cursor query(Uri uri, String[] projection,
                 String selection, String[] selectionArgs, String sortOrder) {
@@ -146,5 +140,10 @@ public class ArticlesProvider extends ContentProvider {
     @Override
     public String getType(Uri uri) {
         return null;
+    }
+
+    @Override
+    public Uri insert(Uri uri, ContentValues values) {
+        return uri;
     }
 }
