@@ -1,6 +1,7 @@
 package com.example.mayc.openmind;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -17,6 +18,8 @@ import butterknife.ButterKnife;
 
 public class ArticleDetailActivity extends AppCompatActivity {
 
+    public Cursor cursor;
+    String host;
     Context context;
     Article article;
 
@@ -38,13 +41,24 @@ public class ArticleDetailActivity extends AppCompatActivity {
         article = Parcels.unwrap(getIntent().getParcelableExtra(Article.class.getSimpleName()));
         Log.d("ArticleDetailActivity", String.format("Showing details for '%s'", article.getID()));
 
+
+        String hostUrl = cursor.getString(cursor.getColumnIndexOrThrow(ArticlesTable.HOST));
+        //parse for publisher info
+        String[] split = hostUrl.split(".");
+        if (hostUrl.contains("www.")) {
+            host = split[1];
+        } else {
+            host = split[0];
+        }
+
         //setting data to the views
         tvArticleTitle.setText(article.title);
         tvAuthor.setText(article.author);
         tvArticleDescription.setText(article.bodySnippet);
-        tvImageCaption.setText("Need to find image caption");//Todo find image caption
+        tvImageCaption.setText("Need to find image caption");//Todo find image caption if there is one
         tvArticleUrl.setText(article.sourceUrl);
         tvDatePublished.setText(article.datePublished);
+        tvPublisher.setText(host);
 
         context = this;
 
@@ -55,7 +69,5 @@ public class ArticleDetailActivity extends AppCompatActivity {
                 .load(article.getImageUrl())
                 .placeholder(placeholderId)
                 .into(ivArticleImage);
-
-
     }
 }
