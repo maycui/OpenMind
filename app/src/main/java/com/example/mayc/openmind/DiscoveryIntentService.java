@@ -52,7 +52,6 @@ public class DiscoveryIntentService extends IntentService {
         } catch (Exception e) {
             e.printStackTrace();
         }
-<<<<<<< HEAD
 
         ContentValues[] bulkToInsert = new ContentValues[result.size()];;
 
@@ -84,9 +83,6 @@ public class DiscoveryIntentService extends IntentService {
         getApplicationContext()
                 .getContentResolver()
                 .bulkInsert(ArticlesProvider.CONTENT_URI, bulkToInsert);
-
-=======
->>>>>>> f154794dc3b784e39ac1087bd86cf7c61df74084
     }
 
 
