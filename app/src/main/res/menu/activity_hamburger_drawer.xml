@@ -15,9 +15,13 @@
             android:icon="@drawable/settings"
             android:title="Settings" />
         <item
-            android:id="@+id/hamInfo"
+        android:id="@+id/hamInfo"
+        android:icon="@drawable/information_outline"
+        android:title="Info" />
+        <item
+            android:id="@+id/hamSurvey"
             android:icon="@drawable/information_outline"
-            android:title="Info" />
+            android:title="Survey" />
 
     </group>
 

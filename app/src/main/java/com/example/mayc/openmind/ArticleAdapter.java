@@ -46,14 +46,14 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
         cursor.moveToPosition(position);
 
         // Extract properties from cursor
-        String title = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHandler.TITLE));
-        String author = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHandler.AUTHOR));
-        String category = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHandler.CATEGORY));
-        String datePublished = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHandler.DATEPUBLISHED));
+        String title = cursor.getString(cursor.getColumnIndexOrThrow(ArticlesTable.TITLE));
+        String author = cursor.getString(cursor.getColumnIndexOrThrow(ArticlesTable.AUTHOR));
+        String category = cursor.getString(cursor.getColumnIndexOrThrow(ArticlesTable.CATEGORY));
+        String datePublished = cursor.getString(cursor.getColumnIndexOrThrow(ArticlesTable.DATE_PUBLISHED));
 
-        String sourceUrl = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHandler.SOURCEURL));
-        String imageUrl = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHandler.IMAGEURL));
-        String hostUrl = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHandler.HOST));
+        String sourceUrl = cursor.getString(cursor.getColumnIndexOrThrow(ArticlesTable.SOURCE_URL));
+        String imageUrl = cursor.getString(cursor.getColumnIndexOrThrow(ArticlesTable.IMAGE_URL));
+        String hostUrl = cursor.getString(cursor.getColumnIndexOrThrow(ArticlesTable.HOST));
 
         String host;
         //parse for publisher info
