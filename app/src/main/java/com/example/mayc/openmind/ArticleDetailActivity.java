@@ -1,10 +1,13 @@
 package com.example.mayc.openmind;
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -68,5 +71,12 @@ public class ArticleDetailActivity extends AppCompatActivity {
                 .load(article.getImageUrl())
                 .placeholder(placeholderId)
                 .into(ivArticleImage);
+
+
+    }
+
+    public void onOpenLink(View v){
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.google.com"));
+        startActivity(browserIntent);
     }
 }
