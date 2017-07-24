@@ -23,8 +23,7 @@ public class ArticlesProvider extends ContentProvider {
     // database
     private DatabaseHandler database;
 
-    // used for the UriMatcher
-    // TODO: figure out what these are
+    //these are codes that are returned when the URI is matched by the UriMatcher
     static final int ARTICLES = 1;
     static final int ARTICLE_ID = 2;
 
@@ -36,11 +35,14 @@ public class ArticlesProvider extends ContentProvider {
             + "/" + BASE_PATH);
 
 
-    // TODO: Figure out what exactly this section is doing
+    //initiating a new Uri Matcher; UriMatcher is a utility class that can help match URIS in content providers
     private static final UriMatcher uriMatcher = new UriMatcher(
             UriMatcher.NO_MATCH
     );
-    static{
+
+    //this is a static initialization block (static version of a constructor) this block of code gets called whenever a class is constructed
+    static {
+        //paramters of .addURI is String authority, String path, and int code to return when article is matched
         uriMatcher.addURI(AUTHORITY, BASE_PATH, ARTICLES);
         uriMatcher.addURI(AUTHORITY, BASE_PATH + "/#", ARTICLE_ID);
     }
@@ -106,18 +108,17 @@ public class ArticlesProvider extends ContentProvider {
         // set the table (setTables sets the list of tables to query)
         qb.setTables(TABLE_NAME);
 
-        // TODO: figure out this section
+        //.match() will return the correct code (Articles) if it finds a match
         int uriType = uriMatcher.match(uri);
         switch (uriType) {
+            //if we got the code ARTICLES...
             case ARTICLES:
                 break;
-
+            //if we got the code ARTICLE_ID...
             case ARTICLE_ID:
                 // adding the ID to the original query
-                // TODO: figure out this line
                 qb.appendWhere(_ID + "=" + uri.getLastPathSegment());
                 break;
-
             default:
                 throw new IllegalArgumentException("Unknown URI: " + uri);
         }
