@@ -80,9 +80,11 @@ public class DiscoveryIntentService extends IntentService {
             bulkToInsert[0] = mNewValues;
         }
 
-        getApplicationContext()
-                .getContentResolver()
-                .bulkInsert(ArticlesProvider.CONTENT_URI, bulkToInsert);
+//        getApplicationContext()
+//                .getContentResolver()
+//                .bulkInsert(ArticlesProvider.CONTENT_URI, bulkToInsert);
+
+        int c = new ArticlesProvider().bulkInsert(ArticlesProvider.CONTENT_URI, bulkToInsert);
     }
 
 

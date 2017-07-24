@@ -2,6 +2,7 @@ package com.example.mayc.openmind;
 
 import android.content.ContentProvider;
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.UriMatcher;
 import android.database.Cursor;
 import android.database.SQLException;
@@ -21,7 +22,8 @@ import static com.example.mayc.openmind.DatabaseHandler.DATABASE_NAME;
 public class ArticlesProvider extends ContentProvider {
 
     // database
-    private DatabaseHandler database;
+    public DatabaseHandler databaseHandler;
+    public Context context;
 
     //these are codes that are returned when the URI is matched by the UriMatcher
     static final int ARTICLES = 1;
@@ -50,17 +52,16 @@ public class ArticlesProvider extends ContentProvider {
 
     @Override
     public boolean onCreate() {
-
-        database = new DatabaseHandler(getContext(), DATABASE_NAME);
-
+        //TODO: understand why database becomes null when calling bulkInsert
+        databaseHandler = new DatabaseHandler(getContext(), DATABASE_NAME);
+        context = getContext();
         // return false if the database is null
-        return database != null;
+        return databaseHandler != null;
     }
 
     @Override
     public int bulkInsert(@NonNull Uri uri, @NonNull ContentValues[] values) {
 
-        // counter for number of rows inserted
         int numInserted = 0;
         String table;
 
@@ -74,7 +75,7 @@ public class ArticlesProvider extends ContentProvider {
                 throw new IllegalArgumentException("Unknown URI: " + uri);
         }
 
-        SQLiteDatabase sqlDB = database.getWritableDatabase();
+        SQLiteDatabase sqlDB = databaseHandler.getWritableDatabase();
         sqlDB.beginTransaction();
         try {
             for (ContentValues cv : values) {
@@ -116,7 +117,7 @@ public class ArticlesProvider extends ContentProvider {
                 throw new IllegalArgumentException("Unknown URI: " + uri);
         }
 
-        SQLiteDatabase db = database.getWritableDatabase();
+        SQLiteDatabase db = databaseHandler.getWritableDatabase();
         Cursor cursor = qb.query(db, projection, selection,
                 selectionArgs, null, null, sortOrder);
 

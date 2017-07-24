@@ -14,29 +14,29 @@ public class ArticlesTable {
 
     // column names
     static final String ID = "_id";
-    static final String TITLE = "title";
-    static final String AUTHOR = "author";
-    static final String CATEGORY = "category";
-    static final String DATE_PUBLISHED = "date";
-    static final String BODY_SNIPPET = "description";
-    static final String SOURCE_URL = "sourceUrl";
-    static final String IMAGE_URL = "imageurl";
-    static final String HOST = "hosturl";
+    static final String TITLE = "_title";
+    static final String AUTHOR = "_author";
+    static final String CATEGORY = "_category";
+    static final String DATE_PUBLISHED = "_date";
+    static final String BODY_SNIPPET = "_description";
+    static final String SOURCE_URL = "_sourceUrl";
+    static final String IMAGE_URL = "_imageurl";
+    static final String HOST = "_hosturl";
 
     // database creation SQL statement
     private static final String DATABASE_CREATE = "CREATE TABLE "
             + TABLE_NAME
-            + " ( "
-            + ID + " TEXT "
-            + TITLE + " TEXT "
-            + AUTHOR + " TEXT "
-            + CATEGORY + " TEXT "
-            + DATE_PUBLISHED + " TEXT "
-            + BODY_SNIPPET + " TEXT "
-            + SOURCE_URL + " TEXT "
-            + IMAGE_URL + " TEXT "
-            + HOST + " TEXT "
-            + " );";
+            + "("
+            + ID + " TEXT,"
+            + TITLE + " TEXT,"
+            + AUTHOR + " TEXT,"
+            + CATEGORY + " TEXT,"
+            + DATE_PUBLISHED + " TEXT,"
+            + BODY_SNIPPET + " TEXT,"
+            + SOURCE_URL + " TEXT,"
+            + IMAGE_URL + " TEXT,"
+            + HOST + " TEXT"
+            + ");";
 
 
     public static void onCreate(SQLiteDatabase database) {
