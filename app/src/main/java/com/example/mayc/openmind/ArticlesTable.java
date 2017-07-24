@@ -24,19 +24,19 @@ public class ArticlesTable {
     static final String HOST = "hosturl";
 
     // database creation SQL statement
-    private static final String DATABASE_CREATE = "CREATE TABLE"
+    private static final String DATABASE_CREATE = "CREATE TABLE "
             + TABLE_NAME
-            + "("
-            + ID + "TEXT"
-            + TITLE + "TEXT"
-            + AUTHOR + "TEXT"
-            + CATEGORY + "TEXT"
-            + DATE_PUBLISHED + "TEXT"
-            + BODY_SNIPPET + "TEXT"
-            + SOURCE_URL + "TEXT"
-            + IMAGE_URL + "TEXT"
-            + HOST + "TEXT"
-            + ");";
+            + " ( "
+            + ID + " TEXT "
+            + TITLE + " TEXT "
+            + AUTHOR + " TEXT "
+            + CATEGORY + " TEXT "
+            + DATE_PUBLISHED + " TEXT "
+            + BODY_SNIPPET + " TEXT "
+            + SOURCE_URL + " TEXT "
+            + IMAGE_URL + " TEXT "
+            + HOST + " TEXT "
+            + " );";
 
 
     public static void onCreate(SQLiteDatabase database) {
