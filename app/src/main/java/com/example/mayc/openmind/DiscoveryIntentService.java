@@ -60,6 +60,8 @@ public class DiscoveryIntentService extends IntentService {
 
         // temp = the Article item in result
 
+        int index = 0;
+
         for (Article temp : result) {
 
             // create
@@ -77,14 +79,17 @@ public class DiscoveryIntentService extends IntentService {
             mNewValues.put(HOST, temp.getHostUrl());
 
             // append mNewValues to the array of new values
-            bulkToInsert[0] = mNewValues;
+
+            bulkToInsert[index] = mNewValues;
+            index++;
         }
 
-//        getApplicationContext()
-//                .getContentResolver()
-//                .bulkInsert(ArticlesProvider.CONTENT_URI, bulkToInsert);
+        // access ArticleProvider via ContentResolver
+        getApplicationContext()
+                .getContentResolver()
+                .bulkInsert(ArticlesProvider.CONTENT_URI, bulkToInsert);
 
-        int c = new ArticlesProvider().bulkInsert(ArticlesProvider.CONTENT_URI, bulkToInsert);
+//        int c = new ArticlesProvider().bulkInsert(ArticlesProvider.CONTENT_URI, bulkToInsert);
     }
 
 
