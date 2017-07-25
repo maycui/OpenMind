@@ -46,7 +46,7 @@ public class Constants {
     public static final String DISCOVERY_FIELD_DESCRIPTION = "alchemyapi_text";
 
     /** The Constant DISCOVERY_MAX_SEARCH_RESULTS_TO_SHOW. */
-    public static final int DISCOVERY_MAX_SEARCH_RESULTS_TO_SHOW = 3;
+    public static final int DISCOVERY_MAX_SEARCH_RESULTS_TO_SHOW = 7;
 
     /**The Constant DISCOVERY_FIELD_HOST */
     public static final  String DISCOVERY_FIELD_HOST = "host";

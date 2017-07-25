@@ -98,7 +98,9 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
 
     public void setCursor (Cursor cursor) {
         this.cursor = cursor;
+        notifyDataSetChanged();
     }
+
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public TextView tvTitle;

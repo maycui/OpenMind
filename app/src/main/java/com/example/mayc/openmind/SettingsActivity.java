@@ -34,6 +34,7 @@ import java.util.List;
  * API Guide</a> for more information on developing a Settings UI.
  */
 public class SettingsActivity extends AppCompatPreferenceActivity {
+
     /**
      * A preference value change listener that updates the preference's summary
      * to reflect its new value.
@@ -47,6 +48,8 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
                 // For list preferences, look up the correct display value in
                 // the preference's 'entries' list.
                 ListPreference listPreference = (ListPreference) preference;
+
+                //retrieving which index is selected
                 int index = listPreference.findIndexOfValue(stringValue);
 
                 // Set the summary to reflect the new value.
@@ -121,6 +124,7 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
         super.onCreate(savedInstanceState);
         setupActionBar();
     }
+
 
     /**
      * Set up the {@link android.app.ActionBar}, if the API is available.

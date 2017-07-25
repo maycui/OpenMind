@@ -10,6 +10,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
 import android.support.annotation.NonNull;
+import android.util.Log;
 
 import static android.provider.MediaStore.Audio.Playlists.Members._ID;
 import static com.example.mayc.openmind.ArticlesTable.TABLE_NAME;
@@ -89,6 +90,7 @@ public class ArticlesProvider extends ContentProvider {
         } finally {
             sqlDB.endTransaction();
         }
+        Log.d("OpenMind", "logging bulkInsert. Rows returned: " + numInserted);
         return numInserted;
     }
 
