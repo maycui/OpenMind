@@ -22,7 +22,7 @@ import butterknife.ButterKnife;
 public class ArticleDetailActivity extends AppCompatActivity {
 
     public Cursor cursor;
-    String host;
+    String publisher;
     Context context;
     Article article;
 
@@ -45,13 +45,13 @@ public class ArticleDetailActivity extends AppCompatActivity {
         Log.d("ArticleDetailActivity", String.format("Showing details for '%s'", article.getID()));
 
 
-        String hostUrl = cursor.getString(cursor.getColumnIndexOrThrow(ArticlesTable.HOST));
+        String hostUrl = article.getHostUrl();
         //parse for publisher info
-        String[] split = hostUrl.split(".");
+        String[] split = hostUrl.split("\\.");
         if (hostUrl.contains("www.")) {
-            host = split[1];
+            publisher = split[1];
         } else {
-            host = split[0];
+            publisher = split[0];
         }
 
         //setting data to the views
@@ -60,7 +60,7 @@ public class ArticleDetailActivity extends AppCompatActivity {
         tvArticleDescription.setText(article.bodySnippet);
         tvImageCaption.setText("Need to find image caption");//Todo find image caption if there is one
         tvDatePublished.setText(article.datePublished);
-        tvPublisher.setText(host);
+        tvPublisher.setText(publisher);
 
         context = this;
 

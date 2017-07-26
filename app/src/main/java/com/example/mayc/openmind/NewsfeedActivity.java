@@ -100,5 +100,4 @@ public class NewsfeedActivity extends AppCompatActivity implements NavigationVie
             super.onBackPressed();
         }
     }
-
 }

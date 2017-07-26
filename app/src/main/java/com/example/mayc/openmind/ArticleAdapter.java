@@ -70,14 +70,15 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
         String imageUrl = cursor.getString(cursor.getColumnIndexOrThrow(ArticlesTable.IMAGE_URL));
         String hostUrl = cursor.getString(cursor.getColumnIndexOrThrow(ArticlesTable.HOST));
 
-        String host;
+        String publisher;
         //parse for publisher info
-        String[] split = hostUrl.split("www\\.");
+        String[] split = hostUrl.split("\\.");
         if (hostUrl.contains("www.")) {
-            host = split[1];
+            publisher = split[1];
         } else {
-            host = split[0];
+            publisher = split[0];
         }
+
 
 
 
@@ -90,7 +91,8 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
         //TODO: reformat datepublished to be pretty
         holder.tvDateCreated.setText(datePublished);
         
-        holder.tvSource.setText(host);
+        holder.tvSource.setText(hostUrl);
+        holder.tvPublisher.setText(publisher);
         
         //TODO: set articleimage using imageurl
         //TODO: set publisher image (maybe)
