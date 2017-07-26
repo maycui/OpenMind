@@ -39,11 +39,10 @@ public class ArticleListFragment extends Fragment implements LoaderManager.Loade
        //setting layout and configuring recycler view
         View v = inflater.inflate(R.layout.fragments_article_list, container, false);
         rvArticles = v.findViewById(R.id.rvArticle);
-//        articles = new ArrayList<>();
-//        articles = new Cursor();
         articleAdapter = new ArticleAdapter();
-        rvArticles.setLayoutManager(new LinearLayoutManager(getContext()));
+        articleAdapter.setHasStableIds(true);
         rvArticles.setAdapter(articleAdapter);
+        rvArticles.setLayoutManager(new LinearLayoutManager(getContext()));
 
         //TODO: check if swipe to refresh configuration works
         //swipe to refresh configuration
@@ -100,7 +99,6 @@ public class ArticleListFragment extends Fragment implements LoaderManager.Loade
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
         Log.d("OpenMind", "onLoadFinished " + (data != null ? data.getCount() : "null"));
         articleAdapter.setCursor(data);
-
     }
 
     @Override

@@ -15,6 +15,8 @@ import com.example.mayc.openmind.models.Article;
 
 import org.parceler.Parcels;
 
+import static android.support.v7.widget.RecyclerView.NO_ID;
+
 /**
  * Created by mayc on 7/10/17.
  */
@@ -27,9 +29,9 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
 
     public ArticleAdapter() {}
 
-//    public ArticleAdapter(Cursor cursor) {
-//        this.cursor = cursor;
-//    }
+    public ArticleAdapter(Cursor cursor) {
+        this.cursor = cursor;
+    }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -39,6 +41,16 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
         View articleView = inflater.inflate(R.layout.item_article, parent, false);
         ViewHolder viewHolder = new ViewHolder(articleView);
         return viewHolder;
+    }
+
+    @Override
+    public long getItemId(int position) {
+        Log.d("OpenMind", "getItemId " + position);
+        if (cursor == null)
+            return NO_ID;
+
+        cursor.moveToPosition(position);
+        return cursor.getLong(cursor.getColumnIndex("_id"));
     }
 
     //The bindView method is used to bind all data to a given view
@@ -60,7 +72,7 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
 
         String host;
         //parse for publisher info
-        String[] split = hostUrl.split(".");
+        String[] split = hostUrl.split("www\\.");
         if (hostUrl.contains("www.")) {
             host = split[1];
         } else {
@@ -98,11 +110,18 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
     }
 
     //TODO: request a new cursor here in clear
-    public void clear() {
+//    public void clear() {
+//
+//    }
 
+
+    @Override
+    public int getItemViewType(int position) {
+        Log.d("OpenMind", "getItemViewType " + position);
+        return 1;
     }
 
-    public void setCursor (Cursor cursor) {
+    public void setCursor(Cursor cursor) {
         this.cursor = cursor;
         notifyDataSetChanged();
     }
