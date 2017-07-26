@@ -18,9 +18,6 @@ import android.view.ViewGroup;
 import com.example.mayc.openmind.ArticleAdapter;
 import com.example.mayc.openmind.ArticlesProvider;
 import com.example.mayc.openmind.R;
-import com.example.mayc.openmind.models.Article;
-
-import java.util.ArrayList;
 
 /**
  * Created by mayc on 7/10/17.
@@ -63,18 +60,25 @@ public class ArticleListFragment extends Fragment implements LoaderManager.Loade
 
 
     @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        Log.d("OpenMind", "onViewCreated");
+    }
+
+    @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        getLoaderManager().initLoader(0, null, this);
         super.onActivityCreated(savedInstanceState);
+        Log.d("OpenMind", "onActivityCreated");
+        getLoaderManager().initLoader(0, null, this);
     }
 
     //TODO: make additems work for cursor (must replace empty cursor with this cursor)
-    public void addItems(ArrayList<Article> articlesToDisplay) {
+//    public void addItems(ArrayList<Article> articlesToDisplay) {
 //        for (int i = 0 ; i < articlesToDisplay.size(); i++) {
 //            articles.add(articlesToDisplay.get(i));
 //            articleAdapter.notifyItemInserted(articles.size() - 1);
 //        }
-    }
+//    }
 
 //    public void fetchTimelineAsync() {
 //        articleAdapter.clear();
@@ -88,18 +92,20 @@ public class ArticleListFragment extends Fragment implements LoaderManager.Loade
 
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
-        Log.d("OpenMind", "logging");
+        Log.d("OpenMind", "onCreateLoader");
         return new CursorLoader(getActivity(), ArticlesProvider.CONTENT_URI , null, null, null, null);
     }
 
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
+        Log.d("OpenMind", "onLoadFinished " + (data != null ? data.getCount() : "null"));
         articleAdapter.setCursor(data);
 
     }
 
     @Override
     public void onLoaderReset(Loader<Cursor> loader) {
+        Log.d("OpenMind", "onLoaderReset");
         articleAdapter.setCursor(null);
     }
 }

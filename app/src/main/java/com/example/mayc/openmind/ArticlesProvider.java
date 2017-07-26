@@ -90,7 +90,7 @@ public class ArticlesProvider extends ContentProvider {
         } finally {
             sqlDB.endTransaction();
         }
-        Log.d("OpenMind", "logging bulkInsert. Rows returned: " + numInserted);
+        Log.d("OpenMind", "logging bulkInsert. Rows returned: " + numInserted + " uri=" + uri);
         return numInserted;
     }
 
@@ -125,6 +125,7 @@ public class ArticlesProvider extends ContentProvider {
 
         // make sure that potential listeners are getting notified
         cursor.setNotificationUri(getContext().getContentResolver(), uri);
+        Log.d("OpenMind", "query " + uri + " uriType=" + uriType);
 
         return cursor;
     }

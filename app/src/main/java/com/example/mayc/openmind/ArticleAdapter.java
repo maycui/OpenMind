@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,12 +27,13 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
 
     public ArticleAdapter() {}
 
-    public ArticleAdapter(Cursor cursor) {
-        this.cursor = cursor;
-    }
+//    public ArticleAdapter(Cursor cursor) {
+//        this.cursor = cursor;
+//    }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        Log.d("OpenMind", "onCreateViewHolder");
         context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
         View articleView = inflater.inflate(R.layout.item_article, parent, false);
@@ -42,6 +44,7 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
     //The bindView method is used to bind all data to a given view
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
+        Log.d("OpenMind", "onBindViewHolder " + position);
         //move to correct position
         cursor.moveToPosition(position);
 
@@ -84,11 +87,14 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
     }
 
     public int getItemCount() {
+        int count;
         if (cursor != null) {
-            return cursor.getCount();
+            count = cursor.getCount();
         } else {
-            return 0;
+            count = 0;
         }
+        Log.d("OpenMind", "getItemCount " + count);
+        return count;
     }
 
     //TODO: request a new cursor here in clear
