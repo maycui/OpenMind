@@ -53,7 +53,7 @@ public class ArticleListFragment extends Fragment implements LoaderManager.Loade
 //                fetchTimelineAsync();
 //            }
 //        });
-        swipe.setColorSchemeResources(android.R.color.holo_blue_bright);
+        swipe.setColorSchemeResources(R.color.colorAccent);
         return v;
     }
 

@@ -88,9 +88,5 @@ public class DiscoveryIntentService extends IntentService {
         getApplicationContext()
                 .getContentResolver()
                 .bulkInsert(ArticlesProvider.CONTENT_URI, bulkToInsert);
-
-//        int c = new ArticlesProvider().bulkInsert(ArticlesProvider.CONTENT_URI, bulkToInsert);
     }
-
-
 }
