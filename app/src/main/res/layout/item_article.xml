@@ -96,26 +96,25 @@
             android:text="Source"
             android:textAllCaps="true" />
 
-        <ImageView
-            android:id="@+id/ivVerticalBar"
-            android:layout_width="20dp"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/tvSource"
-            android:layout_below="@+id/tvTitle"
-            android:layout_marginTop="10dp"
-            android:layout_toRightOf="@+id/tvSource" />
-
         <TextView
             android:id="@+id/tvAuthor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/tvTitle"
-            android:layout_marginBottom="5dp"
-            android:layout_marginTop="10dp"
-            android:layout_toEndOf="@+id/ivVerticalBar"
-            android:layout_toRightOf="@+id/ivVerticalBar"
             android:text="Author"
-            android:textAllCaps="true" />
+            android:textAllCaps="true"
+            android:layout_alignBaseline="@+id/tvGreyBar"
+            android:layout_alignBottom="@+id/tvGreyBar"
+            android:layout_toRightOf="@+id/tvGreyBar"
+            android:layout_toEndOf="@+id/tvGreyBar" />
+
+        <TextView
+            android:id="@+id/tvGreyBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/tvSource"
+            android:layout_toEndOf="@+id/tvSource"
+            android:layout_toRightOf="@+id/tvSource"
+            android:text="  |  " />
 
     </RelativeLayout>
 
