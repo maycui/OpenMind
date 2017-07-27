@@ -48,9 +48,9 @@
             android:id="@+id/ivCategoryIcon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/ivArticleImage"
-            android:layout_alignRight="@+id/ivArticleImage"
-            android:layout_alignTop="@+id/tvPublisher"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
             card_view:srcCompat="@drawable/ic_menu_gallery" />
 
         <ImageView
@@ -69,8 +69,8 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/wvWebView"
-            android:layout_marginTop="10dp"
             android:layout_marginLeft="5dp"
+            android:layout_marginTop="10dp"
             android:text="Article Title blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah "
             android:textSize="16sp" />
 

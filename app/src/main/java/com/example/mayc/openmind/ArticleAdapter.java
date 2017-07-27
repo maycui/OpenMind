@@ -12,6 +12,7 @@ import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.mayc.openmind.models.Article;
 
 import org.parceler.Parcels;
@@ -100,6 +101,7 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
         holder.tvEmbed.getSettings().setAppCacheEnabled(true);
         holder.tvEmbed.loadUrl(sourceUrl);
 
+<<<<<<< HEAD
         //TODO: set articleimage using imageurl
         //TODO: set publisher image (maybe)
 //        try {
@@ -124,6 +126,16 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
 //            return null;
 //        }
 //    }
+=======
+        String favi = hostUrl + "/favicon.ico";
+        Glide.with(context)
+                .load(favi)
+                .into(holder.ivPublisherImage);
+    }
+
+
+
+>>>>>>> 376a7f22bfa0d1fda7bb3e3e0aa6c6220e4b24bc
 
     public int getItemCount() {
         int count;
