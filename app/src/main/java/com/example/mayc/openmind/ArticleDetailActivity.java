@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 
 import com.example.mayc.openmind.models.Article;
@@ -24,6 +25,8 @@ public class ArticleDetailActivity extends AppCompatActivity {
         article = Parcels.unwrap(getIntent().getParcelableExtra(Article.class.getSimpleName()));
 
         WebView myWebView = (WebView) findViewById(R.id.wvWebView);
+        WebSettings webSettings = myWebView.getSettings();
+        webSettings.setJavaScriptEnabled(true);
         myWebView.loadUrl(article.sourceUrl);
 
     }
