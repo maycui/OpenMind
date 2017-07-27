@@ -31,13 +31,9 @@ public class HomeTimelineFragment extends ArticleListFragment {
     @Override
     public void populateTimeline() {
         Intent i = new Intent(getActivity(), DiscoveryIntentService.class);
-        i.putExtra(DiscoveryIntentService.DISCOVERY_NEWS_CALL, "facebook");
+        i.putExtra(DiscoveryIntentService.DISCOVERY_NEWS_CALL, "donald trump");
         getActivity().startService(i);
 
-       //TODO: receive an array of articles
-
-        //add to timeline
-//        addItems(articles);
     }
 
 }

@@ -62,26 +62,15 @@
             android:layout_toStartOf="@+id/ivCategoryIcon"
             card_view:srcCompat="@drawable/ic_menu_gallery" />
 
-        <ImageView
-            android:id="@+id/ivArticleImage"
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:layout_alignLeft="@+id/ivPublisherImage"
-            android:layout_alignStart="@+id/ivPublisherImage"
-            android:layout_below="@+id/webView"
-            android:layout_marginTop="15dp"
-            card_view:srcCompat="@drawable/ic_menu_gallery" />
-
         <TextView
             android:id="@+id/tvTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/ivArticleImage"
-            android:layout_alignStart="@+id/ivArticleImage"
-            android:layout_below="@+id/ivArticleImage"
-            android:layout_marginBottom="5dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/wvWebView"
+            android:layout_marginTop="10dp"
             android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
             android:text="Article Title blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah "
             android:textSize="16sp" />
 
@@ -93,6 +82,7 @@
             android:layout_alignStart="@+id/tvTitle"
             android:layout_below="@+id/tvTitle"
             android:layout_marginBottom="5dp"
+            android:layout_marginLeft="5dp"
             android:layout_marginTop="10dp"
             android:text="Source"
             android:textAllCaps="true" />
@@ -118,9 +108,9 @@
             android:text="  |  " />
 
         <WebView
-            android:id="@+id/webView"
+            android:id="@+id/wvWebView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="200dp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/ivPublisherImage"

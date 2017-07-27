@@ -47,14 +47,17 @@ public class ArticleListFragment extends Fragment implements LoaderManager.Loade
         //TODO: check if swipe to refresh configuration works
         //swipe to refresh configuration
         swipe = v.findViewById(R.id.swipe);
-//        swipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-//            @Override
-//            public void onRefresh() {
-//                fetchTimelineAsync();
-//            }
-//        });
+        swipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                fetchTimelineAsync();
+            }
+        });
         swipe.setColorSchemeResources(R.color.colorAccent);
         return v;
+    }
+
+    private void fetchTimelineAsync() {
     }
 
 
@@ -71,22 +74,10 @@ public class ArticleListFragment extends Fragment implements LoaderManager.Loade
         getLoaderManager().initLoader(0, null, this);
     }
 
-    //TODO: make additems work for cursor (must replace empty cursor with this cursor)
-//    public void addItems(ArrayList<Article> articlesToDisplay) {
-//        for (int i = 0 ; i < articlesToDisplay.size(); i++) {
-//            articles.add(articlesToDisplay.get(i));
-//            articleAdapter.notifyItemInserted(articles.size() - 1);
-//        }
-//    }
-
-//    public void fetchTimelineAsync() {
-//        articleAdapter.clear();
-//        populateTimeline();
-//        swipe.setRefreshing(false);
-//    }
-
     //depends on the fragment, will be overridden in hometimelinefragment and savedtimelimefragment
-    public void populateTimeline() {}
+    public void populateTimeline() {
+
+    }
 
 
     @Override
@@ -98,6 +89,7 @@ public class ArticleListFragment extends Fragment implements LoaderManager.Loade
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
         Log.d("OpenMind", "onLoadFinished " + (data != null ? data.getCount() : "null"));
+        articleAdapter.setCursor(data);
         articleAdapter.setCursor(data);
     }
 

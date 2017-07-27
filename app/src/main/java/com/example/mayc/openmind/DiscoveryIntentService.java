@@ -29,9 +29,6 @@ import static com.example.mayc.openmind.ArticlesTable.TITLE;
 public class DiscoveryIntentService extends IntentService {
 
     public static final String DISCOVERY_NEWS_CALL = "discoveryNews";
-    public static final String BROADCAST_INTENT_STRING = "articlesToDisplay";
-
-
 
     public DiscoveryIntentService() {
         super("DiscoveryIntentService");
@@ -77,7 +74,6 @@ public class DiscoveryIntentService extends IntentService {
             mNewValues.put(SOURCE_URL, temp.getSourceUrl());
             mNewValues.put(IMAGE_URL, temp.getDatePublished());
             mNewValues.put(HOST, temp.getHostUrl());
-
 
             bulkToInsert[index] = mNewValues;
             index++;
