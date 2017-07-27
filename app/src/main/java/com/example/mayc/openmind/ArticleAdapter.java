@@ -102,35 +102,11 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
         holder.tvEmbed.loadUrl(sourceUrl);
 
 
-        //TODO: set articleimage using imageurl
-        //TODO: set publisher image (maybe)
-//        try {
-//            Bitmap faviconBitmap = getBitmapFromURL(new URL("http", "www"+ publisher, "/favicon.ico"));
-//        } catch (MalformedURLException e) {
-//            e.printStackTrace();
-//        }
-
-    }
-
-//    static Bitmap getBitmapFromURL(URL src) {
-//        try {
-//            URL url = src;
-//            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-//            connection.setDoInput(true);
-//            connection.connect();
-//            InputStream input = connection.getInputStream();
-//            Bitmap myBitmap = BitmapFactory.decodeStream(input);
-//            return myBitmap;
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//            return null;
-//        }
-//    }
-
         String favi = hostUrl + "/favicon.ico";
         Glide.with(context)
                 .load(favi)
                 .into(holder.ivPublisherImage);
+    }
 
 
 
