@@ -40,8 +40,17 @@
                 android:layout_height="match_parent"
                 android:layout_below="@id/sliding_tabs"
                 android:background="@android:color/white" />
-        </RelativeLayout>
 
+           <ImageView
+               android:id="@+id/ivLogoActionbar"
+               android:layout_width="50dp"
+               android:layout_height="wrap_content"
+               android:layout_above="@+id/sliding_tabs"
+               android:layout_centerHorizontal="true"
+               android:layout_margin="2dp"
+               app:srcCompat="@drawable/smaller_logo" />
+
+       </RelativeLayout>
 
     <android.support.design.widget.NavigationView
      android:id="@+id/nav_view"
