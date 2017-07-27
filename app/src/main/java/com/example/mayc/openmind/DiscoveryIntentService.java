@@ -78,12 +78,12 @@ public class DiscoveryIntentService extends IntentService {
             mNewValues.put(IMAGE_URL, temp.getDatePublished());
             mNewValues.put(HOST, temp.getHostUrl());
 
-            // append mNewValues to the array of new values
 
             bulkToInsert[index] = mNewValues;
             index++;
         }
 
+        //TODO: clear cursor each rerun
         // access ArticleProvider via ContentResolver
         getApplicationContext()
                 .getContentResolver()
