@@ -8,7 +8,7 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
-        <item name="android:displayOptions">useLogo|showHome</item>
+        <item name="android:displayOptions">showHome|useLogo</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -20,9 +20,13 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
-    <style name="DrawerArrowStyle" parent="@style/Widget.AppCompat.DrawerArrowToggle">
-        <item name="spinBars">true</item>
-        <item name="color">@color/white</item>
-    </style>
+    <!--Trying to change color of hamburger menu icon:-->
+    <!--<style name="MyTheme" parent="Theme.AppCompat">-->
+        <!--<item name="drawerArrowStyle">@style/MyDrawerArrowToggle</item>-->
+    <!--</style>-->
+    <!---->
+    <!--<style name="MyDrawerArrowToggle" parent="Widget.AppCompat.DrawerArrowToggle">-->
+        <!--<item name="color">@color/lightBlue</item>-->
+    <!--</style>-->
 
 </resources>
