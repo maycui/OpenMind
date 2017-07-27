@@ -65,6 +65,8 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
         String title = cursor.getString(cursor.getColumnIndexOrThrow(ArticlesTable.TITLE));
         String author = cursor.getString(cursor.getColumnIndexOrThrow(ArticlesTable.AUTHOR));
         String category = cursor.getString(cursor.getColumnIndexOrThrow(ArticlesTable.CATEGORY));
+
+        //formatting date
         String datePublished = cursor.getString(cursor.getColumnIndexOrThrow(ArticlesTable.DATE_PUBLISHED));
 
         //TODO: figure out why sourceurl is returning as empty
@@ -99,13 +101,19 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
         holder.tvEmbed.loadUrl(sourceUrl);
 
 
+<<<<<<< HEAD
 //        //TODO: set articleimage using imageurl
 //        //TODO: set publisher image (maybe)
+=======
+        //TODO: set articleimage using imageurl
+        //TODO: set publisher image (maybe)
+>>>>>>> 59eea6a83875d70873b27c5bd3aa5433ee49350a
 //        try {
 //            Bitmap faviconBitmap = getBitmapFromURL(new URL("http", "www"+ publisher, "/favicon.ico"));
 //        } catch (MalformedURLException e) {
 //            e.printStackTrace();
 //        }
+<<<<<<< HEAD
 
 
     }
@@ -124,7 +132,26 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
 //            return null;
 //        }
 //    }
+=======
+//
 
+    }
+>>>>>>> 59eea6a83875d70873b27c5bd3aa5433ee49350a
+
+//    static Bitmap getBitmapFromURL(URL src) {
+//        try {
+//            URL url = src;
+//            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+//            connection.setDoInput(true);
+//            connection.connect();
+//            InputStream input = connection.getInputStream();
+//            Bitmap myBitmap = BitmapFactory.decodeStream(input);
+//            return myBitmap;
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//            return null;
+//        }
+//    }
 
     public int getItemCount() {
         int count;
