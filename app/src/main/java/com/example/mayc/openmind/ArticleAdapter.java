@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -66,6 +67,7 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
         String category = cursor.getString(cursor.getColumnIndexOrThrow(ArticlesTable.CATEGORY));
         String datePublished = cursor.getString(cursor.getColumnIndexOrThrow(ArticlesTable.DATE_PUBLISHED));
 
+        //TODO: figure out why sourceurl is returning as empty
         String sourceUrl = cursor.getString(cursor.getColumnIndexOrThrow(ArticlesTable.SOURCE_URL));
         String imageUrl = cursor.getString(cursor.getColumnIndexOrThrow(ArticlesTable.IMAGE_URL));
         String hostUrl = cursor.getString(cursor.getColumnIndexOrThrow(ArticlesTable.HOST));
@@ -80,8 +82,6 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
         }
 
 
-
-
         //set data
         holder.tvTitle.setText(title);
         holder.tvAuthor.setText(author);
@@ -93,6 +93,12 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
         
         holder.tvSource.setText(hostUrl);
         holder.tvPublisher.setText(publisher);
+
+
+        holder.tvEmbed.getSettings().setAppCacheEnabled(true);
+        holder.tvEmbed.loadUrl(sourceUrl);
+
+
         
         //TODO: set articleimage using imageurl
         //TODO: set publisher image (maybe)
@@ -135,6 +141,7 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
         public ImageView ivCategoryIcon;
         public TextView tvDateCreated;
         public ImageView ivPublisherImage;
+        public WebView tvEmbed;
 
         public TextView tvSource; //HOST NOT SOURCEURL
         public ImageView ivArticleImage;
@@ -154,6 +161,7 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
             tvTitle = (TextView) itemView.findViewById(R.id.tvTitle);
             tvSource = (TextView) itemView.findViewById(R.id.tvSource);
             tvAuthor = (TextView) itemView.findViewById(R.id.tvAuthor);
+            tvEmbed = itemView.findViewById(R.id.webView);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

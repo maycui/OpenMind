@@ -31,7 +31,7 @@ public class Constants {
     public static final String DISCOVERY_FIELD_ID = "id";
 
     /** The Constant DISCOVERY_FIELD_SOURCE_URL. */
-    public static final String DISCOVERY_FIELD_SOURCE_URL = "sourceUrl";
+    public static final String DISCOVERY_FIELD_SOURCE_URL = "url";
 
     /** The Constant DISCOVERY_FIELD_TITLE. */
     public static final String DISCOVERY_FIELD_TITLE = "title";

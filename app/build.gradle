@@ -33,6 +33,7 @@ dependencies {
     compile group: 'com.ibm.watson.developer_cloud', name: 'discovery', version: '3.7.1'
     testCompile group: 'com.google.guava', name: 'guava', version: '19.0'
     compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.8.2'
+    compile 'com.android.support:recyclerview-v7:26.+'
     compile 'com.android.support:appcompat-v7:26.+'
     compile 'com.android.support:cardview-v7:26.+'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
@@ -47,5 +48,6 @@ dependencies {
     compile 'com.jakewharton:butterknife:8.4.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
     compile 'com.androidadvance.surveylib:surveylib:0.0.1'
+    compile 'com.codepath.libraries:android-oauth-handler:1.2.5'
 
 }

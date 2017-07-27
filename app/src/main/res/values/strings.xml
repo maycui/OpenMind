@@ -84,4 +84,7 @@
     <string name="sample_author">BY ROBERT PEAR AND THOMAS KAPLAN</string>
     <string name="sample_article_title">Senate G.O.P. Leaders Unveil Health Care Bill to Try Winning Over Skeptics</string>
     <string name="sample_publisher">New York Times</string>
+
+    <string name="intent_scheme">oauth</string>
+    <string name="intent_host">cprest</string>
 </resources>
