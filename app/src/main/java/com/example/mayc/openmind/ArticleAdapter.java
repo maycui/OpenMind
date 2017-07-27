@@ -101,17 +101,10 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
         holder.tvEmbed.getSettings().setAppCacheEnabled(true);
         holder.tvEmbed.loadUrl(sourceUrl);
 
-
         String favi = hostUrl + "/favicon.ico";
         Glide.with(context)
                 .load(favi)
                 .into(holder.ivPublisherImage);
-
-
-        //TODO: set articleimage using imageurl
-        //TODO: set publisher image (maybe)
-
-
     }
 
 

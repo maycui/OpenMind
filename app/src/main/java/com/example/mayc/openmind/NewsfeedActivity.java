@@ -31,6 +31,7 @@ public class NewsfeedActivity extends AppCompatActivity implements NavigationVie
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        toolbar.setTitle("");
 
         //setting the tab layout
         TabLayout tabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
