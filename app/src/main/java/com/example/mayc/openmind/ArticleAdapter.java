@@ -3,8 +3,6 @@ package com.example.mayc.openmind;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -17,12 +15,6 @@ import android.widget.TextView;
 import com.example.mayc.openmind.models.Article;
 
 import org.parceler.Parcels;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
 
 import static android.support.v7.widget.RecyclerView.NO_ID;
 
@@ -73,6 +65,8 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
         String title = cursor.getString(cursor.getColumnIndexOrThrow(ArticlesTable.TITLE));
         String author = cursor.getString(cursor.getColumnIndexOrThrow(ArticlesTable.AUTHOR));
         String category = cursor.getString(cursor.getColumnIndexOrThrow(ArticlesTable.CATEGORY));
+
+        //formatting date
         String datePublished = cursor.getString(cursor.getColumnIndexOrThrow(ArticlesTable.DATE_PUBLISHED));
 
         //TODO: figure out why sourceurl is returning as empty
@@ -109,30 +103,29 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
 
         //TODO: set articleimage using imageurl
         //TODO: set publisher image (maybe)
-        try {
-            Bitmap faviconBitmap = getBitmapFromURL(new URL("http", "www"+ publisher, "/favicon.ico"));
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
-
+//        try {
+//            Bitmap faviconBitmap = getBitmapFromURL(new URL("http", "www"+ publisher, "/favicon.ico"));
+//        } catch (MalformedURLException e) {
+//            e.printStackTrace();
+//        }
+//
 
     }
 
-    static Bitmap getBitmapFromURL(URL src) {
-        try {
-            URL url = src;
-            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-            connection.setDoInput(true);
-            connection.connect();
-            InputStream input = connection.getInputStream();
-            Bitmap myBitmap = BitmapFactory.decodeStream(input);
-            return myBitmap;
-        } catch (IOException e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
-
+//    static Bitmap getBitmapFromURL(URL src) {
+//        try {
+//            URL url = src;
+//            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+//            connection.setDoInput(true);
+//            connection.connect();
+//            InputStream input = connection.getInputStream();
+//            Bitmap myBitmap = BitmapFactory.decodeStream(input);
+//            return myBitmap;
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//            return null;
+//        }
+//    }
 
     public int getItemCount() {
         int count;
