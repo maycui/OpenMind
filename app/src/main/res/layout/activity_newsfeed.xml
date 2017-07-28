@@ -42,24 +42,40 @@
                android:background="@android:color/white"
                android:backgroundTint="@color/windowBackground" />
 
-           <ImageView
-               android:id="@+id/ivLogoActionbar"
-               android:layout_width="50dp"
+           <TextView
+               android:id="@+id/tvToolbarText"
+               android:layout_width="wrap_content"
                android:layout_height="wrap_content"
-               android:layout_above="@+id/sliding_tabs"
-               android:layout_centerHorizontal="true"
-               android:layout_margin="2dp"
-               app:srcCompat="@drawable/smaller_logo" />
+               android:layout_marginTop="10dp"
+               android:fontFamily="sans-serif-smallcaps"
+               android:text="PENMIND"
+               android:textColor="@color/lightBlue"
+               android:textSize="30sp"
+               android:layout_marginRight="122dp"
+               android:layout_marginEnd="122dp"
+               android:layout_alignBottom="@+id/ivToolbarLogo"
+               android:layout_alignParentRight="true"
+               android:layout_alignParentEnd="true" />
+
+           <ImageView
+               android:id="@+id/ivToolbarLogo"
+               android:layout_width="23dp"
+               android:layout_height="37dp"
+               android:layout_alignParentTop="true"
+               android:layout_marginTop="8dp"
+               android:layout_toLeftOf="@+id/tvToolbarText"
+               android:layout_toStartOf="@+id/tvToolbarText"
+               app:srcCompat="@drawable/smaller_logo_nospace" />
 
        </RelativeLayout>
 
-    <android.support.design.widget.NavigationView
-     android:id="@+id/nav_view"
-     android:layout_width="wrap_content"
-     android:layout_height="match_parent"
-     android:layout_gravity="start"
-     android:visibility="visible"
-     app:headerLayout="@layout/nav_header_hamburger"
-     app:menu="@menu/activity_hamburger_drawer" />
+    <!--<android.support.design.widget.NavigationView-->
+     <!--android:id="@+id/nav_view"-->
+     <!--android:layout_width="wrap_content"-->
+     <!--android:layout_height="match_parent"-->
+     <!--android:layout_gravity="start"-->
+     <!--android:visibility="visible"-->
+     <!--app:headerLayout="@layout/nav_header_hamburger"-->
+     <!--app:menu="@menu/activity_hamburger_drawer" />-->
 
 </android.support.v4.widget.DrawerLayout>
