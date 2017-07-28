@@ -156,7 +156,7 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
         public ImageView ivArticleImage;
 
         //extras for article adapter
-        public ImageView ivBookmarkIcon;
+        public ImageView ivUnsavedIcon;
         public TextView tvPublisher;
 
         public ViewHolder(View itemView) {
@@ -165,8 +165,7 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
             tvPublisher = (TextView) itemView.findViewById(R.id.tvPublisher);
             tvDateCreated = (TextView) itemView.findViewById(R.id.tvDateCreated);
             ivCategoryIcon = (ImageView) itemView.findViewById(R.id.ivCategoryIcon);
-            ivBookmarkIcon = (ImageView) itemView.findViewById(R.id.ivBookmarkIcon);
-            ivArticleImage = (ImageView) itemView.findViewById(R.id.ivArticleImage);
+            ivUnsavedIcon = (ImageView) itemView.findViewById(R.id.ivUnsavedIcon);
             tvTitle = (TextView) itemView.findViewById(R.id.tvTitle);
             tvSource = (TextView) itemView.findViewById(R.id.tvSource);
             tvAuthor = (TextView) itemView.findViewById(R.id.tvAuthor);
