@@ -1,15 +1,19 @@
 package com.example.mayc.openmind;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.preference.PreferenceActivity;
 
-public class ProfileActivity extends AppCompatActivity {
+public class ProfileActivity extends PreferenceActivity {
 
     //TODO: fetch profile from preferences
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile);
+        addPreferencesFromResource(R.xml.activity_usersurvey_pref);
     }
+    
+
+
+
 }

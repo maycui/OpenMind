@@ -18,10 +18,8 @@
       "required":true,
       "random_choices": false,
       "choices": [
-        "Cis female",
-        "Cis male",
-        "Transgender (female to male)",
-        "Transgender (male to female)",
+        "Cis",
+        "Transgender",
         "Genderfluid",
         "Other"
       ]
@@ -71,20 +69,6 @@
       "choices":[
         "Yes",
         "No"
-      ]
-    },
-    {
-      "question_type": "Checkboxes",
-      "question_title": "Race/Ethnicity",
-      "description": "",
-      "required": true,
-      "random_choices":false,
-      "choices": [
-        "American Indian or Alaska Native",
-        "Asian",
-        "Black or African American",
-        "Native Hawaiian or Other Pacific Islander",
-        "White"
       ]
     },
     {

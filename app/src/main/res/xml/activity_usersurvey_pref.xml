@@ -19,19 +19,17 @@
     <ListPreference
         android:title="Gender"
         android:defaultValue="-1"
-        android:entries="@array/pref_example_list_titles"
-        android:entryValues="@array/pref_example_list_values"
+        android:entries="@array/Gender"
+        android:entryValues="@array/Gender"
         android:key="example_list"
         android:negativeButtonText="@null"
         android:positiveButtonText="@null"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"/>
 
-    <ListPreference
+    <EditTextPreference
         android:title="Age"
         android:defaultValue="-1"
-        android:entries="@array/pref_example_list_titles"
-        android:entryValues="@array/pref_example_list_values"
         android:key="example_list"
         android:negativeButtonText="@null"
         android:positiveButtonText="@null"
@@ -41,8 +39,8 @@
     <ListPreference
         android:title="Sexual Orientation"
         android:defaultValue="-1"
-        android:entries="@array/pref_example_list_titles"
-        android:entryValues="@array/pref_example_list_values"
+        android:entries="@array/Orientation"
+        android:entryValues="@array/Orientation"
         android:key="example_list"
         android:negativeButtonText="@null"
         android:positiveButtonText="@null"
@@ -52,20 +50,8 @@
     <ListPreference
         android:title="Race"
         android:defaultValue="-1"
-        android:entries="@array/pref_example_list_titles"
-        android:entryValues="@array/pref_example_list_values"
-        android:key="example_list"
-        android:negativeButtonText="@null"
-        android:positiveButtonText="@null"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"/>
-
-
-    <ListPreference
-        android:title="Religion"
-        android:defaultValue="-1"
-        android:entries="@array/pref_example_list_titles"
-        android:entryValues="@array/pref_example_list_values"
+        android:entries="@array/Race"
+        android:entryValues="@array/Race"
         android:key="example_list"
         android:negativeButtonText="@null"
         android:positiveButtonText="@null"
@@ -76,8 +62,8 @@
     <ListPreference
         android:title="Income"
         android:defaultValue="-1"
-        android:entries="@array/pref_example_list_titles"
-        android:entryValues="@array/pref_example_list_values"
+        android:entries="@array/Income"
+        android:entryValues="@array/Income"
         android:key="example_list"
         android:negativeButtonText="@null"
         android:positiveButtonText="@null"

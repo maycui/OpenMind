@@ -10,7 +10,7 @@
 
     <!-- Strings related to Settings -->
 
-    <!-- Example General settings -->
+    <!-- PROFILE SETTINGS -->
     <string name="pref_header_general">General</string>
 
     <string name="pref_title_social_recommendations">Enable social recommendations</string>
@@ -22,16 +22,46 @@
     <string name="pref_default_display_name">John Smith</string>
 
     <string name="pref_title_add_friends_to_messages">Add friends to messages</string>
-    <string-array name="pref_example_list_titles">
-        <item>Always</item>
-        <item>When possible</item>
-        <item>Never</item>
+
+    <string-array name="Gender">
+        <item>Cis</item>
+        <item>Transgender</item>
+        <item>GenderFluid</item>
+        <item>Other</item>
     </string-array>
-    <string-array name="pref_example_list_values">
-        <item>1</item>
-        <item>0</item>
-        <item>-1</item>
+
+    <string-array name="Orientation">
+        <item>Heterosexual</item>
+        <item>Homosexual</item>
+        <item>Bisexual</item>
+        <item>Asexual</item>
+        <item>Pansexual</item>
+        <item>Other</item>
     </string-array>
+
+
+    <string-array name="Income">
+        <item>Less than $20,000</item>
+        <item>$20,000 to $34,999</item>
+        <item>$35,000 to $49,999</item>
+        <item>$50,000 to $74,999</item>
+        <item>"$75,000 to $99,999</item>
+        <item>Over $100,000</item>
+    </string-array>
+
+    <string-array name="LegallyDisabled">
+        <item>Yes</item>
+        <item>No</item>
+    </string-array>
+
+    <string-array name="Race">
+        <item>American Indian or Alaska Native</item>
+        <item>Asian</item>
+        <item>Black or African American</item>
+        <item>Native Hawaiian or Other Pacific Islander</item>
+        <item>White</item>
+    </string-array>
+
 
     <!-- Example settings for Data & Sync -->
     <string name="pref_header_data_sync">Data &amp; sync</string>
