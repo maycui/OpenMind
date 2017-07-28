@@ -11,6 +11,8 @@ import android.widget.Button;
 
 public class StartActivity extends AppCompatActivity {
 
+    //TODO: move this into surveyactivity
+
     Context context;
 
     @Override

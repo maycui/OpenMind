@@ -63,6 +63,8 @@ public class ArticlesProvider extends ContentProvider {
     @Override
     public int bulkInsert(@NonNull Uri uri, @NonNull ContentValues[] values) {
 
+        //TODO: check for duplicate articles before inserting into table
+
         int numInserted = 0;
         String table;
 

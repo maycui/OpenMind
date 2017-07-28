@@ -8,11 +8,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.example.mayc.openmind.models.Article;
 
 import org.parceler.Parcels;
@@ -98,14 +96,6 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
         holder.tvPublisher.setText(publisher);
 
 
-        holder.tvEmbed.getSettings().setAppCacheEnabled(true);
-        holder.tvEmbed.loadUrl(sourceUrl);
-
-
-        String favi = "http://" + hostUrl + "/favicon.ico";
-        Glide.with(context)
-                .load(favi)
-                .into(holder.ivPublisherImage);
 
     }
 
@@ -151,28 +141,23 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
         public ImageView ivCategoryIcon;
         public TextView tvDateCreated;
         public ImageView ivPublisherImage;
-        public WebView tvEmbed;
         public ImageView ivBookmarkIcon;
 
         public TextView tvSource; //HOST NOT SOURCEURL
         public ImageView ivArticleImage;
 
         //extras for article adapter
-        public ImageView ivUnsavedIcon;
         public TextView tvPublisher;
 
         public ViewHolder(View itemView) {
             super(itemView);
-            ivPublisherImage = (ImageView) itemView.findViewById(R.id.ivPublisherImage);
             tvPublisher = (TextView) itemView.findViewById(R.id.tvPublisher);
             tvDateCreated = (TextView) itemView.findViewById(R.id.tvDateCreated);
             ivCategoryIcon = (ImageView) itemView.findViewById(R.id.ivCategoryIcon);
-            ivBookmarkIcon = (ImageView) itemView.findViewById(R.id.ivBookmarkIcon);
-            ivUnsavedIcon = (ImageView) itemView.findViewById(R.id.ivUnsavedIcon);
+            ivBookmarkIcon = (ImageView) itemView.findViewById(R.id.ivBookmark);
             tvTitle = (TextView) itemView.findViewById(R.id.tvTitle);
             tvSource = (TextView) itemView.findViewById(R.id.tvSource);
             tvAuthor = (TextView) itemView.findViewById(R.id.tvAuthor);
-            tvEmbed = itemView.findViewById(R.id.wvWebView);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

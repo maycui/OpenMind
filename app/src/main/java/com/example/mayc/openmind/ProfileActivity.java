@@ -5,6 +5,8 @@ import android.os.Bundle;
 
 public class ProfileActivity extends AppCompatActivity {
 
+    //TODO: fetch profile from preferences
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

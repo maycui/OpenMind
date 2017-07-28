@@ -15,6 +15,9 @@ import android.view.MenuItem;
 
 import com.example.mayc.openmind.fragments.TimelineAdapter;
 
+//TODO: delete webview
+//TODO: extract a larger favicon to display bigger
+//TODO: implement saved function
 
 public class NewsfeedActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener  {
 

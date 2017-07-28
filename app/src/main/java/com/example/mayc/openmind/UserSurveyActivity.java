@@ -46,6 +46,7 @@ public class UserSurveyActivity extends AppCompatActivity {
                 Log.v("ANSWERS JSON", answers_json);
                 Log.d("****", "*****************************************************");
 
+                //TODO: place answers in android preferences
                 //do whatever you want with them...
             }
         }

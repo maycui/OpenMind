@@ -32,7 +32,6 @@ public class ArticleListFragment extends Fragment implements LoaderManager.Loade
     RecyclerView rvArticles;
     private SwipeRefreshLayout swipe;
 
-    //TODO: fix ArticleListFragment to work with a Cursor instead of an ArrayList
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -44,7 +43,7 @@ public class ArticleListFragment extends Fragment implements LoaderManager.Loade
         rvArticles.setAdapter(articleAdapter);
         rvArticles.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        //TODO: check if swipe to refresh configuration works
+        //TODO: make swipe to refresh configuration work
         //swipe to refresh configuration
         swipe = v.findViewById(R.id.swipe);
         swipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
