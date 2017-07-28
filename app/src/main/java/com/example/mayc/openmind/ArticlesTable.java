@@ -23,7 +23,11 @@ public class ArticlesTable {
     static final String IMAGE_URL = "_imageurl";
     static final String HOST = "_hosturl";
 
-    // database creation SQL statement
+    // table clear SQL statement
+    static final String TABLE_CLEAR = "DELETE FROM " + TABLE_NAME;
+
+
+    // table creation SQL statement
     private static final String DATABASE_CREATE = "CREATE TABLE "
             + TABLE_NAME
             + "("
