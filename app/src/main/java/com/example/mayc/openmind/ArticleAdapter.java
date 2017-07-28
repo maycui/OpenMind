@@ -95,12 +95,7 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
         holder.tvSource.setText(hostUrl);
         holder.tvPublisher.setText(publisher);
 
-
-
     }
-
-
-
 
 
     public int getItemCount() {
