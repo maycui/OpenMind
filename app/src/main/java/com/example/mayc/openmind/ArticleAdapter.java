@@ -101,10 +101,12 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
         holder.tvEmbed.getSettings().setAppCacheEnabled(true);
         holder.tvEmbed.loadUrl(sourceUrl);
 
-        String favi = hostUrl + "/favicon.ico";
+
+        String favi = "http://" + hostUrl + "/favicon.ico";
         Glide.with(context)
                 .load(favi)
                 .into(holder.ivPublisherImage);
+
     }
 
 
@@ -163,7 +165,6 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
             tvDateCreated = (TextView) itemView.findViewById(R.id.tvDateCreated);
             ivCategoryIcon = (ImageView) itemView.findViewById(R.id.ivCategoryIcon);
             ivBookmarkIcon = (ImageView) itemView.findViewById(R.id.ivBookmarkIcon);
-            ivArticleImage = (ImageView) itemView.findViewById(R.id.ivArticleImage);
             tvTitle = (TextView) itemView.findViewById(R.id.tvTitle);
             tvSource = (TextView) itemView.findViewById(R.id.tvSource);
             tvAuthor = (TextView) itemView.findViewById(R.id.tvAuthor);
