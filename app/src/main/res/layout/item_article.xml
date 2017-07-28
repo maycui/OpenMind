@@ -24,7 +24,7 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:background="@color/colorAccent" />
+            card_view:srcCompat="@color/colorAccent" />
 
         <TextView
             android:id="@+id/tvPublisher"
@@ -88,17 +88,17 @@
             android:id="@+id/tvSource"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/tvTitle"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="7dp"
+
             android:text="Source"
             android:textAllCaps="true"
             android:textColor="@color/colorAccent"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="7dp"
-            android:layout_marginBottom="5dp"
-
-            android:textStyle="bold"
-            android:layout_below="@+id/tvTitle"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tvAuthor"
