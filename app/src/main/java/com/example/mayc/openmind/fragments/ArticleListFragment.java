@@ -43,16 +43,16 @@ public class ArticleListFragment extends Fragment implements LoaderManager.Loade
         rvArticles.setAdapter(articleAdapter);
         rvArticles.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        //TODO: make swipe to refresh configuration work
-        //swipe to refresh configuration
-        swipe = v.findViewById(R.id.swipe);
-        swipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                fetchTimelineAsync();
-            }
-        });
-        swipe.setColorSchemeResources(R.color.colorAccent);
+//        //TODO: make swipe to refresh configuration work
+//        //swipe to refresh configuration
+//        swipe = v.findViewById(R.id.swipe);
+//        swipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+//            @Override
+//            public void onRefresh() {
+//                fetchTimelineAsync();
+//            }
+//        });
+//        swipe.setColorSchemeResources(R.color.colorAccent);
         return v;
     }
 
