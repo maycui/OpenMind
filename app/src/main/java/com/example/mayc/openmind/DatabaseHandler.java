@@ -11,6 +11,7 @@ import com.example.mayc.openmind.models.Article;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.example.mayc.openmind.ArticlesTable.KEYWORDS;
 import static com.example.mayc.openmind.ArticlesTable.TABLE_NAME;
 import static com.example.mayc.openmind.ArticlesTable.ID;
 import static com.example.mayc.openmind.ArticlesTable.TITLE;
@@ -63,6 +64,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         values.put(CATEGORY, article.getCategory());
         values.put(DATE_PUBLISHED, article.getDatePublished());
         values.put(BODY_SNIPPET, article.getBodySnippet());
+        values.put(KEYWORDS,article.getKeywords());
 
         values.put(SOURCE_URL, article.getSourceUrl());
         values.put(IMAGE_URL, article.getDatePublished());
@@ -85,7 +87,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                                 BODY_SNIPPET,
                                 SOURCE_URL,
                                 IMAGE_URL,
-                                HOST},
+                                HOST,
+                                KEYWORDS},
                             TITLE + "=?",
                 new String[] { String.valueOf(id)}, null, null, null, null);
 
@@ -95,7 +98,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         Article article = new Article(cursor.getString(0),
                 cursor.getString(1), cursor.getString(2), cursor.getString(3),
                 cursor.getString(4), cursor.getString(5), cursor.getString(6),
-                cursor.getString(7), cursor.getString(8));
+                cursor.getString(7), cursor.getString(8), cursor.getString(9));
         return article;
     }
 
@@ -111,7 +114,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                     Article article = new Article(cursor.getString(0), cursor.getString(1),
                             cursor.getString(2), cursor.getString(3), cursor.getString(4),
                             cursor.getString(5), cursor.getString(6), cursor.getString(7),
-                            cursor.getString(8));
+                            cursor.getString(8), cursor.getString(9));
                     articleList.add(article);
                 } while (cursor.moveToNext());
             }
