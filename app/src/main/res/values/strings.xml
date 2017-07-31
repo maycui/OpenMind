@@ -23,6 +23,17 @@
 
     <string name="pref_title_add_friends_to_messages">Add friends to messages</string>
 
+    <!-- KEYS -->
+    <string name ="keyName">"Name"</string>;
+    <string name ="keyAge">"Age"</string>;
+    <string name ="keyGender">"Gender"</string>;
+    <string name ="keyDisability">"Are you legally disabled?"</string>;
+    <string name ="keyIncome">"Income"</string>;
+    <string name ="keyRace">"Race/Ethnicity"</string>;
+    <string name ="keySex">"Sexual Orientation"</string>;
+
+
+    <!-- PROFILE ARRAYS -->
     <string-array name="Gender">
         <item>Cis</item>
         <item>Transgender</item>
