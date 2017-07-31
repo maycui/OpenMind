@@ -2,6 +2,7 @@ package com.example.mayc.openmind;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.GravityCompat;
@@ -48,6 +49,8 @@ public class NewsfeedActivity extends AppCompatActivity implements NavigationVie
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        PreferenceManager.setDefaultValues(this, R.xml.activity_usersurvey_pref, false);
     }
 
     @Override

@@ -89,4 +89,18 @@ public class Constants {
     /** The Constant WORKSPACE_ID. */
     public static final String WORKSPACE_ID = "WORKSPACE_ID";
 
+    public static final String NAME = "Name";
+    public static final String AGE = "Age";
+    public static final String GENDER = "Gender";
+    public static final String INCOME = "Income";
+    public static final String RACE = "Race/Ethnicity";
+    public static final String SEX = "Sexual Orientation";
+    public static final String DISABILITY = "Are you legally disabled?";
+
+
+
+
+
+
+
 }
