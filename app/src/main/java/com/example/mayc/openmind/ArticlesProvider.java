@@ -142,7 +142,49 @@ public class ArticlesProvider extends ContentProvider {
     @Override
     public int update(Uri uri, ContentValues values,
                 String selection, String[] selectionArgs) {
-        throw new RuntimeException("Not implemented");
+
+        SQLiteDatabase sqlDB = databaseHandler.getWritableDatabase();
+
+        // figure out URI
+        
+        // example code:
+
+//        switch (URI_MATCHER.match(uri)) {
+//            case ITEM_LIST:
+//                updateCount = db.update(
+//                        DBSchema.TBL_ITEMS,
+//                        values,
+//                        selection,
+//                        selectionArgs);
+//                break;
+//            case ITEM_ID:
+//                String idStr = uri.getLastPathSegment();
+//                String where = Items._ID + " = " + idStr;
+//                if (!TextUtils.isEmpty(selection)) {
+//                    where += " AND " + selection;
+//                }
+//                updateCount = db.update(
+//                        DBSchema.TBL_ITEMS,
+//                        values,
+//                        where,
+//                        selectionArgs);
+//                break;
+//            default:
+//                // no support for updating photos or entities!
+//                throw new IllegalArgumentException("Unsupported URI: " + uri);
+//        }
+//        // notify all listeners of changes:
+//        if (updateCount > 0 && !isInBatchMode()) {
+//            getContext().getContentResolver().notifyChange(uri, null);
+//        }
+//        return updateCount;
+
+
+
+
+
+
+
     }
 
     @Override
