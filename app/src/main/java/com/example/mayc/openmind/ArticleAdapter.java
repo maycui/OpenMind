@@ -68,7 +68,6 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
         //formatting date
         String datePublished = cursor.getString(cursor.getColumnIndexOrThrow(ArticlesTable.DATE_PUBLISHED));
 
-        //TODO: figure out why sourceurl is returning as empty
         String sourceUrl = cursor.getString(cursor.getColumnIndexOrThrow(ArticlesTable.SOURCE_URL));
         String imageUrl = cursor.getString(cursor.getColumnIndexOrThrow(ArticlesTable.IMAGE_URL));
         String hostUrl = cursor.getString(cursor.getColumnIndexOrThrow(ArticlesTable.HOST));
@@ -97,7 +96,6 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
 
     }
 
-
     public int getItemCount() {
         int count;
         if (cursor != null) {
@@ -108,11 +106,6 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
         Log.d("OpenMind", "getItemCount " + count);
         return count;
     }
-
-    //TODO: request a new cursor here in clear
-//    public void clear() {
-//
-//    }
 
 
     @Override
@@ -125,9 +118,6 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
         this.cursor = cursor;
         notifyDataSetChanged();
     }
-
-
-
 
 
     public class ViewHolder extends RecyclerView.ViewHolder {
