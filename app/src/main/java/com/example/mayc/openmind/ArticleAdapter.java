@@ -72,6 +72,7 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
         String sourceUrl = cursor.getString(cursor.getColumnIndexOrThrow(ArticlesTable.SOURCE_URL));
         String imageUrl = cursor.getString(cursor.getColumnIndexOrThrow(ArticlesTable.IMAGE_URL));
         String hostUrl = cursor.getString(cursor.getColumnIndexOrThrow(ArticlesTable.HOST));
+        final Integer isSaved = cursor.getInt(cursor.getColumnIndexOrThrow(ArticlesTable.ISSAVED));
 
         String publisher;
         //parse for publisher info
@@ -94,6 +95,33 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
 
         holder.tvSource.setText(hostUrl);
         holder.tvPublisher.setText(publisher);
+
+        /*
+         Setting up click listener to change saved icon:
+     */
+
+
+        // create boolean to keep track of whether the icon is being pressed
+
+        // add click listener to ivBookmarkIcon
+
+        // call update() method inside with
+
+//        new View.OnClickListener() {
+//
+//            @Override
+//            public void onClick(View bookmark) {
+//                if(isSaved == 1)
+//                    // convert article to content values
+//                // call update on the article item;
+//                else
+//                    bookmark.setBackgroundResource(R.drawable.unsaved_icon);
+//
+//            }
+//
+//        }
+//
+
 
     }
 

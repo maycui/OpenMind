@@ -13,6 +13,7 @@ import android.support.annotation.NonNull;
 import android.util.Log;
 
 import static android.provider.MediaStore.Audio.Playlists.Members._ID;
+import static com.example.mayc.openmind.ArticlesTable.TABLE_CLEAR;
 import static com.example.mayc.openmind.ArticlesTable.TABLE_NAME;
 import static com.example.mayc.openmind.DatabaseHandler.DATABASE_NAME;
 
@@ -81,6 +82,9 @@ public class ArticlesProvider extends ContentProvider {
         SQLiteDatabase sqlDB = databaseHandler.getWritableDatabase();
         sqlDB.beginTransaction();
         try {
+            // clear table before making API call
+            sqlDB.execSQL(TABLE_CLEAR);
+
             for (ContentValues cv : values) {
                 long newID = sqlDB.insertOrThrow(table, null, cv);
                 if (newID <= 0) {
@@ -137,6 +141,7 @@ public class ArticlesProvider extends ContentProvider {
         throw new RuntimeException("Not implemented");
     }
 
+    // TODO: implement
     @Override
     public int update(Uri uri, ContentValues values,
                 String selection, String[] selectionArgs) {
