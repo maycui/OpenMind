@@ -7,7 +7,8 @@ import android.util.Log;
  * Created by elliecorbus on 7/20/17.
  */
 
-public class ArticlesTable {
+public class
+ArticlesTable {
 
 
     static final String TABLE_NAME = "articlesTable";
@@ -40,8 +41,8 @@ public class ArticlesTable {
             + BODY_SNIPPET + " TEXT,"
             + SOURCE_URL + " TEXT,"
             + IMAGE_URL + " TEXT,"
-            + HOST + " TEXT"
-            + KEYWORDS +"TEXT"
+            + HOST + " TEXT,"
+            + KEYWORDS + " TEXT"
             + ");";
 
 
