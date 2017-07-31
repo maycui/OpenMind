@@ -7,9 +7,12 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 import com.ibm.watson.developer_cloud.discovery.v1.model.query.QueryResponse;
 
+import org.apache.commons.lang3.StringUtils;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+
 /**
  * Created by mayc on 7/11/17.
  */
@@ -38,6 +41,7 @@ public class DiscoveryClient {
         if (jarray.size() > 0) {
             for (int i = 0; (i < jarray.size()) && (i < Constants.DISCOVERY_MAX_SEARCH_RESULTS_TO_SHOW); i++) {
                 Article documentPayload = new Article();
+
                 //ID
                 String id = jarray.get(i).getAsJsonObject().get(Constants.DISCOVERY_FIELD_ID).toString().replaceAll("\"", "");
                 documentPayload.setId(id);
@@ -83,6 +87,18 @@ public class DiscoveryClient {
                     documentPayload.setHost(jarray.get(i).getAsJsonObject().get(Constants.DISCOVERY_FIELD_HOST).toString().replaceAll("\"",""));
                 } else {
                     documentPayload.setHost("empty");
+                }
+
+                //KEYWORDS
+                JsonArray keywordArray = jarray.get(i).getAsJsonObject().getAsJsonArray(Constants.DISCOVERY_FIELD_KEYWORDS);
+                if (keywordArray.size() > 0){
+                    List<String> keywordsList = new ArrayList<String>();
+
+                    for (int x = 0; (x < keywordArray.size()) && (keywordArray != null) ; x++){
+                        keywordsList.add(keywordArray.get(x).getAsJsonObject().get("text").toString());
+
+                    }
+                    documentPayload.setKeywords(StringUtils.join(keywordsList, ','));
                 }
 
                 payload.add(i, documentPayload);
