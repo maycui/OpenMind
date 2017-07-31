@@ -15,7 +15,7 @@ public class Article implements Serializable{
     public String id;
     public String title;
     public String author;
-    public String category; //TODO Devon See if this can actually be queried (HELP. How do we categorize the articles)
+    public String category;
     public String datePublished;
     public String bodySnippet;
     public String sourceUrl;

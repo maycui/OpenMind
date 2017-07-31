@@ -16,8 +16,6 @@ import android.view.MenuItem;
 
 import com.example.mayc.openmind.fragments.TimelineAdapter;
 
-//TODO: delete webview
-//TODO: extract a larger favicon to display bigger
 //TODO: implement saved function
 
 public class NewsfeedActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener  {
@@ -65,7 +63,6 @@ public class NewsfeedActivity extends AppCompatActivity implements NavigationVie
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         //TODO: all of them have to check if the user is already in the right activity?
-        //TODO: check if hamburger menu must be added to every activity
         int id = item.getItemId();
 
         if (id == R.id.hamHome) {
@@ -107,4 +104,55 @@ public class NewsfeedActivity extends AppCompatActivity implements NavigationVie
             super.onBackPressed();
         }
     }
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

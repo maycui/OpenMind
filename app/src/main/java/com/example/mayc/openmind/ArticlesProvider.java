@@ -13,6 +13,7 @@ import android.support.annotation.NonNull;
 import android.util.Log;
 
 import static android.provider.MediaStore.Audio.Playlists.Members._ID;
+import static com.example.mayc.openmind.ArticlesTable.TABLE_CLEAR;
 import static com.example.mayc.openmind.ArticlesTable.TABLE_NAME;
 import static com.example.mayc.openmind.DatabaseHandler.DATABASE_NAME;
 
@@ -53,7 +54,6 @@ public class ArticlesProvider extends ContentProvider {
 
     @Override
     public boolean onCreate() {
-        //TODO: understand why database becomes null when calling bulkInsert
         databaseHandler = new DatabaseHandler(getContext(), DATABASE_NAME);
         context = getContext();
         // return false if the database is null
@@ -62,8 +62,6 @@ public class ArticlesProvider extends ContentProvider {
 
     @Override
     public int bulkInsert(@NonNull Uri uri, @NonNull ContentValues[] values) {
-
-        //TODO: check for duplicate articles before inserting into table
 
         int numInserted = 0;
         String table;
@@ -81,6 +79,9 @@ public class ArticlesProvider extends ContentProvider {
         SQLiteDatabase sqlDB = databaseHandler.getWritableDatabase();
         sqlDB.beginTransaction();
         try {
+            // clear table before making API call
+            sqlDB.execSQL(TABLE_CLEAR);
+
             for (ContentValues cv : values) {
                 long newID = sqlDB.insertOrThrow(table, null, cv);
                 if (newID <= 0) {
@@ -137,6 +138,7 @@ public class ArticlesProvider extends ContentProvider {
         throw new RuntimeException("Not implemented");
     }
 
+    // TODO: implement
     @Override
     public int update(Uri uri, ContentValues values,
                 String selection, String[] selectionArgs) {

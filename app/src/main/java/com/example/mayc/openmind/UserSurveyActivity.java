@@ -56,10 +56,6 @@ public class UserSurveyActivity extends AppCompatActivity {
                 String name;
                 answers = convert(answers_json);
 
-//                Intent intent = new Intent(this, NewsfeedActivity.class);
-//                intent.putExtra("map", answers);
-//                startActivity(intent);
-
                 SharedPreferences shareP = PreferenceManager.getDefaultSharedPreferences(this);
                 SharedPreferences.Editor editor = shareP.edit();
 
@@ -71,6 +67,10 @@ public class UserSurveyActivity extends AppCompatActivity {
                 editor.putString(Constants.SEX, answers.get(Constants.SEX));
                 editor.putString(Constants.RACE, answers.get(Constants.RACE));
                 editor.commit();
+
+                Intent intent = new Intent(this, NewsfeedActivity.class);
+                startActivity(intent);
+
 
             }
         }
