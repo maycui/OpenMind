@@ -11,6 +11,8 @@ import com.androidadvance.androidsurvey.SurveyActivity;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.HashMap;
+import java.util.Map;
 
 /**https://github.com/AndreiD/surveylib*/
 
@@ -45,13 +47,30 @@ public class UserSurveyActivity extends AppCompatActivity {
                 Log.d("****", "****************** WE HAVE ANSWERS ******************");
                 Log.v("ANSWERS JSON", answers_json);
                 Log.d("****", "*****************************************************");
+                Map<String, String> answers = convert(answers_json);
+
 
                 //TODO: place answers in android preferences
 
 
-                //do whatever you want with them...
             }
         }
+    }
+
+    //CONVERTS STRING TO JSON
+    public static Map<String, String> convert(String str) {
+        Map<String, String> map = new HashMap<>();
+        String [] pair;
+
+        String acceptable = str.replace("{", "").replace("}","");
+        String[] tokens = acceptable.split(",");
+
+        //"Name":"I will"
+        for (int i = 0; i < tokens.length; i++) {
+            pair = tokens[i].split(":");
+            map.put(pair[0], pair[1]);
+        }
+        return map;
     }
 
     //json stored in the assets folder. but you can get it from wherever you like.
