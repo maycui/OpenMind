@@ -23,6 +23,17 @@
 
     <string name="pref_title_add_friends_to_messages">Add friends to messages</string>
 
+    <!-- KEYS -->
+    <string name ="keyName">"Name"</string>;
+    <string name ="keyAge">"Age"</string>;
+    <string name ="keyGender">"Gender"</string>;
+    <string name ="keyDisability">"Are you legally disabled?"</string>;
+    <string name ="keyIncome">"Income"</string>;
+    <string name ="keyRace">"Race/Ethnicity"</string>;
+    <string name ="keySex">"Sexual Orientation"</string>;
+
+
+    <!-- PROFILE ARRAYS -->
     <string-array name="Gender">
         <item>Cis</item>
         <item>Transgender</item>
@@ -41,12 +52,12 @@
 
 
     <string-array name="Income">
-        <item>Less than $20,000</item>
-        <item>$20,000 to $34,999</item>
-        <item>$35,000 to $49,999</item>
-        <item>$50,000 to $74,999</item>
-        <item>"$75,000 to $99,999</item>
-        <item>Over $100,000</item>
+        <item>Less than $20k</item>
+        <item>$20k to $34k</item>
+        <item>$35k to $49k</item>
+        <item>$50k to $74k</item>
+        <item>"$75k to $99k</item>
+        <item>Over $100k</item>
     </string-array>
 
     <string-array name="LegallyDisabled">

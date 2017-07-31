@@ -52,12 +52,12 @@
       "required": true,
       "random_choices":false,
       "choices": [
-        "Less than $20,000",
-        "$20,000 to $34,999",
-        "$35,000 to $49,999",
-        "$50,000 to $74,999",
-        "$75,000 to $99,999",
-        "Over $100,000"
+        "Less than $20k",
+        "$20k to $34k",
+        "$35k to $49k",
+        "$50k to $74k",
+        "$75k to $99k",
+        "Over $100k"
       ]
     },
     {

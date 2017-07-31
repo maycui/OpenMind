@@ -22,7 +22,11 @@ public class ArticlesTable {
     static final String SOURCE_URL = "_sourceUrl";
     static final String IMAGE_URL = "_imageurl";
     static final String HOST = "_hosturl";
+
     static final String ISSAVED = "_issaved";
+
+    static final String KEYWORDS = "_keywords";
+
 
     // table clear SQL statement
     static final String TABLE_CLEAR = "DELETE FROM " + TABLE_NAME;
@@ -42,6 +46,8 @@ public class ArticlesTable {
             + IMAGE_URL + " TEXT,"
             + HOST + " TEXT,"
             + ISSAVED + " INTEGER"
+            + HOST + " TEXT"
+            + KEYWORDS +"TEXT"
             + ");";
 
 

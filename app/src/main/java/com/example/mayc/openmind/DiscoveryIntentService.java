@@ -16,6 +16,7 @@ import static com.example.mayc.openmind.ArticlesTable.DATE_PUBLISHED;
 import static com.example.mayc.openmind.ArticlesTable.HOST;
 import static com.example.mayc.openmind.ArticlesTable.ID;
 import static com.example.mayc.openmind.ArticlesTable.IMAGE_URL;
+import static com.example.mayc.openmind.ArticlesTable.KEYWORDS;
 import static com.example.mayc.openmind.ArticlesTable.SOURCE_URL;
 import static com.example.mayc.openmind.ArticlesTable.TITLE;
 
@@ -74,6 +75,7 @@ public class DiscoveryIntentService extends IntentService {
             mNewValues.put(SOURCE_URL, temp.getSourceUrl());
             mNewValues.put(IMAGE_URL, temp.getDatePublished());
             mNewValues.put(HOST, temp.getHostUrl());
+            mNewValues.put(KEYWORDS, temp.getKeywords());
 
             bulkToInsert[index] = mNewValues;
             index++;

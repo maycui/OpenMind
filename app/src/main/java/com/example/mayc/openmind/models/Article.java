@@ -15,16 +15,17 @@ public class Article implements Serializable{
     public String id;
     public String title;
     public String author;
-    public String category; 
+    public String category;
     public String datePublished;
     public String bodySnippet;
     public String sourceUrl;
     public String imageUrl;
     public String host;
+    public String keywords;
 
     public Article() {}
 
-    public Article (String id, String title, String author, String category, String datePublished, String bodySnippet, String sourceUrl, String imageUrl, String host) {
+    public Article (String id, String title, String author, String category, String datePublished, String bodySnippet, String sourceUrl, String imageUrl, String host, String keywords) {
         this.id = id;
         this.title = title;
         this.author = author;
@@ -34,6 +35,7 @@ public class Article implements Serializable{
         this.sourceUrl = sourceUrl;
         this.imageUrl = imageUrl;
         this.host = host;
+        this.keywords = keywords;
     }
 
     //GETTERS
@@ -55,6 +57,9 @@ public class Article implements Serializable{
     public String getBodySnippet() {
         return bodySnippet;
     }
+    public String getKeywords(){
+        return keywords;
+    }
     //urls
     public String getSourceUrl() {
         return sourceUrl;
@@ -65,6 +70,7 @@ public class Article implements Serializable{
     public String getHostUrl(){
         return host;
     }
+
     //SETTERS
     public void setId(String id) {
         this.id = id;
@@ -92,6 +98,9 @@ public class Article implements Serializable{
     }
     public void setHost(String host) {
         this.host = host;
+    }
+    public void setKeywords(String keywords){
+        this.keywords = keywords;
     }
 }
 

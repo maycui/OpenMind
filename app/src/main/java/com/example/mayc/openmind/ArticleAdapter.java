@@ -68,7 +68,6 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
         //formatting date
         String datePublished = cursor.getString(cursor.getColumnIndexOrThrow(ArticlesTable.DATE_PUBLISHED));
 
-        //TODO: figure out why sourceurl is returning as empty
         String sourceUrl = cursor.getString(cursor.getColumnIndexOrThrow(ArticlesTable.SOURCE_URL));
         String imageUrl = cursor.getString(cursor.getColumnIndexOrThrow(ArticlesTable.IMAGE_URL));
         String hostUrl = cursor.getString(cursor.getColumnIndexOrThrow(ArticlesTable.HOST));
@@ -125,7 +124,6 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
 
     }
 
-
     public int getItemCount() {
         int count;
         if (cursor != null) {
@@ -136,11 +134,6 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
         Log.d("OpenMind", "getItemCount " + count);
         return count;
     }
-
-    //TODO: request a new cursor here in clear
-//    public void clear() {
-//
-//    }
 
 
     @Override
@@ -153,9 +146,6 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
         this.cursor = cursor;
         notifyDataSetChanged();
     }
-
-
-
 
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -189,7 +179,7 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
                     cursor.moveToPosition(position);
                     Article article = new Article(cursor.getString(0),
                             cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getString(5),
-                            cursor.getString(6), cursor.getString(7), cursor.getString(8));
+                            cursor.getString(6), cursor.getString(7), cursor.getString(8), cursor.getString(9));
                     Intent intent = new Intent(context, ArticleDetailActivity.class);
                     intent.putExtra(Article.class.getSimpleName(), Parcels.wrap(article));
                     context.startActivity(intent);

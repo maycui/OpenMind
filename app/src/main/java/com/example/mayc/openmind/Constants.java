@@ -49,7 +49,10 @@ public class Constants {
     public static final int DISCOVERY_MAX_SEARCH_RESULTS_TO_SHOW = 7;
 
     /**The Constant DISCOVERY_FIELD_HOST */
-    public static final  String DISCOVERY_FIELD_HOST = "host";
+    public static final String DISCOVERY_FIELD_HOST = "host";
+
+    /**The Constant DISCOVERY_FIELD_KEYWORDS */
+    public static final String DISCOVERY_FIELD_KEYWORDS = "keywords";
 
     /** The Constant DISCOVERY_URL. */
     public static final String DISCOVERY_URL = "https://gateway.watsonplatform.net/discovery/api/";
@@ -88,5 +91,19 @@ public class Constants {
 
     /** The Constant WORKSPACE_ID. */
     public static final String WORKSPACE_ID = "WORKSPACE_ID";
+
+    public static final String NAME = "Name";
+    public static final String AGE = "Age";
+    public static final String GENDER = "Gender";
+    public static final String INCOME = "Income";
+    public static final String RACE = "Race/Ethnicity";
+    public static final String SEX = "Sexual Orientation";
+    public static final String DISABILITY = "Are you legally disabled?";
+
+
+
+
+
+
 
 }

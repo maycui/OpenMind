@@ -34,7 +34,6 @@ public class DiscoveryQuery {
 
         StringBuilder sb = new StringBuilder();
 
-        //TODO: figure out what this is doing by running the api
         if (query == null || query.length() == 0 || query.equalsIgnoreCase("none")) {
             sb.append(userQuery);
         } else {

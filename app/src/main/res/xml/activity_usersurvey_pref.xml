@@ -9,7 +9,7 @@
         android:capitalize="words"
         android:defaultValue="@string/pref_default_display_name"
         android:inputType="textCapWords"
-        android:key="example_text"
+        android:key="@string/keyName"
         android:maxLines="1"
         android:selectAllOnFocus="true"
         android:singleLine="true"
@@ -20,8 +20,9 @@
         android:title="Gender"
         android:defaultValue="-1"
         android:entries="@array/Gender"
+        android:summary="%s"
         android:entryValues="@array/Gender"
-        android:key="example_list"
+        android:key="@string/keyGender"
         android:negativeButtonText="@null"
         android:positiveButtonText="@null"
         android:layout_height="wrap_content"
@@ -29,8 +30,8 @@
 
     <EditTextPreference
         android:title="Age"
-        android:defaultValue="-1"
-        android:key="example_list"
+        android:defaultValue="10"
+        android:key="@string/keyAge"
         android:negativeButtonText="@null"
         android:positiveButtonText="@null"
         android:layout_height="wrap_content"
@@ -39,9 +40,10 @@
     <ListPreference
         android:title="Sexual Orientation"
         android:defaultValue="-1"
+        android:summary="%s"
         android:entries="@array/Orientation"
         android:entryValues="@array/Orientation"
-        android:key="example_list"
+        android:key="@string/keySex"
         android:negativeButtonText="@null"
         android:positiveButtonText="@null"
         android:layout_height="wrap_content"
@@ -50,9 +52,10 @@
     <ListPreference
         android:title="Race"
         android:defaultValue="-1"
+        android:summary="%s"
         android:entries="@array/Race"
         android:entryValues="@array/Race"
-        android:key="example_list"
+        android:key="@string/keyRace"
         android:negativeButtonText="@null"
         android:positiveButtonText="@null"
         android:layout_height="wrap_content"
@@ -64,11 +67,11 @@
         android:defaultValue="-1"
         android:entries="@array/Income"
         android:entryValues="@array/Income"
-        android:key="example_list"
+        android:key="@string/keyIncome"
+        android:summary="%s"
         android:negativeButtonText="@null"
         android:positiveButtonText="@null"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"/>
-
 
 </PreferenceScreen>
