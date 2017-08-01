@@ -13,11 +13,12 @@ import android.os.Bundle;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
-import android.support.v7.app.ActionBar;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 import android.preference.RingtonePreference;
+import android.support.v7.app.ActionBar;
 import android.text.TextUtils;
+import android.view.Menu;
 import android.view.MenuItem;
 
 import java.util.List;
@@ -124,6 +125,13 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
         super.onCreate(savedInstanceState);
         setupActionBar();
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.back, menu);
+        return true;
+    }
+
 
 
     /**
