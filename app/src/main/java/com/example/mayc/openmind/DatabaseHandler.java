@@ -38,7 +38,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     // Constructor
     public DatabaseHandler(Context context, String name) {
-        super(context, DATABASE_NAME, null, DATABASE_VERSION);
+        super(context, name, null, DATABASE_VERSION);
     }
 
     // this where we write create table statements, this is called when database is created

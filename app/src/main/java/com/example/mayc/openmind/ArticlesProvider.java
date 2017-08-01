@@ -180,11 +180,7 @@ public class ArticlesProvider extends ContentProvider {
 //        return updateCount;
 
 
-
-
-
-
-
+        return 0;
     }
 
     @Override
