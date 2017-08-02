@@ -22,25 +22,10 @@ public class UserSurveyActivity extends AppCompatActivity {
     private static final int SURVEY_REQUEST = 1337;
     HashMap<String, String> answers;
 
-    SharedPreferences mPrefs;
-    final String welcomeScreenShownPref = "welcomeScreenShown";
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_survey);
-
-        mPrefs = PreferenceManager.getDefaultSharedPreferences(this);
-
-        // second argument is the default to use if the preference can't be found
-        Boolean welcomeScreenShown = mPrefs.getBoolean(welcomeScreenShownPref, true);
-
-        if(!welcomeScreenShown){
-            Intent i = new Intent(UserSurveyActivity.this, NewsfeedActivity.class);
-            startActivity(i); // brings up the second activity
-        }
 
         Button button = (Button) findViewById(R.id.survey);
 
