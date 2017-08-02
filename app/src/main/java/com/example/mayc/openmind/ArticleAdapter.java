@@ -82,6 +82,10 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
             publisher = split[0];
         }
 
+        String DatePub = datePublished.toString();
+        String x = "/" + DatePub.substring(0, 4) + DatePub.substring(4,6) + "/" + DatePub.substring(6,8);
+        String DateWritten = x.substring(5,10) + x.substring(0,5);
+
 
         //set data
         holder.tvTitle.setText(title);
@@ -90,7 +94,7 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
 
 
         //TODO: reformat datepublished to be pretty
-        holder.tvDateCreated.setText(datePublished);
+        holder.tvDateCreated.setText(DateWritten);
 
         holder.tvSource.setText(hostUrl);
         holder.tvPublisher.setText(publisher);
