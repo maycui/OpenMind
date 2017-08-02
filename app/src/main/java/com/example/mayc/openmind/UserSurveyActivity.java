@@ -25,9 +25,9 @@ public class UserSurveyActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_survey);
+        setContentView(R.layout.activity_start);
 
-        Button button = (Button) findViewById(R.id.survey);
+        Button button = (Button) findViewById(R.id.startButton);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
