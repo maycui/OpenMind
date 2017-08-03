@@ -8,6 +8,8 @@ import static com.example.mayc.openmind.Constants.*;
  * Created by elliecorbus on 8/3/17.
  */
 
+// TODO: add proper keywords to query based on category
+
 public class QueryBuilder {
 
     public static String getKWs4Prefs(Map<String, String> prefs) {
