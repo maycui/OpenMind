@@ -6,9 +6,9 @@ import java.util.Map;
  * Created by elliecorbus on 8/3/17.
  */
 
-public static class QueryBuilder {
+public class QueryBuilder {
 
-    public String getKWs4Prefs(Map<String, String> prefs) {
+    public static String getKWs4Prefs(Map<String, String> prefs) {
 
         String query = "";
 

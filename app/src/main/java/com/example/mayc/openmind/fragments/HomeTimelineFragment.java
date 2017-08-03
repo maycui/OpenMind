@@ -31,7 +31,6 @@ public class HomeTimelineFragment extends ArticleListFragment {
     @Override
     public void populateTimeline() {
         Intent i = new Intent(getActivity(), DiscoveryIntentService.class);
-        i.putExtra(DiscoveryIntentService.DISCOVERY_NEWS_CALL, "Gender");
         getActivity().startService(i);
 
     }
