@@ -18,8 +18,10 @@
       "required":true,
       "random_choices": false,
       "choices": [
-        "Cis",
-        "Transgender",
+        "Cis male",
+        "Cis female",
+        "Transgender male",
+        "Transgender female",
         "Genderfluid",
         "Other"
       ]
