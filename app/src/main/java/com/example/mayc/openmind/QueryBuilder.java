@@ -2,6 +2,8 @@ package com.example.mayc.openmind;
 
 import java.util.Map;
 
+import static com.example.mayc.openmind.Constants.*;
+
 /**
  * Created by elliecorbus on 8/3/17.
  */
@@ -16,7 +18,7 @@ public class QueryBuilder {
             GENDER CATEGORY
          */
 
-        String prefsGender = prefs.get("gender");
+        String prefsGender = prefs.get(GENDER);
 
         // cis males
         if (prefsGender.equals("Cis male")) {
@@ -32,7 +34,7 @@ public class QueryBuilder {
             AGE CATEGORY
          */
 
-        int intAge = Integer.parseInt(prefs.get("age"));
+        int intAge = Integer.parseInt(prefs.get(AGE));
 
         // teenagers:
         if (intAge < 20) {
@@ -53,15 +55,15 @@ public class QueryBuilder {
             SEXUAL ORIENTATION CATEGORY
          */
 
-        String prefsSO = prefs.get("sexual orientation");
+        String prefsSO = prefs.get(SEX);
 
         // heterosexuals:
-        if (prefsSO.equals("heterosexual")) {
+        if (prefsSO.equals("Heterosexual")) {
             query += "homosexual, gay, lesbian, bisexual, pansexual, asexual, ";
         }
 
         // other:
-        if (prefsSO.equals("homosexual")
+        if (prefsSO.equals("Homosexual")
                 || prefsSO.equals("bisexual")
                 || prefsSO.equals("pansexual")) {
             query += "asexual, ";
@@ -84,7 +86,7 @@ public class QueryBuilder {
             INCOME CATEGORY
          */
 
-        if (prefs.get("income").equals("Over $100k")) {
+        if (prefs.get(INCOME).equals("Over $100k")) {
             query += "poverty, ";
         }
 
@@ -92,7 +94,7 @@ public class QueryBuilder {
             RACE & ETHNICITY CATEGORY
          */
 
-        if (prefs.get("race/ethnicity").equals("white")) {
+        if (prefs.get(RACE).equals("White")) {
             query += "race, racism, racial bias, ";
         }
 
@@ -100,7 +102,7 @@ public class QueryBuilder {
             DISABILITY CATEGORY
          */
 
-        if (prefs.get("disability").equals("no")) {
+        if (prefs.get(DISABILITY).equals("No")) {
             query += "disability, disabilities, ";
         }
 
