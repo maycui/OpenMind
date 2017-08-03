@@ -145,26 +145,29 @@ public class ArticlesProvider extends ContentProvider {
 
         SQLiteDatabase sqlDB = databaseHandler.getWritableDatabase();
 
-        // figure out URI
-        
-        // example code:
+        // create counter for # of rows changed
+        int rowsUpdated = 0;
 
-//        switch (URI_MATCHER.match(uri)) {
-//            case ITEM_LIST:
-//                updateCount = db.update(
-//                        DBSchema.TBL_ITEMS,
+        /*
+            Working on code for saved/unsaved (paused until we do the query)
+         */
+
+//        switch (uriMatcher.match(uri)) {
+//            case ARTICLES:
+//                rowsUpdated = sqlDB.update(
+//                        databaseHandler.,
 //                        values,
 //                        selection,
 //                        selectionArgs);
 //                break;
-//            case ITEM_ID:
+//            case ARTICLE_ID:
 //                String idStr = uri.getLastPathSegment();
 //                String where = Items._ID + " = " + idStr;
 //                if (!TextUtils.isEmpty(selection)) {
 //                    where += " AND " + selection;
 //                }
-//                updateCount = db.update(
-//                        DBSchema.TBL_ITEMS,
+//                rowsUpdated = sqlDB.update(
+//                        databaseHandler.,
 //                        values,
 //                        where,
 //                        selectionArgs);
@@ -174,17 +177,10 @@ public class ArticlesProvider extends ContentProvider {
 //                throw new IllegalArgumentException("Unsupported URI: " + uri);
 //        }
 //        // notify all listeners of changes:
-//        if (updateCount > 0 && !isInBatchMode()) {
+//        if (rowsUpdated > 0 && !isInBatchMode()) {
 //            getContext().getContentResolver().notifyChange(uri, null);
 //        }
-//        return updateCount;
-
-
-
-
-
-
-
+        return rowsUpdated;
     }
 
     @Override

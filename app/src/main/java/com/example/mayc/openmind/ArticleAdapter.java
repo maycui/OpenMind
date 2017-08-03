@@ -96,9 +96,8 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
         holder.tvPublisher.setText(publisher);
 
         /*
-         Setting up click listener to change saved icon:
-     */
-
+         Setting up click listener to change saved icon (put on pause until query is done)
+         */
 
         // create boolean to keep track of whether the icon is being pressed
 
@@ -120,7 +119,6 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
 //
 //        }
 //
-
 
     }
 
