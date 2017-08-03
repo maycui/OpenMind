@@ -71,7 +71,7 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
         String sourceUrl = cursor.getString(cursor.getColumnIndexOrThrow(ArticlesTable.SOURCE_URL));
         String imageUrl = cursor.getString(cursor.getColumnIndexOrThrow(ArticlesTable.IMAGE_URL));
         String hostUrl = cursor.getString(cursor.getColumnIndexOrThrow(ArticlesTable.HOST));
-        final Integer isSaved = cursor.getInt(cursor.getColumnIndexOrThrow(ArticlesTable.ISSAVED));
+//        final Integer isSaved = cursor.getInt(cursor.getColumnIndexOrThrow(ArticlesTable.ISSAVED));
 
         String publisher;
         //parse for publisher info
@@ -82,6 +82,10 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
             publisher = split[0];
         }
 
+        String DatePub = datePublished.toString();
+        String x = "/" + DatePub.substring(0, 4) + DatePub.substring(4,6) + "/" + DatePub.substring(6,8);
+        String DateWritten = x.substring(5,10) + x.substring(0,5);
+
 
         //set data
         holder.tvTitle.setText(title);
@@ -90,7 +94,7 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
 
 
         //TODO: reformat datepublished to be pretty
-        holder.tvDateCreated.setText(datePublished);
+        holder.tvDateCreated.setText(DateWritten);
 
         holder.tvSource.setText(hostUrl);
         holder.tvPublisher.setText(publisher);

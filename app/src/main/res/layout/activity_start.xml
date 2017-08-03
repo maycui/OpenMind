@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.mayc.openmind.StartActivity">
+    tools:context="com.example.mayc.openmind.UserSurveyActivity">
 
     <Button
         android:id="@+id/startButton"
@@ -28,7 +28,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_centerVertical="true"
-        app:srcCompat="@drawable/logo" />
+        app:srcCompat="@drawable/smaller_logo" />
 
     <TextView
         android:id="@+id/tvWelcomeMessage"

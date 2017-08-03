@@ -45,9 +45,8 @@ public class ArticlesTable {
             + SOURCE_URL + " TEXT,"
             + IMAGE_URL + " TEXT,"
             + HOST + " TEXT,"
-            + ISSAVED + " INTEGER"
-            + HOST + " TEXT"
-            + KEYWORDS +"TEXT"
+            + ISSAVED + " INTEGER,"
+            + KEYWORDS +" TEXT"
             + ");";
 
 

@@ -180,7 +180,14 @@ public class ArticlesProvider extends ContentProvider {
 //        if (rowsUpdated > 0 && !isInBatchMode()) {
 //            getContext().getContentResolver().notifyChange(uri, null);
 //        }
+<<<<<<< HEAD
         return rowsUpdated;
+=======
+//        return updateCount;
+
+
+        return 0;
+>>>>>>> e3ccef106f404540e987d7f1b088a56bc21450ef
     }
 
     @Override

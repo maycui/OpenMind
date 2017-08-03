@@ -1,6 +1,7 @@
 package com.example.mayc.openmind;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.design.widget.NavigationView;
@@ -21,10 +22,29 @@ import com.example.mayc.openmind.fragments.TimelineAdapter;
 public class NewsfeedActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener  {
 
     TimelineAdapter adapterView;
+    SharedPreferences mPrefs;
+    final String welcomeScreenShownPref = "welcomeScreenShown";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+        mPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+
+        // second argument is the default to use if the preference can't be found
+        Boolean welcomeScreenShown = mPrefs.getBoolean(welcomeScreenShownPref, false);
+
+        if(welcomeScreenShown == false){
+
+            SharedPreferences.Editor editor = mPrefs.edit();
+            editor.putBoolean(welcomeScreenShownPref, true);
+            editor.commit(); // Very important to save the preference
+
+            Intent i = new Intent(NewsfeedActivity.this, UserSurveyActivity.class);
+            startActivity(i); // brings up the second activity
+
+        }
         setContentView(R.layout.activity_newsfeed);
         //setting the adapter for the page
         ViewPager vp = (ViewPager) findViewById(R.id.viewpager);
@@ -107,52 +127,3 @@ public class NewsfeedActivity extends AppCompatActivity implements NavigationVie
 
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
