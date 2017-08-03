@@ -5,8 +5,8 @@
     <item
         android:id="@+id/backButton"
         android:layout_gravity="left"
-        app:showAsAction="ifRoom"
         android:icon="@drawable/ic_arrow_back_black_36dp"
-        android:title="Back" />
+        android:title="Back"
+        app:showAsAction="always" />
 
 </menu>
