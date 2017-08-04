@@ -89,16 +89,18 @@ public class DiscoveryClient {
                     documentPayload.setHost("empty");
                 }
 
-                //KEYWORDS
-                JsonArray keywordArray = jarray.get(i).getAsJsonObject().getAsJsonArray(Constants.DISCOVERY_FIELD_KEYWORDS);
-                if (keywordArray.size() > 0){
-                    List<String> keywordsList = new ArrayList<String>();
 
+                if (jarray.get(i).getAsJsonObject().getAsJsonArray(Constants.DISCOVERY_FIELD_KEYWORDS) != null) {
+
+                    JsonArray keywordArray = jarray.get(i).getAsJsonObject().getAsJsonArray(Constants.DISCOVERY_FIELD_KEYWORDS);
+                    List<String> keywordsList = new ArrayList<String>();
                     for (int x = 0; (x < keywordArray.size()) && (keywordArray != null) ; x++){
                         keywordsList.add(keywordArray.get(x).getAsJsonObject().get("text").toString());
 
                     }
                     documentPayload.setKeywords(StringUtils.join(keywordsList, ','));
+                } else {
+                    documentPayload.setKeywords("empty");
                 }
 
                 payload.add(i, documentPayload);

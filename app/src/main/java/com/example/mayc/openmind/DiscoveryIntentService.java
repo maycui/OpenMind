@@ -64,7 +64,7 @@ public class DiscoveryIntentService extends IntentService {
         DiscoveryClient test = new DiscoveryClient();
 
         try {
-            result = test.getArticles(query);
+            result = test.getArticles("doggos%7Ccats");
         } catch (Exception e) {
             e.printStackTrace();
         }
