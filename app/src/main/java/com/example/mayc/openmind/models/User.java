@@ -11,7 +11,7 @@ public class User {
     String trending; //maybe boolean instead? TODO: check if booleans can be used for pacelable (i think there was a problem with it before)
     String gender;
     int age;
-    String orientation;
+    String sexualOrientation;
     String religion;
     String race;
     int income;
