@@ -22,10 +22,11 @@ public class Article implements Serializable{
     public String imageUrl;
     public String host;
     public String keywords;
+    public Integer isSaved;
 
     public Article() {}
 
-    public Article (String id, String title, String author, String category, String datePublished, String bodySnippet, String sourceUrl, String imageUrl, String host, String keywords) {
+    public Article (String id, String title, String author, String category, String datePublished, String bodySnippet, String sourceUrl, String imageUrl, String host, String keywords, Integer isSaved) {
         this.id = id;
         this.title = title;
         this.author = author;
@@ -36,6 +37,7 @@ public class Article implements Serializable{
         this.imageUrl = imageUrl;
         this.host = host;
         this.keywords = keywords;
+        this.isSaved = isSaved;
     }
 
     //GETTERS
@@ -54,6 +56,7 @@ public class Article implements Serializable{
     public String getDatePublished() {
         return datePublished;
     }
+    public Integer getIsSaved() { return isSaved; }
     public String getBodySnippet() {
         return bodySnippet;
     }

@@ -22,9 +22,7 @@ public class ArticlesTable {
     static final String SOURCE_URL = "_sourceUrl";
     static final String IMAGE_URL = "_imageurl";
     static final String HOST = "_hosturl";
-
     static final String ISSAVED = "_issaved";
-
     static final String KEYWORDS = "_keywords";
 
 
