@@ -40,7 +40,15 @@ public class Keywords {
     };
 
     String[] income = {
-            "middle class", "the have-nots", "net-worth", "poor",
+            "middle class", "the have-nots", "net-worth", "poor", "gentrification", "homeless",
+            "working class", "government housing", "gross income", "net income", "student loan",
+            "economy", "recession", ""
+    };
+
+    String[] disability = {
+            "accessiblility", "blind", "challenged", "mental health", "disability", "handicap",
+            "impaired", "crippled", "invalid", "syndrome", "paraplegic", "retard", "mute",
+            "special education", "special needs", "wheelchair", "depression", "suicidal"
     };
 
 
