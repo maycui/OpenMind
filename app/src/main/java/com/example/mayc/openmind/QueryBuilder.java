@@ -24,12 +24,12 @@ public class QueryBuilder {
 
         // cis males
         if (prefsGender.equals("Cis male")) {
-            query += "female transgender genderfluid ";
+            query += " female | transgender | genderfluid |";
         }
 
         // cis females
         if (prefsGender.equals("Cis female")) {
-            query += " transgender genderfluid ";
+            query += " transgender | genderfluid |";
         }
 
         /*
@@ -40,17 +40,17 @@ public class QueryBuilder {
 
         // teenagers:
         if (intAge < 20) {
-            query += " middle age middle-aged senior seniors old age ";
+            query += " middle age | middle-aged | senior | seniors | old age |";
         }
 
         // middle-aged:
         else if (intAge >= 40 && intAge < 65) {
-            query += " teenager teenagers teenaged senior seniors old age ";
+            query += " teenager | teenagers | teenaged | senior | seniors | old age |";
         }
 
         // seniors:
         else if (intAge >= 65) {
-            query += " teenager teenagers teenaged ";
+            query += " teenager | teenagers | teenaged |";
         }
 
         /*
@@ -61,14 +61,14 @@ public class QueryBuilder {
 
         // heterosexuals:
         if (prefsSO.equals("Heterosexual")) {
-            query += " homosexual gay lesbian bisexual pansexual asexual ";
+            query += " homosexual | gay | lesbian | bisexual | pansexual | asexual |";
         }
 
         // other:
         if (prefsSO.equals("Homosexual")
                 || prefsSO.equals("bisexual")
                 || prefsSO.equals("pansexual")) {
-            query += " asexual ";
+            query += " asexual | ";
         }
 
         /*
@@ -89,7 +89,7 @@ public class QueryBuilder {
          */
 
         if (prefs.get(INCOME).equals("Over $100k")) {
-            query += " poverty ";
+            query += " poverty |";
         }
 
         /*
@@ -97,7 +97,7 @@ public class QueryBuilder {
          */
 
         if (prefs.get(RACE).equals("White")) {
-            query += "race racism racial bias ";
+            query += " race racism racial bias |";
         }
 
         /*
@@ -105,11 +105,10 @@ public class QueryBuilder {
          */
 
         if (prefs.get(DISABILITY).equals("No")) {
-            query += " disability disabilities ";
+            query += " disability | disabilities |";
         }
 
-
+        query = query.substring(0, query.length() - 1);
         return query;
-
     }
 }
