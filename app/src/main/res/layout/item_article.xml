@@ -68,8 +68,7 @@
             android:layout_height="30dp"
             android:layout_alignTop="@+id/ivCategoryIcon"
             android:layout_toLeftOf="@+id/ivCategoryIcon"
-            android:layout_toStartOf="@+id/ivCategoryIcon"
-            card_view:srcCompat="@drawable/article_icon" />
+            card_view:srcCompat="@drawable/unsaved_icon" />
 
         <TextView
             android:id="@+id/tvTitle"
