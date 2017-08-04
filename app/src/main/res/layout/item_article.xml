@@ -91,10 +91,8 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/tvTitle"
-            android:layout_marginBottom="5dp"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="7dp"
-
             android:text="Source"
             android:textAllCaps="true"
             android:textColor="@color/colorAccent"
