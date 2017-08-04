@@ -22,10 +22,38 @@
         android:id="@+id/tvAbout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/toolbar"
-        android:layout_centerHorizontal="true"
         android:text="About Open Mind"
         android:textAlignment="viewStart"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        android:layout_marginTop="104dp"
+        android:layout_below="@+id/toolbar"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/tvDevon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvAbout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"
+        android:text="Devon Campbell" />
+
+    <TextView
+        android:id="@+id/tvEllie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="19dp"
+        android:text="Ellie Corbus"
+        android:layout_below="@+id/tvDevon"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/tvMay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="May Cui"
+        android:layout_below="@+id/tvEllie"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
