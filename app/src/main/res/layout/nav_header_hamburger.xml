@@ -20,7 +20,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignTop="@+id/tvName"
         android:text="Hello, "
-        android:textSize="24sp" />
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/tvName"
@@ -30,7 +30,7 @@
         android:layout_toEndOf="@+id/tvHello"
         android:layout_toRightOf="@+id/tvHello"
         android:text="Name"
-        android:textSize="24sp" />
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/tvExclam"
@@ -40,5 +40,5 @@
         android:layout_toEndOf="@+id/tvName"
         android:layout_toRightOf="@+id/tvName"
         android:text="!"
-        android:textSize="24sp" />
+        android:textSize="18sp" />
 </RelativeLayout>
