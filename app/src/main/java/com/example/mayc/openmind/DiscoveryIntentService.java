@@ -108,4 +108,9 @@ public class DiscoveryIntentService extends IntentService {
                 .getContentResolver()
                 .bulkInsert(ArticlesProvider.CONTENT_URI, bulkToInsert);
     }
+
+    // does this work? idk
+    public HashMap<String, String> getPref () {
+        return pref;
+    }
 }

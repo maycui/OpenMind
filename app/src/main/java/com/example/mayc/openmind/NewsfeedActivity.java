@@ -85,6 +85,8 @@ public class NewsfeedActivity extends AppCompatActivity implements NavigationVie
         //TODO: all of them have to check if the user is already in the right activity?
         int id = item.getItemId();
 
+
+
         if (id == R.id.hamHome) {
 
         } else if (id==R.id.hamProfile) {

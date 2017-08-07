@@ -24,12 +24,12 @@ public class QueryBuilder {
 
         // cis males
         if (prefsGender.equals("Cis male")) {
-            query += " female%7Ctransgender%7CgenderOh fluid%7C";
+            query += " female%7Ctransgender%7Cgenderfluid%7Cabortion%7Cgender equality%7Cgender discrimination%7Cdomestic violence%7CTitle IX%7Cfamily planning%7Cfeminism%7Csexism%7Csexist%7Ctransphobia%7C";
         }
 
         // cis females
         if (prefsGender.equals("Cis female")) {
-            query += "transgender%7Cgenderfluid%7C";
+            query += "transgender%7Cgenderfluid%7Ctransphobia";
         }
 
         /*
@@ -40,17 +40,17 @@ public class QueryBuilder {
 
         // teenagers:
         if (intAge < 20) {
-            query += "middle age%7Cmiddle-aged%7Csenior%7Cseniors%7Cold age%7C";
+            query += "middle age%7Cmiddle-aged%7Csenior%7Cseniors%7Cold age%7Cadulthood%7C";
         }
 
         // middle-aged:
         else if (intAge >= 40 && intAge < 65) {
-            query += "teenager%7Cteenagers%7Cteenaged%7Csenior%7Cseniors%7Cold age%7C";
+            query += "teenager%7Cteenagers%7Cteenaged%7Csenior%7Cseniors%7Cold age%7Cmillenial%7Cmillenials%7C";
         }
 
         // seniors:
         else if (intAge >= 65) {
-            query += "teenager%7Cteenagers%7Cteenaged%7C";
+            query += "teenager%7Cteenagers%7Cteenaged%7Cmillenials%7Cmillenial%7C";
         }
 
         /*
@@ -61,7 +61,7 @@ public class QueryBuilder {
 
         // heterosexuals:
         if (prefsSO.equals("Heterosexual")) {
-            query += "homosexual%7Cgay%7Clesbian%7Cbisexual%7Cpansexual%7Casexual%7C";
+            query += "homosexual%7Cgay%7Clesbian%7Cbisexual%7Cpansexual%7Casexual%7CLGBT%7CLGBTQ%7Cqueer%7Chomophobia%7C";
         }
 
         // other:
@@ -89,7 +89,7 @@ public class QueryBuilder {
          */
 
         if (prefs.get(INCOME).equals("Over $100k")) {
-            query += "poverty%7C";
+            query += "poverty%7Cpoor%7Cgentrification%7Chomeless%7Cworking class%7Cgovernment housing%7Cstudent loan%7Cstudent loans%7C";
         }
 
         /*
@@ -97,7 +97,7 @@ public class QueryBuilder {
          */
 
         if (prefs.get(RACE).equals("White")) {
-            query += "race%7Cracism%7Cracial%7Cbias%7C";
+            query += "race%7Cracism%7Cracial bias%7Cminority%7Cwhite supremacy%7Cnativism%7Cxenophobia%7C";
         }
 
         /*
@@ -105,7 +105,7 @@ public class QueryBuilder {
          */
 
         if (prefs.get(DISABILITY).equals("No")) {
-            query += "disability%7Cdisabilities%7C";
+            query += "disability%7Cdisabilities%7Caccessibility%7Cblind%7Cmental health%7Chandicap%7Chandicapped%7Ccrippled%7Cdisabled%7Cspecial education%7Cspecial needs%7Cwheelchair%7Cretard%7Cretarded%7C";
         }
 
         query = query.substring(0, query.length() - 3);
