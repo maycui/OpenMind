@@ -24,7 +24,7 @@ public class QueryBuilder {
 
         // cis males
         if (prefsGender.equals("Cis male")) {
-            query += " female%7Ctransgender%7Cgenderfluid%7C";
+            query += " female%7Ctransgender%7CgenderOh fluid%7C";
         }
 
         // cis females
