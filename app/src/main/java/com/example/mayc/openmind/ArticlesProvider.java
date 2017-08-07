@@ -10,6 +10,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
 import android.support.annotation.NonNull;
+import android.text.TextUtils;
 import android.util.Log;
 
 import static android.provider.MediaStore.Audio.Playlists.Members._ID;
@@ -82,7 +83,12 @@ public class ArticlesProvider extends ContentProvider {
             // clear table before making API call
             sqlDB.execSQL(TABLE_CLEAR);
 
+            // check if the row is already there (if the article's URI is already there)
+
             for (ContentValues cv : values) {
+
+
+
                 long newID = sqlDB.insertOrThrow(table, null, cv);
                 if (newID <= 0) {
                     throw new SQLException("Failed to insert row into " + uri);
@@ -140,7 +146,7 @@ public class ArticlesProvider extends ContentProvider {
 
     // TODO: implement
     @Override
-    public int update(Uri uri, ContentValues values,
+    public int update(Uri uri, ContentValues value,
                 String selection, String[] selectionArgs) {
 
         SQLiteDatabase sqlDB = databaseHandler.getWritableDatabase();
@@ -152,34 +158,32 @@ public class ArticlesProvider extends ContentProvider {
             Working on code for saved/unsaved (paused until we do the query)
          */
 
-//        switch (uriMatcher.match(uri)) {
-//            case ARTICLES:
-//                rowsUpdated = sqlDB.update(
-//                        databaseHandler.,
-//                        values,
-//                        selection,
-//                        selectionArgs);
-//                break;
-//            case ARTICLE_ID:
-//                String idStr = uri.getLastPathSegment();
-//                String where = Items._ID + " = " + idStr;
-//                if (!TextUtils.isEmpty(selection)) {
-//                    where += " AND " + selection;
-//                }
-//                rowsUpdated = sqlDB.update(
-//                        databaseHandler.,
-//                        values,
-//                        where,
-//                        selectionArgs);
-//                break;
-//            default:
-//                // no support for updating photos or entities!
-//                throw new IllegalArgumentException("Unsupported URI: " + uri);
-//        }
-//        // notify all listeners of changes:
-//        if (rowsUpdated > 0 && !isInBatchMode()) {
-//            getContext().getContentResolver().notifyChange(uri, null);
-//        }
+        switch (uriMatcher.match(uri)) {
+
+            // id based URI:
+            case ARTICLE_ID:
+
+                // extract ID from the URI to form a valid where clause
+                String idStr = uri.getLastPathSegment();
+                String where = ArticlesTable.ID + " = " + idStr;
+
+                if (!TextUtils.isEmpty(selection)) {
+                    where += " AND " + selection;
+                }
+                rowsUpdated = sqlDB.update(
+                        TABLE_NAME,
+                        value,
+                        where,
+                        selectionArgs);
+                break;
+            default:
+                // no support for updating photos or entities!
+                throw new IllegalArgumentException("Unsupported URI: " + uri);
+        }
+        // notify all listeners of changes:
+        if (rowsUpdated > 0 ) {
+            getContext().getContentResolver().notifyChange(uri, null);
+        }
         return rowsUpdated;
     }
 

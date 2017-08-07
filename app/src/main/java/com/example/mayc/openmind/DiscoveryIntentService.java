@@ -17,7 +17,6 @@ import static com.example.mayc.openmind.ArticlesTable.BODY_SNIPPET;
 import static com.example.mayc.openmind.ArticlesTable.CATEGORY;
 import static com.example.mayc.openmind.ArticlesTable.DATE_PUBLISHED;
 import static com.example.mayc.openmind.ArticlesTable.HOST;
-import static com.example.mayc.openmind.ArticlesTable.ID;
 import static com.example.mayc.openmind.ArticlesTable.IMAGE_URL;
 import static com.example.mayc.openmind.ArticlesTable.ISSAVED;
 import static com.example.mayc.openmind.ArticlesTable.KEYWORDS;
@@ -86,7 +85,6 @@ public class DiscoveryIntentService extends IntentService {
             ContentValues mNewValues = new ContentValues();
 
             // individually insert elements of the Article
-            mNewValues.put(ID, temp.getID());
             mNewValues.put(TITLE, temp.getTitle());
             mNewValues.put(AUTHOR, temp.getAuthor());
             mNewValues.put(CATEGORY, temp.getCategory());

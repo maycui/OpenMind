@@ -1,5 +1,7 @@
 package com.example.mayc.openmind;
 
+import android.content.ContentUris;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
@@ -16,6 +18,18 @@ import com.example.mayc.openmind.models.Article;
 import org.parceler.Parcels;
 
 import static android.support.v7.widget.RecyclerView.NO_ID;
+import static com.example.mayc.openmind.ArticlesTable.AUTHOR;
+import static com.example.mayc.openmind.ArticlesTable.BODY_SNIPPET;
+import static com.example.mayc.openmind.ArticlesTable.DATE_PUBLISHED;
+import static com.example.mayc.openmind.ArticlesTable.IMAGE_URL;
+import static com.example.mayc.openmind.ArticlesTable.ISSAVED;
+import static com.example.mayc.openmind.ArticlesTable.SOURCE_URL;
+import static com.example.mayc.openmind.ArticlesTable.TITLE;
+import static com.example.mayc.openmind.ArticlesTable.ID;
+import static com.example.mayc.openmind.ArticlesTable.CATEGORY;
+import static com.example.mayc.openmind.ArticlesTable.HOST;
+import static com.example.mayc.openmind.ArticlesTable.KEYWORDS;
+import static com.example.mayc.openmind.R.id.ivBookmark;
 
 /**
  * Created by mayc on 7/10/17.
@@ -61,17 +75,20 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
         cursor.moveToPosition(position);
 
         // Extract properties from cursor
-        String title = cursor.getString(cursor.getColumnIndexOrThrow(ArticlesTable.TITLE));
-        String author = cursor.getString(cursor.getColumnIndexOrThrow(ArticlesTable.AUTHOR));
-        String category = cursor.getString(cursor.getColumnIndexOrThrow(ArticlesTable.CATEGORY));
+        final String title = cursor.getString(cursor.getColumnIndexOrThrow(ArticlesTable.TITLE));
+        final String author = cursor.getString(cursor.getColumnIndexOrThrow(AUTHOR));
+        final String category = cursor.getString(cursor.getColumnIndexOrThrow(ArticlesTable.CATEGORY));
+        final long id = cursor.getLong(cursor.getColumnIndexOrThrow(ArticlesTable.ID));
+        final String bodySnippet = cursor.getString(cursor.getColumnIndexOrThrow(ArticlesTable.BODY_SNIPPET));
+        final String keywords = cursor.getString(cursor.getColumnIndexOrThrow(ArticlesTable.KEYWORDS));
 
         //formatting date
-        String datePublished = cursor.getString(cursor.getColumnIndexOrThrow(ArticlesTable.DATE_PUBLISHED));
+        final String datePublished = cursor.getString(cursor.getColumnIndexOrThrow(DATE_PUBLISHED));
 
-        String sourceUrl = cursor.getString(cursor.getColumnIndexOrThrow(ArticlesTable.SOURCE_URL));
-        String imageUrl = cursor.getString(cursor.getColumnIndexOrThrow(ArticlesTable.IMAGE_URL));
-        String hostUrl = cursor.getString(cursor.getColumnIndexOrThrow(ArticlesTable.HOST));
-//        final Integer isSaved = cursor.getInt(cursor.getColumnIndexOrThrow(ArticlesTable.ISSAVED));
+        final String sourceUrl = cursor.getString(cursor.getColumnIndexOrThrow(SOURCE_URL));
+        final String imageUrl = cursor.getString(cursor.getColumnIndexOrThrow(IMAGE_URL));
+        final String hostUrl = cursor.getString(cursor.getColumnIndexOrThrow(ArticlesTable.HOST));
+        final Integer isSaved = cursor.getInt(cursor.getColumnIndexOrThrow(ArticlesTable.ISSAVED));
 
         String publisher;
         //parse for publisher info
@@ -93,6 +110,15 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
         //TODO: set category icon based on category
 
 
+        // setting the unsaved icon as the default
+        if (isSaved == 1) {
+            holder.ivBookmarkIcon.setImageResource(R.drawable.red_saved_icon);
+        }
+        else
+            holder.ivBookmarkIcon.setImageResource(R.drawable.unsaved_icon);
+
+
+
         //TODO: reformat datepublished to be pretty
         holder.tvDateCreated.setText(DateWritten);
 
@@ -103,26 +129,36 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
          Setting up click listener to change saved icon (put on pause until query is done)
          */
 
-        // create boolean to keep track of whether the icon is being pressed
-
-        // add click listener to ivBookmarkIcon
-
         // call update() method inside with
 
-//        new View.OnClickListener() {
-//
-//            @Override
-//            public void onClick(View bookmark) {
-//                if(isSaved == 1)
-//                    // convert article to content values
-//                // call update on the article item;
-//                else
-//                    bookmark.setBackgroundResource(R.drawable.unsaved_icon);
-//
-//            }
-//
-//        }
-//
+        holder.ivBookmarkIcon.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View ivBookmarkIcon) {
+                    // convert article to content values
+                    ContentValues newValue = new ContentValues();
+
+                    // individually insert elements of the Article
+                    newValue.put(ID, id);
+                    newValue.put(TITLE, title);
+                    newValue.put(AUTHOR, author);
+                    newValue.put(CATEGORY, category);
+                    newValue.put(DATE_PUBLISHED, datePublished);
+                    newValue.put(BODY_SNIPPET, bodySnippet);
+                    newValue.put(SOURCE_URL, sourceUrl);
+                    newValue.put(IMAGE_URL, imageUrl);
+                    newValue.put(HOST, hostUrl);
+                    newValue.put(KEYWORDS, keywords);
+                    newValue.put(ISSAVED, 1-isSaved);
+
+                    // call update on the article item;
+                context
+                        .getContentResolver()
+                        .update(ContentUris.withAppendedId(ArticlesProvider.CONTENT_URI, id), newValue, null, null);
+            };
+
+        });
+
 
     }
 
@@ -169,10 +205,11 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
             tvPublisher = (TextView) itemView.findViewById(R.id.tvPublisher);
             tvDateCreated = (TextView) itemView.findViewById(R.id.tvDateCreated);
             ivCategoryIcon = (ImageView) itemView.findViewById(R.id.ivCategoryIcon);
-            ivBookmarkIcon = (ImageView) itemView.findViewById(R.id.ivBookmark);
+            ivBookmarkIcon = (ImageView) itemView.findViewById(ivBookmark);
             tvTitle = (TextView) itemView.findViewById(R.id.tvTitle);
             tvSource = (TextView) itemView.findViewById(R.id.tvSource);
             tvAuthor = (TextView) itemView.findViewById(R.id.tvAuthor);
+
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

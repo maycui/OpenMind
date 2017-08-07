@@ -34,7 +34,7 @@ public class ArticlesTable {
     private static final String DATABASE_CREATE = "CREATE TABLE "
             + TABLE_NAME
             + "("
-            + ID + " TEXT,"
+            + ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + TITLE + " TEXT,"
             + AUTHOR + " TEXT,"
             + CATEGORY + " TEXT,"

@@ -82,7 +82,7 @@ public class ArticleListFragment extends Fragment implements LoaderManager.Loade
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
         Log.d("OpenMind", "onCreateLoader");
-        return new CursorLoader(getActivity(), ArticlesProvider.CONTENT_URI , null, null, null, null);
+        return new CursorLoader(getActivity(), ArticlesProvider.CONTENT_URI, null, null, null, null);
     }
 
     @Override
