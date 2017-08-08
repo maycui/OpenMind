@@ -67,6 +67,9 @@ public class DiscoveryIntentService extends IntentService {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        if(result == null){
+            result = null;
+        }
 
         ContentValues[] bulkToInsert = new ContentValues[result.size()];;
 
