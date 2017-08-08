@@ -29,7 +29,7 @@ public class QueryBuilder {
 
         // cis females
         if (prefsGender.equals("Cis female")) {
-            query += "transgender%7Cgenderfluid%7Ctransphobia";
+            query += "transgender%7Ctransphobia%7C";
         }
 
         /*
@@ -40,17 +40,20 @@ public class QueryBuilder {
 
         // teenagers:
         if (intAge < 20) {
-            query += "middle age%7Cmiddle-aged%7Csenior%7Cseniors%7Cold age%7Cadulthood%7C";
+            query += "old age%7Cadulthood%7C";
+                    // "middle age%7Cmiddle-aged%7Csenior%7Cseniors%7Cold age%7Cadulthood%7C";
         }
 
         // middle-aged:
         else if (intAge >= 40 && intAge < 65) {
-            query += "teenager%7Cteenagers%7Cteenaged%7Csenior%7Cseniors%7Cold age%7Cmillenial%7Cmillenials%7C";
+            query += "teenagers%7Cmillenials%7C";
+                    // "teenager%7Cteenagers%7Cteenaged%7Csenior%7Cseniors%7Cold age%7Cmillenial%7Cmillenials%7C";
         }
 
         // seniors:
         else if (intAge >= 65) {
-            query += "teenager%7Cteenagers%7Cteenaged%7Cmillenials%7Cmillenial%7C";
+            query += "teenagers%7Cmillenials%7C";
+                    // "teenager%7Cteenagers%7Cteenaged%7Cmillenials%7Cmillenial%7C";
         }
 
         /*
@@ -61,7 +64,8 @@ public class QueryBuilder {
 
         // heterosexuals:
         if (prefsSO.equals("Heterosexual")) {
-            query += "homosexual%7Cgay%7Clesbian%7Casexual%7CLGBT%7Chomophobia%7C";
+            query += "homosexual%7Chomophobia%7C";
+                    // "homosexual%7Cgay%7Clesbian%7Casexual%7CLGBT%7Chomophobia%7C";
         }
 
         // other:
@@ -84,7 +88,8 @@ public class QueryBuilder {
          */
 
         if (prefs.get(RACE).equals("White")) {
-            query += "race%7Cracism%7Cracial bias%7Cminority%7Cwhite supremacy%7Cnativism%7Cxenophobia%7C";
+            query += "race%7Cracism%7C";
+                    //"race%7Cracism%7Cracial bias%7Cminority%7Cwhite supremacy%7Cnativism%7Cxenophobia%7C";
         }
 
         /*
@@ -92,7 +97,7 @@ public class QueryBuilder {
          */
 
         if (prefs.get(DISABILITY).equals("No")) {
-            query += "disability%7Caccessibility%7C";
+            query += "disabled%7C";
         }
 
         query = query.substring(0, query.length() - 3);
