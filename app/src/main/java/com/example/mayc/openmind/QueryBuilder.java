@@ -24,7 +24,7 @@ public class QueryBuilder {
 
         // cis males
         if (prefsGender.equals("Cis male")) {
-            query += " female%7Ctransgender%7Cgenderfluid%7Cabortion%7Cgender equality%7Cgender discrimination%7Cdomestic violence%7CTitle IX%7Cfamily planning%7Cfeminism%7Csexism%7Csexist%7Ctransphobia%7C";
+            query += " female%7Ctransgender%7Cgenderfluid%7Cabortion%7Cgender discrimination%7Cdomestic violence%7CTitle IX%7Cfamily planning%7Cfeminism%7Csexism%7Ctransphobia%7C";
         }
 
         // cis females
@@ -61,7 +61,7 @@ public class QueryBuilder {
 
         // heterosexuals:
         if (prefsSO.equals("Heterosexual")) {
-            query += "homosexual%7Cgay%7Clesbian%7Cbisexual%7Cpansexual%7Casexual%7CLGBT%7CLGBTQ%7Cqueer%7Chomophobia%7C";
+            query += "homosexual%7Cgay%7Clesbian%7Casexual%7CLGBT%7Chomophobia%7C";
         }
 
         // other:
@@ -70,19 +70,6 @@ public class QueryBuilder {
                 || prefsSO.equals("pansexual")) {
             query += "asexual%7C";
         }
-
-        /*
-
-        Income groups:
-
-        "Less than $20k",
-        "$20k to $34k",
-        "$35k to $49k",
-        "$50k to $74k",
-        "$75k to $99k",
-        "Over $100k"
-
-         */
 
         /*
             INCOME CATEGORY
@@ -105,7 +92,7 @@ public class QueryBuilder {
          */
 
         if (prefs.get(DISABILITY).equals("No")) {
-            query += "disability%7Cdisabilities%7Caccessibility%7Cblind%7Cmental health%7Chandicap%7Chandicapped%7Ccrippled%7Cdisabled%7Cspecial education%7Cspecial needs%7Cwheelchair%7Cretard%7Cretarded%7C";
+            query += "disability%7Caccessibility%7C";
         }
 
         query = query.substring(0, query.length() - 3);
