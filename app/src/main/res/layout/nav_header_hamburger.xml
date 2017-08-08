@@ -29,7 +29,7 @@
         android:layout_alignParentBottom="true"
         android:layout_toEndOf="@+id/tvHello"
         android:layout_toRightOf="@+id/tvHello"
-        android:text="Name"
+        android:text="Ellie"
         android:textSize="18sp" />
 
     <TextView

@@ -14,7 +14,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TextView;
 
 import com.example.mayc.openmind.fragments.TimelineAdapter;
 
@@ -70,14 +69,6 @@ public class NewsfeedActivity extends AppCompatActivity implements NavigationVie
         navigationView.setNavigationItemSelectedListener(this);
 
         PreferenceManager.setDefaultValues(this, R.xml.activity_usersurvey_pref, false);
-
-        // retrieve user's name
-        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
-        String name = sharedPref.getString(Constants.NAME, "");
-
-        // place user's name in nav bar header
-        TextView tvName = (TextView)findViewById(R.id.tvName);
-        tvName.setText(name);
     }
 
     @Override
