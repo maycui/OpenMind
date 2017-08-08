@@ -9,6 +9,7 @@ import android.support.annotation.Nullable;
 
 import com.example.mayc.openmind.models.Article;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
@@ -67,15 +68,18 @@ public class DiscoveryIntentService extends IntentService {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+
         if(result == null){
             result = null;
         }
 
-        ContentValues[] bulkToInsert = new ContentValues[result.size()];;
+        Collections.shuffle(result);
 
 
+        ContentValues[] bulkToInsert = new ContentValues[result.size()];
 
-
+        
         // loop through Articles in result and change them to ContentValues type
 
         // temp = the Article item in result
