@@ -117,7 +117,7 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
 
         //tracks keyword counter
         int [] counter = new int[] {0, 0, 0, 0, 0, 0, 0};
-        for (int e = 1; e <= result.size(); e = e + 3){
+        for (int e = 1; e < result.size(); e = e + 3){
 
             String keyword = result.get(e);
             if ((keys.getGender().contains(keyword))) {
