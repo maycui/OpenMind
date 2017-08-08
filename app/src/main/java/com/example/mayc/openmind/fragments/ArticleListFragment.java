@@ -1,5 +1,6 @@
 package com.example.mayc.openmind.fragments;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -17,6 +18,7 @@ import android.view.ViewGroup;
 
 import com.example.mayc.openmind.ArticleAdapter;
 import com.example.mayc.openmind.ArticlesProvider;
+import com.example.mayc.openmind.DiscoveryIntentService;
 import com.example.mayc.openmind.R;
 
 /**
@@ -43,20 +45,23 @@ public class ArticleListFragment extends Fragment implements LoaderManager.Loade
         rvArticles.setAdapter(articleAdapter);
         rvArticles.setLayoutManager(new LinearLayoutManager(getContext()));
 
-//        //TODO: make swipe to refresh configuration work
-//        //swipe to refresh configuration
-//        swipe = v.findViewById(R.id.swipe);
-//        swipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-//            @Override
-//            public void onRefresh() {
-//                fetchTimelineAsync();
-//            }
-//        });
-//        swipe.setColorSchemeResources(R.color.colorAccent);
+        //swipe to refresh configuration
+        swipe = v.findViewById(R.id.swipeRefresh);
+        swipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                fetchTimelineAsync();
+            }
+        });
+        swipe.setColorSchemeResources(R.color.colorAccent);
         return v;
     }
 
     private void fetchTimelineAsync() {
+        Intent i = new Intent(getActivity(), DiscoveryIntentService.class);
+        getActivity().startService(i);
+        swipe.setRefreshing(false);
+
     }
 
 

@@ -83,9 +83,14 @@ public class ArticlesProvider extends ContentProvider {
             // clear table before making API call
             sqlDB.execSQL(TABLE_CLEAR);
 
-            // check if the row is already there (if the article's URI is already there)
+            // check if the row is already there (if the article's URI is already in values)
 
             for (ContentValues cv : values) {
+
+                // if (URI is already in values)
+                    // don't add article
+                // else
+                    // add article
 
 
 
