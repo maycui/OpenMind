@@ -52,8 +52,8 @@ public class Keywords {
             "accessiblility", "blind", "challenged", "mental health", "disability", "handicap",
             "impaired", "crippled", "invalid", "syndrome", "paraplegic", "retard", "mute",
             "special education", "special needs", "wheelchair", "depression", "suicidal", "bullying",
-            "inclusion", "minority", "tokenism", "victim", "oppress", "injustice"
-
+            "inclusion", "minority", "tokenism", "victim", "oppress", "injustice", "challenged",
+            "handicapped", "impediment", "Paralympics", "paraplegic", "Special Olympics"
     };
 
     public Keywords(){};

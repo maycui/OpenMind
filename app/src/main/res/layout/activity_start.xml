@@ -10,16 +10,16 @@
         android:id="@+id/startButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/ivLogo"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="17dp"
+        android:layout_marginTop="37dp"
         android:elevation="0dp"
         android:fadingEdge="none"
         android:text="BEGIN"
         android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse"
         android:typeface="sans"
         tools:layout_editor_absoluteX="146dp"
-        tools:layout_editor_absoluteY="316dp" />
+        tools:layout_editor_absoluteY="316dp"
+        android:layout_below="@+id/ivLogo"
+        android:layout_centerHorizontal="true" />
 
     <ImageView
         android:id="@+id/ivLogo"
@@ -28,7 +28,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_centerVertical="true"
-        app:srcCompat="@drawable/red_logo" />
+        app:srcCompat="@drawable/red_logo_png" />
 
     <TextView
         android:id="@+id/tvWelcomeMessage"
