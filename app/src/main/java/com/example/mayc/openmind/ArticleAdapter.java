@@ -122,21 +122,39 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
             String keyword = result.get(e);
             if ((keys.getGender().contains(keyword))) {
                 CountA++;
+                if (title.contains(keyword)){
+                    CountA++;
+                }
             }
             if ((keys.getAge().contains(keyword))) {
                 CountB++;
+                if (title.contains(keyword)){
+                    CountB++;
+                }
             }
             if ((keys.getSexualOrientation().contains(keyword))) {
                 CountC++;
+                if (title.contains(keyword)){
+                    CountC++;
+                }
             }
             if ((keys.getRace().contains(keyword))) {
                 CountD++;
+                if (title.contains(keyword)){
+                    CountD++;
+                }
             }
             if ((keys.getIncome().contains(keyword))) {
                 CountE++;
+                if (title.contains(keyword)){
+                    CountE++;
+                }
             }
             if ((keys.getRace().contains(keyword))) {
                 CountF++;
+                if (title.contains(keyword)){
+                    CountF++;
+                }
             }
 
         }
@@ -150,7 +168,7 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
         //checks for highest number of found keywords
         int max = counter [0];
         for (int i = 1; i < counter.length; i++) {
-            if (counter[i] >= max) {
+            if (counter[i] > max) {
                 max = counter[i];
             }
         }
