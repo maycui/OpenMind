@@ -71,7 +71,7 @@ public class DiscoveryIntentService extends IntentService {
 
 
         if(result == null){
-            result = null;
+            return;
         }
 
         Collections.shuffle(result);
