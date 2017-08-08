@@ -70,6 +70,14 @@ public class NewsfeedActivity extends AppCompatActivity implements NavigationVie
         navigationView.setNavigationItemSelectedListener(this);
 
         PreferenceManager.setDefaultValues(this, R.xml.activity_usersurvey_pref, false);
+
+        // retrieve user's name
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+        String name = sharedPref.getString(Constants.NAME, "");
+
+        // place user's name in nav bar header
+        TextView tvName = (TextView)findViewById(R.id.tvName);
+        tvName.setText(name);
     }
 
     @Override
@@ -111,13 +119,7 @@ public class NewsfeedActivity extends AppCompatActivity implements NavigationVie
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
 
-        // retrieve user's name
-        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
-        String name = sharedPref.getString(Constants.NAME, "");
 
-        // place user's name in nav bar header
-        TextView tvName = (TextView)findViewById(R.id.tvName);
-        tvName.setText(name);
 
         return true;
     }
